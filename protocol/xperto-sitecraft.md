@@ -46,7 +46,7 @@ Our human experts take care of the creative process while AI diligently executes
 
 * Analyzes and synthesizes information about the website's owner/business  
 * Defines tangible goals (conversion, information dissemination, authority building)  
-* Identifies key performance indicators  
+* Identifies business-level key performance indicators (revenue, growth, market share)  
 * Maps business objectives to website capabilities  
 * Analyzes competitive landscape
 
@@ -116,13 +116,15 @@ Our human experts take care of the creative process while AI diligently executes
 
 #### Website Strategy Consultant
 
+> **Cross-phase note:** This role is categorized under Design Experts but produces key deliverables during Phase 2 (Conceptualization) — specifically Website Goals & Value Propositions. The Website Strategy Consultant bridges Conceptualization and Design, participating actively in both phases.
+
 ##### Responsibilities
 
 * Defines how goals and value propositions will be achieved by the website  
 * Articulates dual value propositions (audience value \+ owner value)  
 * Determines website type and primary function  
 * Establishes conversion strategy and user journeys  
-* Defines KPIs and success metrics
+* Defines website-specific KPIs and success metrics (traffic, conversion, engagement)
 
 ##### Key Outputs
 
@@ -204,6 +206,16 @@ Our human experts take care of the creative process while AI diligently executes
 * Interaction Design Specifications  
 * Flow Diagrams  
 * Usability Guidelines
+
+##### Information Architecture Collaboration
+
+The Content Strategist and UX Expert share ownership of Information Architecture. Their collaboration follows this protocol:
+
+* **Content Strategist** leads IA definition: sitemap, content hierarchy, navigation structure, content types
+* **UX Expert** validates IA through user journey mapping, wireframes, and flow diagrams
+* **Feedback loop:** UX wireframes may reveal IA issues (too deep, missing paths, confusing groupings) → Content Strategist revises IA → UX Expert re-validates
+* **Joint deliverable:** The final Information Architecture is approved by both roles before entering the Design phase gate
+* **Conflict resolution:** When content organization logic and user experience patterns conflict, the UX Expert's user-testing data takes precedence; when no data exists, the Content Strategist's domain expertise takes precedence
 
 #### SEO / Discoverability Specialist
 
@@ -297,6 +309,24 @@ Our human experts take care of the creative process while AI diligently executes
 * Performance Optimization Report  
 * Technical Documentation
 
+#### Content Writer / Copywriter
+
+##### Responsibilities
+
+* Writes all website copy based on Content Architecture and Page-Level Content Briefs
+* Produces headlines, body copy, CTAs, microcopy, and error messages
+* Ensures all content aligns with Voice Guidelines and Brand DNA
+* Adapts content per audience persona where required
+* Collaborates with Content Strategist on content briefs and with Communications Expert on voice compliance
+* Manages content revisions based on stakeholder and expert feedback
+
+##### Key Outputs
+
+* Page Copy (all pages — headlines, body, CTAs, microcopy)
+* Content Production Package (all written content ready for implementation)
+* Content Revision Log
+* Localization-Ready Content (flagged for translation or localization as applicable)
+
 #### QA / Testing Expert
 
 ##### Responsibilities
@@ -347,10 +377,16 @@ The Xperto SiteCraft model follows a gated workflow where each phase must produc
 
 ##### Activities
 
-* Stakeholder interviews and vision gathering  
-* Market and competitor research  
-* Business objective definition  
+* Stakeholder interviews and vision gathering
+* Market and competitor research
+* Business objective definition
 * Initial scope and outcome setting
+
+##### Key Roles
+
+* **Project Manager** — leads Discovery, produces Discovery Brief
+* **Business Strategist** — conducts stakeholder analysis, produces Competitive Analysis
+* **Market / User Research Specialist** — conducts market research, produces initial audience identification
 
 ##### Exit Deliverables
 
@@ -389,7 +425,7 @@ The Xperto SiteCraft model follows a gated workflow where each phase must produc
 | :---- | :---- | :---- |
 | Brand DNA Document | Brand Strategist | Client alignment review |
 | Voice Guidelines | Communications Expert | Brand consistency check |
-| Target Audience Personas | Market Research Specialist | Client validation |
+| Target Audience Personas | Market / User Research Specialist | Client validation |
 | Website Goals & Value Propositions | Website Strategy Consultant | Strategic alignment score |
 | Strategic Foundation Package | Project Manager | Comprehensive review |
 
@@ -409,12 +445,29 @@ The Xperto SiteCraft model follows a gated workflow where each phase must produc
 
 ##### Activities
 
-* Content architecture development  
-* Creative direction establishment  
-* Visual design system creation  
-* Flavor system development  
-* UX/UI design  
+* Content architecture development
+* Creative direction establishment
+* Visual design system creation
+* Flavor system development
+* UX/UI design
 * SEO strategy integration
+
+##### Internal Sequencing Guidance
+
+Phase 3 deliverables have internal dependencies. The recommended sequencing is:
+
+1. **Information Architecture** (Content Strategist) — prerequisite for wireframes and content briefs
+2. **Creative Direction Document** (Creative Designer) — prerequisite for visual design system
+3. **Web Framework Decision** (Website Strategy Consultant + Coding Expert) — informs implementation patterns
+4. **UI Framework Decision** (Visual Design Expert + Coding Expert) — informs design token format
+5. **Wireframes** (UX Expert) — requires IA; informs visual design system component needs
+6. **Visual Design System** (Visual Design Expert) — requires Creative Direction + wireframes
+7. **SEO Strategy Document** (SEO Specialist) — can proceed in parallel from step 2 onward
+8. **Analytics Implementation Plan** (Analytics Architect) — can proceed in parallel from step 2 onward
+9. **Flavor System Specifications** (Visual Design Expert) — requires completed Visual Design System as base
+10. **Style Guide Document** (Visual Design Expert) — synthesizes Visual Design System into implementation reference
+
+> Steps 3-4, 7-8 can proceed in parallel with the critical path (1→2→5→6→9→10).
 
 ##### Exit Deliverables
 
@@ -464,6 +517,7 @@ The Xperto SiteCraft model follows a gated workflow where each phase must produc
 | Interactive Prototype | UI Expert | Usability testing |
 | Functional Website | Coding Expert | QA checklist completion |
 | QA Report | QA Expert | Issue resolution verification |
+| Content Production Package | Content Writer / Copywriter | Voice Guidelines compliance + Content Strategist review |
 | Accessibility Audit | Accessibility Expert | WCAG compliance check |
 | Performance Audit | QA Expert | Core Web Vitals pass |
 | Launch-Ready Package | Project Manager | Final client approval |
@@ -556,12 +610,21 @@ This section defines the technical structure, modular architecture, and implemen
 │   ├── layout.css               # Structural styles
 │   ├── typography.css           # Text styles
 │   ├── components.css           # UI components
-│   └── utilities.css            # Helper classes
+│   ├── utilities.css            # Helper classes
+│   ├── animations.css           # Transitions and micro-interactions
+│   └── flavors/                 # Flavor variation overrides
+│       └── [flavor-name].css    # Per-flavor style overrides
 ├── /js/
 │   ├── main.js                  # Core functionality
 │   ├── nav.js                   # Navigation
 │   ├── i18n.js                  # Internationalization
-│   └── analytics.js             # Tracking
+│   ├── analytics.js             # Tracking
+│   ├── seo.js                   # Canonical URLs, structured data
+│   ├── forms.js                 # Form validation and submission
+│   ├── lazy-load.js             # Image/video lazy loading
+│   ├── animations.js            # Scroll animations, transitions
+│   ├── footer.js                # Dynamic footer injection
+│   └── video-player.js          # Video player controls
 └── /legal/
     ├── privacy/
     │   └── index.html           # Privacy policy
@@ -660,7 +723,7 @@ For each supported language, the Content Strategist should produce a Localizatio
 
 * `data-i18n` attributes on translatable elements
 * Shared i18n module (`/js/i18n.js`) with centralized namespace
-* Page-specific translations object listens for `language-change` event
+* Page-specific translations object listens for `site-language-change` event
 * Language persisted in `localStorage` as `preferredLanguage`
 * Auto-detect browser language on first visit
 * URL structure options:
@@ -701,6 +764,249 @@ For each supported language, the Content Strategist should produce a Localizatio
 | `animations.js` | Motion | Scroll animations, transitions |
 | `footer.js` | Footer injection | Dynamic footer with links and translations |
 | `video-player.js` | Video handling | Player controls, overlays, disclaimers |
+
+### Web Framework Decision
+
+Not every website requires the same architecture. A blog, a SaaS dashboard, and a multilingual corporate site have fundamentally different needs. This section provides a decision framework for selecting the right web architecture — a choice that affects deliverables, prompts, and implementation patterns throughout the SiteCraft workflow.
+
+#### Framework Options
+
+| Framework Type | Description | Best For | Trade-offs |
+|----------------|-------------|----------|------------|
+| **Static HTML** | Hand-coded HTML/CSS/JS, no build step | Simple sites (< 10 pages), maximum control, no dependencies | Manual updates, no templating, scales poorly |
+| **Static Site Generator (SSG)** | Build-time rendering (Astro, Hugo, 11ty, Jekyll) | Content-heavy sites, blogs, documentation, multilingual | Build step required, limited dynamic features without JS |
+| **Server-Side Rendering (SSR)** | Request-time rendering (Next.js, Nuxt, SvelteKit) | Dynamic content, personalization, authenticated sections | Server infrastructure required, higher hosting cost |
+| **Single Page Application (SPA)** | Client-side rendering (React, Vue, Svelte) | Highly interactive apps, dashboards, tools | Poor SEO without SSR/SSG hybrid, large initial JS bundle |
+| **CMS-Based** | Content management system (WordPress, Strapi, Sanity, Payload) | Client-managed content, editorial workflows, frequent updates | CMS dependency, potential performance overhead, plugin risks |
+| **Hybrid** | Combination (e.g., SSG + SPA islands, SSR + static pages) | Complex sites with mixed needs | Architecture complexity, requires experienced team |
+
+#### Decision Criteria
+
+| Criterion | Questions to Answer | Impact on Choice |
+|-----------|---------------------|------------------|
+| **Complexity** | How many pages? How many content types? How many languages? | More complexity → SSG or CMS; 5 static pages → plain HTML |
+| **Interactivity** | Do pages need real-time updates, user input, or state management? | High interactivity → SPA or Hybrid; mostly static → SSG |
+| **Content Volume** | How often is content added/updated? Who updates it? | Frequent non-technical updates → CMS; developer-managed → SSG or static |
+| **SEO Requirements** | Is organic search a primary traffic source? | SEO-critical → SSG or SSR; internal tool → SPA is fine |
+| **Team Capability** | What does the development team know? What can they maintain? | Match to team skills; don't choose Next.js if the team knows WordPress |
+| **Budget** | What are hosting, licensing, and maintenance budgets? | Static/SSG = cheapest hosting; CMS = licensing; SSR = server costs |
+| **Maintenance** | Who maintains this after launch? What's their technical level? | Non-technical maintainers → CMS; developer team → any |
+| **Performance** | What are the Core Web Vitals targets? | Strictest targets → SSG or static; dynamic content can still perform with SSR |
+| **Scalability** | Will the site grow significantly in pages or traffic? | Rapid content growth → CMS or SSG with headless CMS |
+
+#### SiteCraft Workflow Integration
+
+The framework choice affects several downstream deliverables:
+
+| SiteCraft Deliverable | Impact |
+|-----------------------|--------|
+| **Directory Structure** | Adapts to framework conventions (e.g., `/src/pages/` for Astro, `/app/` for Next.js, theme structure for WordPress) |
+| **CSS Architecture** | May use framework-specific patterns (CSS Modules, Tailwind, scoped styles) instead of global CSS files |
+| **JS Architecture** | May be replaced by framework's component model (React components, Vue SFCs, Astro islands) |
+| **HTML Template** | Replaced by framework templates (JSX, Astro components, PHP templates) |
+| **Multilingual Implementation** | Framework-specific i18n (next-intl, astro-i18n, WPML) replaces vanilla `i18n.js` |
+| **Performance Standards** | Targets remain the same; measurement approach may differ |
+| **Flavor System Implementation** | CSS custom property approach stays; delivery mechanism adapts (build-time vs. runtime) |
+| **Deployment & Hosting** | Static → CDN (Netlify, Vercel, Cloudflare Pages); SSR → edge/serverless; CMS → managed hosting |
+
+#### Web Framework Decision Prompt
+
+```
+## [ROLE]: Website Strategy Consultant + Coding Expert (collaborative)
+## [PHASE]: Design
+## [TASK]: Select Web Framework
+
+### CONTEXT
+You are working on [Website Project] for [Website Project's Owner or Brand].
+
+### INPUTS
+* Website Goals & Value Propositions (from Website Strategy Consultant)
+* Content Architecture Document (from Content Strategist)
+* Target Audience Personas (from Market / User Research Specialist)
+* Technical team capabilities and constraints
+* Budget and timeline constraints
+* Hosting and infrastructure requirements
+
+### OBJECTIVE
+Select the web framework architecture that best serves the project's needs, balancing functionality, performance, maintainability, and team capability. Document the decision with clear rationale so the choice can be revisited if requirements change.
+
+### CONSTRAINTS
+* DO: Evaluate at least 3 framework options against the project's specific criteria
+* DO: Consider the long-term maintenance scenario, not just initial build
+* DO: Assess how the choice affects SiteCraft deliverables (directory structure, CSS/JS architecture, i18n approach)
+* DO: Prototype or spike if two options are close competitors
+* DO NOT: Choose based on developer preference alone — requirements drive the decision
+* DO NOT: Select the most complex option "for future-proofing" — choose the simplest option that meets current and near-term requirements
+* DO NOT: Ignore the client's post-launch maintenance capability
+* ASK IF UNCLEAR: Client's technical team capability, content update frequency, hosting budget
+
+### OUTPUT SPECIFICATION
+Produce a "Web Framework Decision Document" containing:
+
+#### 1. Requirements Summary
+* Key requirements driving the decision (from inputs)
+* Must-have vs. nice-to-have capabilities
+* Non-negotiable constraints (budget, team, timeline, hosting)
+
+#### 2. Options Evaluated
+For each option considered:
+| Criterion | Option A: [Name] | Option B: [Name] | Option C: [Name] |
+|-----------|-------------------|-------------------|-------------------|
+| Complexity fit | [Rating + notes] | [Rating + notes] | [Rating + notes] |
+| Interactivity | [Rating + notes] | [Rating + notes] | [Rating + notes] |
+| Content management | [Rating + notes] | [Rating + notes] | [Rating + notes] |
+| SEO | [Rating + notes] | [Rating + notes] | [Rating + notes] |
+| Team capability | [Rating + notes] | [Rating + notes] | [Rating + notes] |
+| Budget | [Rating + notes] | [Rating + notes] | [Rating + notes] |
+| Maintenance | [Rating + notes] | [Rating + notes] | [Rating + notes] |
+| Performance | [Rating + notes] | [Rating + notes] | [Rating + notes] |
+
+#### 3. Recommendation
+* Selected framework with rationale
+* Key trade-offs accepted
+* Migration path if requirements change
+* SiteCraft deliverables that need adaptation (with notes on how)
+
+#### 4. Implementation Notes
+* Development environment setup
+* Build and deployment pipeline
+* Hosting recommendation
+* Key dependencies and their maintenance status
+
+### QUALITY CRITERIA
+* [ ] Decision is driven by project requirements, not technology preference
+* [ ] At least 3 options evaluated with consistent criteria
+* [ ] Long-term maintenance scenario explicitly addressed
+* [ ] Impact on SiteCraft workflow deliverables documented
+* [ ] Client's post-launch capability factored into decision
+
+### HANDOFF
+This document feeds directly into:
+* Coding Expert (for implementation setup and architecture decisions)
+* Visual Design Expert (for UI Framework Decision alignment)
+* Project Manager (for timeline and resource planning)
+* Content Strategist (for CMS selection if CMS-based framework chosen)
+```
+
+### UI Framework Decision
+
+Independently of the web framework, every project must decide how visual design is implemented in code. The UI framework choice determines how the Visual Design System, Style Guide, and Flavor System are translated into CSS and components.
+
+#### Framework Options
+
+| Framework Type | Description | Examples | Best For |
+|----------------|-------------|----------|----------|
+| **Custom CSS** | Hand-written CSS from scratch, BEM or similar methodology | Vanilla CSS, CSS Modules, Sass | Maximum design uniqueness, full control, small teams with strong CSS skills |
+| **Utility-First** | Composable utility classes, minimal custom CSS | Tailwind CSS, UnoCSS | Rapid development, consistent spacing/sizing, design-system alignment |
+| **Component Library** | Pre-built, themed UI components | shadcn/ui, Radix UI, Headless UI, daisyUI | Fast development, accessibility built-in, consistent patterns |
+| **Design System Framework** | Opinionated, comprehensive design systems | Material UI (MUI), Chakra UI, Ant Design | Enterprise apps, dashboards, teams familiar with the system |
+| **CSS-in-JS** | Styles co-located with components | Styled Components, Emotion, Vanilla Extract | Dynamic theming, scoped styles, component-level encapsulation |
+
+#### Decision Criteria
+
+| Criterion | Questions to Answer | Impact on Choice |
+|-----------|---------------------|------------------|
+| **Design Uniqueness** | How distinctive must the visual identity be? | Unique brand → Custom CSS or Utility-First; standard UI → Component Library |
+| **Development Speed** | What is the timeline pressure? | Tight deadline → Component Library or Design System Framework |
+| **Accessibility** | What WCAG level is required? Is the team experienced with a11y? | Limited a11y experience → Component Library with built-in accessibility |
+| **Bundle Size** | What is the performance budget for CSS/JS? | Strict budget → Utility-First (purged) or Custom CSS; avoid large design system frameworks |
+| **Flavor System Support** | How complex are Flavor variations? | Heavy Flavor use → CSS custom properties (works with any approach); many component-level changes → CSS-in-JS or Utility-First |
+| **Team Familiarity** | What does the team know? | Match to team skills for maintainability |
+| **Maintenance** | Who maintains styles post-launch? | Non-developers → fewer custom CSS files; Component Library with documented props |
+
+#### Integration with SiteCraft Deliverables
+
+| SiteCraft Deliverable | How UI Framework Affects It |
+|-----------------------|----------------------------|
+| **Visual Design System** | Token format adapts: CSS custom properties (universal), Tailwind config, theme object, design tokens JSON |
+| **Style Guide** | Component documentation format changes: CSS classes vs. component props vs. utility compositions |
+| **Flavor System** | Implementation mechanism: CSS custom property overrides (universal), Tailwind theme extensions, theme provider props |
+| **Component Library Specs** | Abstraction level changes: raw HTML/CSS specs vs. component API specs vs. utility class compositions |
+| **CSS Architecture** | File structure changes: BEM modules vs. Tailwind config vs. component-scoped styles |
+| **Accessibility Audit** | Testing approach adjusts: manual ARIA vs. built-in component library accessibility |
+
+#### UI Framework Decision Prompt
+
+```
+## [ROLE]: Visual Design Expert + Coding Expert (collaborative)
+## [PHASE]: Design
+## [TASK]: Select UI Framework
+
+### CONTEXT
+You are working on [Website Project] for [Website Project's Owner or Brand].
+
+### INPUTS
+* Web Framework Decision Document (from Website Strategy Consultant + Coding Expert)
+* Visual Design System (draft or requirements — from Visual Design Expert)
+* Creative Direction Document (from Creative Designer)
+* Flavor System scope (number of Flavors, variation complexity)
+* Development team skills and preferences
+* Performance budget
+
+### OBJECTIVE
+Select the UI framework approach that best implements the Visual Design System within the chosen web framework, balancing design fidelity, development efficiency, accessibility, and Flavor System support.
+
+### CONSTRAINTS
+* DO: Ensure the selected approach can faithfully implement the Creative Direction
+* DO: Verify compatibility with the chosen web framework
+* DO: Test Flavor System token override feasibility with a prototype
+* DO: Evaluate accessibility support (ARIA, keyboard navigation, focus management)
+* DO NOT: Choose a design system framework that imposes a visual identity conflicting with the brand
+* DO NOT: Select CSS-in-JS for static or SSG sites where it adds unnecessary runtime cost
+* DO NOT: Assume the team will learn a new framework under deadline pressure
+* ASK IF UNCLEAR: Whether dark mode is in scope, icon system preference, animation library needs
+
+### OUTPUT SPECIFICATION
+Produce a "UI Framework Decision Document" containing:
+
+#### 1. Requirements Summary
+* Design fidelity requirements (from Creative Direction)
+* Flavor System complexity and token override needs
+* Accessibility requirements (WCAG level)
+* Performance budget for CSS/JS
+* Team skills assessment
+
+#### 2. Options Evaluated
+For each option considered:
+| Criterion | Option A: [Name] | Option B: [Name] | Option C: [Name] |
+|-----------|-------------------|-------------------|-------------------|
+| Design uniqueness | [Rating + notes] | [Rating + notes] | [Rating + notes] |
+| Dev speed | [Rating + notes] | [Rating + notes] | [Rating + notes] |
+| Accessibility | [Rating + notes] | [Rating + notes] | [Rating + notes] |
+| Bundle size | [Rating + notes] | [Rating + notes] | [Rating + notes] |
+| Flavor support | [Rating + notes] | [Rating + notes] | [Rating + notes] |
+| Team familiarity | [Rating + notes] | [Rating + notes] | [Rating + notes] |
+| Web framework compat | [Rating + notes] | [Rating + notes] | [Rating + notes] |
+
+#### 3. Recommendation
+* Selected UI framework with rationale
+* Key trade-offs accepted
+* How Flavor System tokens will be implemented (CSS custom properties, theme config, etc.)
+* Impact on Visual Design System deliverable format
+* Impact on Style Guide documentation approach
+
+#### 4. Implementation Architecture
+* CSS file/module structure
+* Design token format and delivery
+* Component styling pattern (class-based, prop-based, utility-composed)
+* Responsive implementation approach
+* Icon system integration (SVG icons via Lucide or custom)
+
+### QUALITY CRITERIA
+* [ ] Selected approach can implement the Creative Direction with full fidelity
+* [ ] Flavor System token overrides verified with prototype or proof-of-concept
+* [ ] Accessibility capabilities meet WCAG requirements
+* [ ] Bundle size within performance budget
+* [ ] Compatible with chosen web framework
+* [ ] Team can realistically adopt within project timeline
+
+### HANDOFF
+This document feeds directly into:
+* Visual Design Expert (for finalizing design token format and component specifications)
+* Coding Expert (for development environment setup and CSS architecture)
+* UI Expert (for component implementation patterns)
+* QA Expert (for testing approach adjustments)
+```
 
 ### Assets Management
 
@@ -806,6 +1112,12 @@ All assets referenced with **absolute paths**:
   4. Visual (background, shadow, opacity)  
   5. Animation (transition, transform)
 
+#### Iconography Standards
+
+* **Do not use emojis** in website content, UI elements, or code unless specifically requested by the client. Emojis are informal and non-professional.
+* Use **SVG icons** for all iconography — either from a curated library (Lucide, Heroicons) or custom-designed SVGs aligned with the Visual Design System.
+* SVG icons must be accessible: include `aria-label` or `aria-hidden="true"` with adjacent text labels as appropriate.
+
 #### JavaScript Standards
 
 * ES6+ syntax with appropriate transpilation  
@@ -833,7 +1145,7 @@ All assets referenced with **absolute paths**:
 | Metric | Target | Measurement |
 | :---- | :---- | :---- |
 | Largest Contentful Paint (LCP) | \< 2.5s | Time to largest content element |
-| First Input Delay (FID) | \< 100ms | Time to interactive |
+| Interaction to Next Paint (INP) | \< 200ms | Input responsiveness |
 | Cumulative Layout Shift (CLS) | \< 0.1 | Visual stability score |
 | Time to First Byte (TTFB) | \< 600ms | Server response time |
 
@@ -886,7 +1198,7 @@ Standard HTML boilerplate for all pages:
     <meta property="og:url" content="https://www.domain.com/page/">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/assets/favicon-brand.png">
+    <link rel="icon" type="image/png" href="/assets/logos/favicon-brand.png">
 
     <!-- Shared CSS Modules (load in this order) -->
     <link rel="stylesheet" href="/css/fonts.css">
@@ -964,12 +1276,14 @@ This initial stage is paramount. It's where we lay the groundwork for everything
 
 ### Traditional Activities in Discovery & Strategy
 
+> **Cross-reference:** This section details the Discovery activities outlined in **Phase 1: Discovery** (see Workflow Architecture). The phase gates, deliverables, and exit criteria are defined there; this section provides the detailed question frameworks and methodological guidance.
+
 This involves:
 
-* Deep conversations with stakeholders to understand their vision, business, brand, and expectations.  
-* Market research: analyzing competitors, identifying target audience needs, and understanding the current landscape.  
-* Defining clear business objectives and how the website will serve them.  
-* Articulating the core message, brand values, and unique selling propositions.  
+* Deep conversations with stakeholders to understand their vision, business, brand, and expectations.
+* Market research: analyzing competitors, identifying target audience needs, and understanding the current landscape.
+* Defining clear business objectives and how the website will serve them.
+* Articulating the core message, brand values, and unique selling propositions.
 * Setting initial scope and desired outcomes.
 
 ### Identifying the \[Website Project\] and \[Website Project's Owner or Brand\]
@@ -1005,6 +1319,21 @@ We identify specific explicit aspects as well as details that come across subtly
 * Preferred communication tone: Casual, sophisticated, assertive, emotional, intellectual, minimalist, etc.  
 * Preferred visual aesthetic and inspirations: "modern zen", "vintage print press", "neo-gothic", "organic/nature", "street-smart minimalism", etc.  
 * Any Flavor to use as the central metaphor or style: A forest? A gallery? A jungle? A dream? A factory? A backstage room? A street market? A library? A marketplace? A streaming website? A theme park? A hotel lobby? A corporate reception area? A news program? An investigative report program? etc.
+
+### Discovery Brief — Output Format
+
+The Discovery phase should produce a structured **Discovery Brief** capturing findings from the above topics. This is the Phase 1 exit deliverable referenced by all Conceptualization prompts.
+
+| Section | Contents | Source |
+|---------|----------|--------|
+| Website Owner Profile | Owner type, story, values, style | Stakeholder interviews |
+| Website Goal & Nature | Primary goals, owner objectives, audience objectives | Stakeholder interviews |
+| Target Audience (Initial) | Identified segments, priorities, expectations | Research + stakeholder input |
+| Competitive Landscape | Key competitors, positioning gaps, opportunities | Market research |
+| Style & Creative Direction (Initial) | Preferred tone, aesthetic, metaphor/Flavor concepts | Stakeholder interviews |
+| Open Questions & Risks | Unresolved items, areas requiring further research | All sources |
+
+> **Relationship to Phase 1 exit deliverables:** This brief consolidates the Discovery findings into a single document. It is distinct from the Stakeholder Interview Summaries and Competitive Analysis (which are supporting artifacts) and serves as the primary handoff to the Conceptualization phase.
 
 ## CONCEPTUALIZATION: FOUNDATIONAL DEFINITION
 
@@ -1187,6 +1516,8 @@ This document feeds directly into:
 
 ### Defining \[Voice Guidelines\] — Communication Style & Tone
 
+> **Dependency note:** This prompt requires Target Audience Personas and Website Goals & Value Propositions as inputs. In practice, these may be developed in parallel during Conceptualization. If they are not yet available, the Communications Expert should proceed with the Brand DNA Document as the primary input and flag persona-dependent and goal-dependent sections for revision once those deliverables are complete.
+
 #### Goal
 
 To translate the Brand DNA Document into actionable voice and communication guidelines.
@@ -1203,7 +1534,7 @@ You are working on [Website Project] for [Website Project's Owner or Brand].
 
 ### INPUTS
 * Brand DNA Document (from Brand Strategist)
-* Target Audience Personas (from Market Research Specialist)
+* Target Audience Personas (from Market / User Research Specialist)
 * Website Goals & Value Propositions (from Website Strategy Consultant)
 
 ### OBJECTIVE
@@ -1318,7 +1649,7 @@ You are working on [Website Project] for [Website Project's Owner or Brand].
 * Brand DNA Document
 * Stakeholder descriptions of target audience
 * Any available market research or analytics data
-* Competitor audience analysis
+* Competitive Analysis Summary (from Business Strategist)
 
 ### OBJECTIVE
 Create detailed, empathetic user personas that will guide design, content, and experience decisions throughout the project.
@@ -1646,7 +1977,7 @@ You are working on [Website Project] for [Website Project's Owner or Brand].
 * Voice Guidelines
 * Target Audience Personas
 * Website Goals & Value Propositions
-* Competitive landscape analysis
+* Competitive Analysis Summary (from Business Strategist)
 
 ### OBJECTIVE
 Develop distinctive creative concepts that differentiate this website while authentically expressing the brand.
@@ -1698,7 +2029,7 @@ For each concept:
 
 #### 6. Concept Adaptation Notes
 * How concept flexes for different sections
-* How concept accommodates Flavors
+* How concept accommodates thematic variations (to be reconciled with Flavor System in the next design step)
 * Scalability considerations
 
 ### QUALITY CRITERIA
@@ -1713,6 +2044,147 @@ This document feeds directly into:
 * Visual Design Expert (for design system development)
 * UX Expert (for experience design alignment)
 * Graphic Designer (for asset creation)
+```
+
+### Visual Design System
+
+#### Goal
+
+To create a comprehensive, implementation-ready design system that translates the Creative Direction into systematic visual rules, components, and patterns. This is the bridge between creative vision and code — every design decision here must be specific enough for a developer to implement without ambiguity.
+
+#### Prompt
+
+```
+## [ROLE]: Visual Design Expert
+## [PHASE]: Design
+## [TASK]: Create Visual Design System
+
+### CONTEXT
+You are working on [Website Project] for [Website Project's Owner or Brand].
+
+### INPUTS
+* Brand DNA Document (from Brand Strategist)
+* Creative Direction Document (from Creative Designer)
+* Voice Guidelines (from Communications Expert)
+* Target Audience Personas (from Market / User Research Specialist)
+* Website Goals & Value Propositions (from Website Strategy Consultant)
+* Information Architecture (from Content Strategist)
+* Wireframes (from UX Expert)
+* Web Framework Decision (if made)
+* UI Framework Decision (if made)
+
+### OBJECTIVE
+Create a complete Visual Design System that defines every visual element of the website — from atomic design tokens (colors, typography, spacing) through molecular components (buttons, cards, forms) to organism-level patterns (headers, page layouts, navigation). This system must be internally consistent, accessible, implementation-ready, and extensible for the Flavor System.
+
+### CONSTRAINTS
+* DO: Define every visual decision as a design token or reusable pattern
+* DO: Ensure all color combinations meet WCAG 2.1 AA contrast requirements (4.5:1 for text, 3:1 for UI elements)
+* DO: Design for all defined responsive breakpoints
+* DO: Create a system that supports Flavor variations through token overrides
+* DO: Specify both light and dark mode tokens (if dark mode is in scope)
+* DO: Align component design with the selected UI framework's capabilities (if applicable)
+* DO NOT: Create one-off styles — everything must be part of the system
+* DO NOT: Define visual elements that cannot be implemented with the chosen technology stack
+* DO NOT: Ignore the Creative Direction — this system implements it, not replaces it
+* ASK IF UNCLEAR: Technology constraints, dark mode requirement, animation budget, icon system preference
+
+### OUTPUT SPECIFICATION
+Produce a "Visual Design System" containing:
+
+#### 1. Design Tokens
+
+##### Color System
+* Primary palette (hex, RGB, HSL) with usage rules
+* Secondary and accent palettes
+* Neutral/gray scale
+* Semantic colors (success, warning, error, info)
+* Background and surface colors
+* Text colors with contrast-passing pairings
+* Gradient definitions
+* Opacity scale
+
+##### Typography System
+* Font families (primary, secondary, monospace) with fallback stacks
+* Type scale (sizes for h1-h6, body, small, caption, overline)
+* Line heights per size
+* Letter spacing rules
+* Font weight usage (when to use each weight)
+* Maximum line length (ch) per context
+
+##### Spacing System
+* Base unit and scale (e.g., 4px base: 4, 8, 12, 16, 24, 32, 48, 64, 96)
+* Component internal padding rules
+* Component external margin rules
+* Section spacing rules
+* Responsive spacing adjustments
+
+##### Border & Shadow System
+* Border radius scale
+* Border width and style tokens
+* Shadow elevation scale (sm, md, lg, xl)
+* Focus ring specification
+
+##### Motion System
+* Duration scale (fast, normal, slow)
+* Easing functions by context (enter, exit, emphasis)
+* Reduced-motion fallback rules
+* Animation principles (what animates, what doesn't)
+
+#### 2. Component Library Specifications
+
+For each component (Button, Card, Form Input, Navigation Item, Badge, Alert, Modal, Tooltip, Table, Pagination, Breadcrumb, Tab, Accordion, etc.):
+
+| Attribute | Specification |
+|-----------|---------------|
+| Variants | [Primary, Secondary, Ghost, etc.] |
+| States | [Default, Hover, Active, Focus, Disabled, Loading] |
+| Sizes | [Small, Medium, Large] |
+| Token usage | [Which design tokens apply] |
+| Responsive behavior | [How it adapts per breakpoint] |
+| Accessibility | [ARIA attributes, keyboard interaction, focus management] |
+| Flavor hooks | [Which tokens are overridable by Flavors] |
+
+#### 3. Layout Patterns
+* Grid system (columns, gutters, margins per breakpoint)
+* Page layout templates (homepage, content page, landing page, form page)
+* Section patterns (hero, feature grid, testimonials, CTA band, footer)
+* Responsive layout rules and stacking behavior
+
+#### 4. Iconography
+* Icon style (outlined, filled, duotone)
+* Icon size scale
+* Icon color rules
+* Icon + text alignment rules
+* Custom icon inventory (if any)
+
+#### 5. Imagery Guidelines
+* Photography style rules (aligned with Creative Direction)
+* Image aspect ratios per context (hero, card, thumbnail, avatar)
+* Image treatment (filters, overlays, borders)
+* Placeholder and loading state imagery
+
+#### 6. Flavor Extension Points
+* Which tokens are Flavor-overridable vs. fixed
+* How component variants change per Flavor
+* Flavor transition approach (CSS custom property swaps)
+* Flavor testing checklist
+
+### QUALITY CRITERIA
+* [ ] Every visual element is defined by design tokens — no magic numbers
+* [ ] All text/background color pairings meet WCAG 2.1 AA contrast requirements
+* [ ] Component specifications are detailed enough for implementation without designer intervention
+* [ ] System is extensible — new components can be built from existing tokens
+* [ ] Responsive behavior defined for all breakpoints
+* [ ] Flavor override points clearly identified
+* [ ] Motion specifications include reduced-motion alternatives
+
+### HANDOFF
+This document feeds directly into:
+* Graphic Designer (for asset production aligned with the system)
+* UI Expert (for component implementation)
+* Coding Expert (for CSS architecture and design token implementation)
+* Visual Design Expert (for Flavor System development — this is the "base" that Flavors modify)
+* Style Guide production (this system is the source of truth for the Style Guide)
 ```
 
 ### The Flavor System
@@ -1868,6 +2340,8 @@ Beyond seasonal Flavors, the system includes Flavors for specific audiences, reg
 
 ##### Regional Flavors
 
+> **Customization required:** The following are starting-point examples to illustrate the concept of regional Flavors. They are intentionally broad and must be refined, replaced, or expanded for each project based on actual target markets, local research, and cultural expert input. Treating these as ready-made library items risks inappropriate cultural generalizations.
+
 | Flavor Name | Region/Context | Visual Character | Tonal Character | Use Case |
 | :---- | :---- | :---- | :---- | :---- |
 | **Caribbean Vibrant** | Caribbean markets | Warm tropical colors, dynamic energy | Warm, rhythmic, celebratory | Caribbean-focused businesses |
@@ -1922,7 +2396,9 @@ Beyond seasonal Flavors, the system includes Flavors for specific audiences, reg
 | **Carnival Energy** | Carnival season | Vibrant, dynamic, celebratory | Joyful, rhythmic, festive | Caribbean/Latin markets |
 | **Lunar New Year** | Chinese New Year | Red/gold, prosperity symbols | Auspicious, respectful, celebratory | Asian market targeting |
 
-## EXECUTION
+## CONTENT PRODUCTION
+
+> **Note:** The prompts in this section are labeled `[PHASE]: Design` because they produce design-phase deliverables (Content Architecture, content briefs, media specifications). They are grouped here under "Content Production" for editorial clarity — the actual phase assignment is in each prompt's header.
 
 ### Content Architecture
 
@@ -2162,44 +2638,105 @@ This document feeds directly into:
 
 ```
 ## [ROLE]: Creative Designer
+## [PHASE]: Design
 ## [TASK]: Generate Hero Image Brief
+
+### CONTEXT
+You are working on [Website Project] for [Website Project's Owner or Brand].
 
 ### INPUTS
 * Brand DNA Document
 * Creative Direction Document
+* Visual Design System (base)
 * Active Flavor specifications
 * Page purpose and goal
+* Target Audience Personas
+
+### OBJECTIVE
+Create a detailed image brief for a hero image that establishes the page's visual identity, supports its goal, and aligns with brand and Flavor specifications.
+
+### CONSTRAINTS
+* DO: Specify whether AI-generated, stock, or custom photography is appropriate
+* DO: Provide multiple responsive crop directions (desktop, tablet, mobile)
+* DO: Ensure the image works with text overlay if applicable
+* DO NOT: Use generic stock imagery that could represent any brand
+* DO NOT: Specify images that require ongoing licensing without noting the requirement
+* ASK IF UNCLEAR: Photography vs. illustration preference, budget for custom imagery
 
 ### OUTPUT SPECIFICATION
 Produce a detailed image brief including:
 1. Subject/Scene description
 2. Mood and emotion
-3. Color palette alignment
-4. Composition guidance
-5. Technical specifications (dimensions, format)
-6. Accessibility considerations (what alt text should convey)
-7. Variations needed (responsive, Flavor alternatives)
+3. Color palette alignment (specific hex codes from Visual Design System)
+4. Composition guidance (focal point, rule of thirds, safe areas for text)
+5. Technical specifications (dimensions per breakpoint, format, file size target)
+6. Accessibility considerations (what alt text should convey, not just describe)
+7. Variations needed (responsive crops, Flavor alternatives, dark/light mode)
+8. Source guidance: AI-generated / stock / custom photography / illustration
+
+### QUALITY CRITERIA
+* [ ] Image brief is specific enough for a designer or AI tool to execute
+* [ ] Brand consistency maintained across all page heroes
+* [ ] Accessibility alt text conveys purpose, not just visual content
+* [ ] Responsive variations specified for all breakpoints
+
+### HANDOFF
+This brief feeds into:
+* Graphic Designer (for image production or sourcing)
+* Coding Expert (for responsive implementation)
+* Accessibility Expert (for alt text review)
 ```
 
 #### Section and Content Images
 
 ```
 ## [ROLE]: Graphic Designer
+## [PHASE]: Execution
 ## [TASK]: Generate Section Image Brief
+
+### CONTEXT
+You are working on [Website Project] for [Website Project's Owner or Brand].
 
 ### INPUTS
 * Creative Direction Document
-* Section content and purpose
 * Visual Design System
+* Content Architecture Document
+* Section content and purpose
 * SEO keywords for alt text
+* Active Flavor specifications
+
+### OBJECTIVE
+Create detailed briefs for all section-level and content images, ensuring visual consistency and purposeful alignment with adjacent content.
+
+### CONSTRAINTS
+* DO: Ensure images serve the content — every image must have a clear purpose
+* DO: Maintain visual consistency across sections within the same page
+* DO: Specify lazy-loading suitability for below-the-fold images
+* DO NOT: Use decorative images without providing aria-hidden or empty alt attributes
+* DO NOT: Specify images that compete with or duplicate the hero
+* ASK IF UNCLEAR: Whether stock, custom, or AI-generated imagery is preferred per section
 
 ### OUTPUT SPECIFICATION
 For each image needed:
-1. Purpose within the section
-2. Visual description
-3. Relationship to adjacent content
-4. Size and placement specifications
-5. Alt text draft
+1. Purpose within the section (informational, emotional, decorative, evidence)
+2. Visual description with composition notes
+3. Relationship to adjacent content (supports, contrasts, illustrates)
+4. Size and placement specifications (dimensions, alignment, responsive behavior)
+5. Alt text draft (purpose-driven, not just descriptive)
+6. Format recommendation (photo, illustration, icon, infographic)
+7. Flavor variation notes (if the image changes per Flavor)
+
+### QUALITY CRITERIA
+* [ ] Every image has a defined purpose — no filler imagery
+* [ ] Alt text is meaningful and supports accessibility
+* [ ] Images are consistent with Visual Design System and Creative Direction
+* [ ] File size and format optimized for web delivery
+
+### HANDOFF
+This brief feeds into:
+* Graphic Designer (for production)
+* Coding Expert (for implementation with lazy loading and responsive markup)
+* SEO Specialist (for alt text and image SEO optimization)
 ```
 
 ### Video Generation Prompts
@@ -2242,34 +2779,156 @@ For each image needed:
 ##### First Person/Testimonial Videos
 
 ```
-For authentic first-person content:
-* Speaker introduction approach
-* Key talking points
-* Authenticity markers to capture
-* B-roll requirements
-* Location/setting guidance
+## [ROLE]: Creative Designer
+## [PHASE]: Design
+## [TASK]: Develop Testimonial Video Brief
+
+### CONTEXT
+You are working on [Website Project] for [Website Project's Owner or Brand].
+
+### INPUTS
+* Brand DNA Document
+* Voice Guidelines
+* Target Audience Personas
+* Video Concept Document (from Video Concept Development)
+* Page/section where video will appear
+
+### OBJECTIVE
+Create a detailed production brief for an authentic first-person or testimonial video that builds trust and credibility.
+
+### CONSTRAINTS
+* DO: Prioritize authenticity over production polish
+* DO: Provide speaker coaching notes that maintain natural delivery
+* DO: Specify how brand elements appear without overwhelming the testimonial
+* DO NOT: Script testimonials verbatim — provide talking points only
+* DO NOT: Use stock footage as a substitute for real testimonials
+* ASK IF UNCLEAR: Speaker availability, filming location options, legal release requirements
+
+### OUTPUT SPECIFICATION
+1. Speaker introduction approach and on-screen identification
+2. Key talking points (not a script) with follow-up prompts
+3. Authenticity markers to capture (natural pauses, specific anecdotes)
+4. B-roll requirements and shot list
+5. Location/setting guidance with brand alignment notes
+6. Duration target and pacing guidance
+7. Post-production style (minimal editing, color grading approach)
+8. Accessibility: caption requirements and audio description needs
+
+### QUALITY CRITERIA
+* [ ] Brief enables authentic delivery, not scripted performance
+* [ ] Brand elements integrated subtly
+* [ ] Target persona will find the speaker relatable and credible
+* [ ] Technical specifications are production-ready
+
+### HANDOFF
+This brief feeds into:
+* Video production team (for filming)
+* Graphic Designer (for on-screen graphics and lower thirds)
+* Coding Expert (for video player integration)
 ```
 
 ##### Explainer Videos
 
 ```
-For educational/informational content:
-* Concept to explain
-* Visual metaphors to use
-* Step-by-step structure
-* Animation style guidance
-* Voiceover tone
+## [ROLE]: Creative Designer
+## [PHASE]: Design
+## [TASK]: Develop Explainer Video Brief
+
+### CONTEXT
+You are working on [Website Project] for [Website Project's Owner or Brand].
+
+### INPUTS
+* Brand DNA Document
+* Voice Guidelines
+* Target Audience Personas
+* Video Concept Document (from Video Concept Development)
+* Subject matter content to explain
+* Page/section where video will appear
+
+### OBJECTIVE
+Create a detailed production brief for an educational or explanatory video that makes complex concepts accessible and engaging.
+
+### CONSTRAINTS
+* DO: Define the single key takeaway the viewer must understand
+* DO: Specify visual metaphors that make abstract concepts concrete
+* DO: Design for viewers who may watch without sound (captions, visual storytelling)
+* DO NOT: Overload with information — one concept per video
+* DO NOT: Exceed 3 minutes without strong justification
+* ASK IF UNCLEAR: Audience knowledge level, whether animation or live-action is preferred
+
+### OUTPUT SPECIFICATION
+1. Concept to explain (simplified to one core idea)
+2. Visual metaphors and analogies to use
+3. Step-by-step narrative structure with timing
+4. Animation style guidance or live-action direction
+5. Voiceover tone and pacing notes
+6. On-screen text and callout specifications
+7. Duration target and pacing per section
+8. Accessibility: caption requirements, audio description for visual elements
+
+### QUALITY CRITERIA
+* [ ] A viewer with no prior knowledge can understand the concept
+* [ ] Visual metaphors are accurate and not misleading
+* [ ] Pacing allows comprehension without losing engagement
+* [ ] Brand voice is consistent throughout
+
+### HANDOFF
+This brief feeds into:
+* Video production / animation team (for production)
+* Content Strategist (for accuracy review)
+* Coding Expert (for video player integration)
 ```
 
 ##### Sales/Promotional Videos
 
 ```
-For conversion-focused content:
-* Value proposition emphasis
-* Social proof integration
-* Urgency elements
-* CTA placement and strength
-* Offer presentation
+## [ROLE]: Creative Designer
+## [PHASE]: Design
+## [TASK]: Develop Promotional Video Brief
+
+### CONTEXT
+You are working on [Website Project] for [Website Project's Owner or Brand].
+
+### INPUTS
+* Brand DNA Document
+* Voice Guidelines
+* Value Proposition (from Website Strategy Consultant)
+* Target Audience Personas
+* Video Concept Document (from Video Concept Development)
+* Conversion strategy and CTA requirements
+
+### OBJECTIVE
+Create a detailed production brief for a conversion-focused promotional video that compels action while maintaining brand integrity.
+
+### CONSTRAINTS
+* DO: Lead with audience benefit, not product features
+* DO: Include a clear, single call-to-action
+* DO: Specify how urgency is communicated without being manipulative
+* DO NOT: Make claims that cannot be substantiated
+* DO NOT: Use pressure tactics that contradict brand values
+* ASK IF UNCLEAR: Offer details, promotion duration, legal disclaimers required
+
+### OUTPUT SPECIFICATION
+1. Value proposition emphasis and benefit hierarchy
+2. Social proof integration approach (stats, testimonials, logos)
+3. Urgency and scarcity elements (if appropriate and authentic)
+4. CTA placement, timing, and strength
+5. Offer presentation and terms
+6. Emotional arc: attention → interest → desire → action
+7. Duration target (recommended: 30-90 seconds)
+8. Accessibility: caption requirements and audio description needs
+
+### QUALITY CRITERIA
+* [ ] CTA is clear and compelling
+* [ ] Claims are substantiated and honest
+* [ ] Brand voice maintained even in promotional context
+* [ ] Video works both with and without sound
+
+### HANDOFF
+This brief feeds into:
+* Video production team (for production)
+* Graphic Designer (for motion graphics and CTAs)
+* Coding Expert (for video player integration and CTA implementation)
 ```
 
 ### Text Content Generation Prompts
@@ -2281,6 +2940,8 @@ For conversion-focused content:
 ## [TASK]: Generate Sales Page Content
 
 ### INPUTS
+* Content Architecture Document (from Content Strategist)
+* Page-Level Content Brief for this page
 * Voice Guidelines
 * Value Proposition
 * Target Persona
@@ -2305,6 +2966,8 @@ For conversion-focused content:
 ## [TASK]: Generate Informational Content
 
 ### INPUTS
+* Content Architecture Document (from Content Strategist)
+* Page-Level Content Brief for this page
 * Voice Guidelines
 * Topic and scope
 * Target Persona knowledge level
@@ -2329,6 +2992,8 @@ For conversion-focused content:
 ## [TASK]: Generate Authority-Building Content
 
 ### INPUTS
+* Content Architecture Document (from Content Strategist)
+* Page-Level Content Brief for this page
 * Brand DNA Document
 * Voice Guidelines
 * Subject matter expertise areas
@@ -2352,6 +3017,8 @@ For conversion-focused content:
 ## [TASK]: Generate Support/Help Content
 
 ### INPUTS
+* Content Architecture Document (from Content Strategist)
+* Page-Level Content Brief for this page
 * Voice Guidelines
 * Common questions/issues
 * User frustration points
@@ -2374,6 +3041,8 @@ For conversion-focused content:
 ## [TASK]: Generate Seasonal Content
 
 ### INPUTS
+* Content Architecture Document (from Content Strategist)
+* Page-Level Content Brief for this page (if applicable)
 * Voice Guidelines
 * Season/Event context
 * Active Flavor specifications
@@ -2836,6 +3505,16 @@ You are working on [Website Project] for [Website Project's Owner or Brand].
 ### OBJECTIVE
 Conduct a comprehensive quality audit ensuring the website meets all defined standards before launch.
 
+### CONSTRAINTS
+* DO: Test against all defined acceptance criteria from Design deliverables
+* DO: Cover all supported browsers, devices, and screen sizes
+* DO: Log every issue with reproducible steps and severity classification
+* DO: Verify Flavor System rendering for all active Flavors
+* DO NOT: Approve launch with any Critical-severity issues unresolved
+* DO NOT: Test only the happy path — include edge cases and error states
+* DO NOT: Skip multilingual testing if the site supports multiple languages
+* ASK IF UNCLEAR: Priority of issues, acceptable known-issue thresholds for launch
+
 ### OUTPUT SPECIFICATION
 Produce a "Quality Assurance Report" containing:
 
@@ -2856,7 +3535,7 @@ Produce a "Quality Assurance Report" containing:
 
 #### 3. Performance Audit
 * Largest Contentful Paint (target: <2.5s)
-* First Input Delay (target: <100ms)
+* Interaction to Next Paint (target: <200ms)
 * Cumulative Layout Shift (target: <0.1)
 * Time to First Byte
 * Page weight analysis
@@ -2887,6 +3566,24 @@ Produce a "Quality Assurance Report" containing:
 | ID | Description | Severity | Page | Status | Owner |
 |----|-------------|----------|------|--------|-------|
 | [#] | [Issue] | Critical/High/Medium/Low | [Location] | Open/Fixed | [Name] |
+
+#### 8. Automated Testing Guidance
+* Recommended automated test coverage:
+  - Smoke tests for critical user journeys (homepage → conversion path)
+  - Regression tests for core functionality (forms, navigation, search)
+  - Visual regression tests for key pages and Flavor variants
+  - Accessibility linting (axe-core or equivalent) in CI/CD pipeline
+* Test environment requirements: staging environment mirroring production
+* Load testing: verify performance under expected concurrent user levels
+* Test data management: define test accounts, sample content, and edge-case scenarios
+
+### QUALITY CRITERIA
+* [ ] All critical user journeys tested end-to-end
+* [ ] Every page tested on at least 3 browser/device combinations
+* [ ] All issues logged with severity, steps to reproduce, and screenshots
+* [ ] Accessibility compliance validated (WCAG 2.1 AA minimum)
+* [ ] Performance metrics within defined targets
+* [ ] Automated test suite covers critical regression scenarios
 
 ### HANDOFF
 This report guides:
@@ -2994,11 +3691,201 @@ This report guides:
 
 ### Security Audit
 
-(pending)
+#### Goal
+
+To validate that the website meets security best practices and does not expose users or the organization to preventable risks.
+
+#### Prompt
+
+```
+## [ROLE]: Coding Expert
+## [PHASE]: Execution
+## [TASK]: Security Audit
+
+### CONTEXT
+You are working on [Website Project] for [Website Project's Owner or Brand].
+
+### INPUTS
+* Implemented website (staging or pre-production)
+* Technical specifications and architecture documentation
+* Third-party service inventory
+* Form and data handling specifications
+* Hosting and infrastructure details
+
+### OBJECTIVE
+Conduct a security audit ensuring the website protects user data, resists common attack vectors, and follows security best practices appropriate to its architecture.
+
+### CONSTRAINTS
+* DO: Prioritize findings by risk severity and exploitability
+* DO: Provide actionable remediation steps for every finding
+* DO: Test with both authenticated and unauthenticated access where applicable
+* DO NOT: Perform destructive testing on production environments
+* DO NOT: Ignore static-site risks (CSP, dependency vulnerabilities, exposed secrets)
+* ASK IF UNCLEAR: Whether penetration testing is in scope, compliance requirements (PCI-DSS, HIPAA, SOC 2)
+
+### OUTPUT SPECIFICATION
+Produce a "Security Audit Report" containing:
+
+#### 1. Transport Security
+* HTTPS enforcement (all pages, all assets)
+* TLS configuration and certificate validity
+* HSTS header presence and configuration
+* Mixed content detection
+
+#### 2. HTTP Security Headers
+| Header | Current Value | Recommended Value | Status |
+|--------|---------------|-------------------|--------|
+| Content-Security-Policy | [Current] | [Recommended] | Pass/Fail |
+| X-Content-Type-Options | [Current] | nosniff | Pass/Fail |
+| X-Frame-Options | [Current] | DENY or SAMEORIGIN | Pass/Fail |
+| Referrer-Policy | [Current] | [Recommended] | Pass/Fail |
+| Permissions-Policy | [Current] | [Recommended] | Pass/Fail |
+
+#### 3. Input Handling & Injection Prevention
+* Form input validation (client-side and server-side)
+* XSS vulnerability assessment
+* SQL injection testing (if database-backed)
+* File upload security (if applicable)
+* CSRF protection on state-changing operations
+
+#### 4. Authentication & Authorization (if applicable)
+* Session management review
+* Password policy assessment
+* Access control validation
+* API key and token security
+
+#### 5. Dependency & Supply Chain
+* Third-party library vulnerability scan (npm audit, Snyk, or equivalent)
+* CDN integrity verification (SRI attributes)
+* Third-party script inventory and risk assessment
+
+#### 6. Information Disclosure
+* Error message review (no stack traces or internal paths exposed)
+* Source code and comment review (no secrets, API keys, or internal URLs)
+* Directory listing disabled
+* Robots.txt review (no sensitive paths revealed)
+* `.env`, config files, and backup files inaccessible
+
+#### 7. Findings Summary
+| ID | Finding | Severity | OWASP Category | Remediation | Status |
+|----|---------|----------|----------------|-------------|--------|
+| [#] | [Description] | Critical/High/Medium/Low | [Category] | [Fix] | Open/Fixed |
+
+### QUALITY CRITERIA
+* [ ] All OWASP Top 10 categories evaluated
+* [ ] Every finding includes a specific, actionable remediation
+* [ ] No critical or high-severity issues remain open before launch
+* [ ] Third-party dependencies scanned with current vulnerability database
+
+### HANDOFF
+This report guides:
+* Coding Expert (for remediation implementation)
+* Project Manager (for launch readiness decision)
+* Website owner (for ongoing security monitoring)
+```
 
 ### Performance Audit
 
-(pending)
+#### Goal
+
+To ensure the website meets performance targets across devices and network conditions, delivering a fast and responsive user experience.
+
+#### Prompt
+
+```
+## [ROLE]: Coding Expert
+## [PHASE]: Execution
+## [TASK]: Performance Audit
+
+### CONTEXT
+You are working on [Website Project] for [Website Project's Owner or Brand].
+
+### INPUTS
+* Implemented website (staging or pre-production)
+* Core Web Vitals targets from Performance Standards
+* Page inventory with priority ranking
+* Target audience device and network profiles (from Personas)
+* Third-party service inventory
+
+### OBJECTIVE
+Conduct a comprehensive performance audit ensuring the website meets defined Core Web Vitals targets and delivers a responsive experience across all target devices and network conditions.
+
+### CONSTRAINTS
+* DO: Test on real devices as well as emulated environments
+* DO: Test on throttled network conditions (3G, 4G) in addition to broadband
+* DO: Measure both initial load and subsequent navigation performance
+* DO: Attribute performance costs to specific causes (images, scripts, fonts, third parties)
+* DO NOT: Optimize prematurely — identify root causes before recommending changes
+* ASK IF UNCLEAR: Performance budget constraints, CDN availability, server-side rendering options
+
+### OUTPUT SPECIFICATION
+Produce a "Performance Audit Report" containing:
+
+#### 1. Core Web Vitals Results
+| Page | LCP | INP | CLS | TTFB | Overall |
+|------|-----|-----|-----|------|---------|
+| Homepage | [Value] | [Value] | [Value] | [Value] | Pass/Fail |
+| [Key page] | [Value] | [Value] | [Value] | [Value] | Pass/Fail |
+
+#### 2. Page Weight Analysis
+| Page | Total Size | HTML | CSS | JS | Images | Fonts | Other |
+|------|-----------|------|-----|-----|--------|-------|-------|
+| [Page] | [KB] | [KB] | [KB] | [KB] | [KB] | [KB] | [KB] |
+
+* Budget compliance assessment
+* Largest assets identified
+
+#### 3. Loading Performance
+* Time to First Byte (TTFB) per page
+* First Contentful Paint (FCP)
+* Largest Contentful Paint (LCP) element identification
+* Render-blocking resource analysis
+* Critical rendering path assessment
+
+#### 4. Runtime Performance
+* Interaction to Next Paint (INP) measurement
+* Long task identification (>50ms)
+* JavaScript execution cost analysis
+* Layout shift sources and triggers
+* Animation performance (frame rate, jank)
+
+#### 5. Asset Optimization Status
+| Asset Category | Current | Optimized | Savings |
+|----------------|---------|-----------|---------|
+| Images | [Format/size] | [Recommendation] | [KB saved] |
+| CSS | [Size/count] | [Recommendation] | [KB saved] |
+| JavaScript | [Size/count] | [Recommendation] | [KB saved] |
+| Fonts | [Size/count] | [Recommendation] | [KB saved] |
+
+#### 6. Third-Party Impact
+| Service | Load Time Impact | Size | Blocking | Recommendation |
+|---------|-----------------|------|----------|----------------|
+| [Service] | [ms] | [KB] | Yes/No | [Action] |
+
+#### 7. Caching & Delivery
+* Cache-Control header assessment
+* CDN configuration review
+* Compression (gzip/Brotli) verification
+* Preload/prefetch/preconnect recommendations
+
+#### 8. Recommendations Summary
+| Priority | Issue | Impact | Effort | Recommendation |
+|----------|-------|--------|--------|----------------|
+| [1-5] | [Issue] | [LCP/INP/CLS/Size] | [Low/Med/High] | [Action] |
+
+### QUALITY CRITERIA
+* [ ] All priority pages tested across desktop and mobile
+* [ ] Core Web Vitals targets met or remediation plan provided
+* [ ] Third-party scripts assessed for performance impact
+* [ ] Recommendations prioritized by impact and effort
+* [ ] Testing includes throttled network conditions
+
+### HANDOFF
+This report guides:
+* Coding Expert (for optimization implementation)
+* Project Manager (for launch readiness decision and performance budgeting)
+* Analytics Architect (for ongoing performance monitoring setup)
+```
 
 ## POST-EXECUTION AND SUPPORT
 
@@ -3455,8 +4342,22 @@ Xperto SiteCraft incorporates cultural intelligence to create websites that reso
 ### CONTEXT
 You are working on [Website Project] for [Website Project's Owner or Brand].
 
+### INPUTS
+* Discovery Brief
+* Target Audience Personas (from Market / User Research Specialist)
+* Stakeholder descriptions of target markets and regions
+* Any available market research, analytics, or regional data
+
 ### OBJECTIVE
 Identify and document cultural, regional, and segment-specific factors that should influence website design and content.
+
+### CONSTRAINTS
+* DO: Base cultural insights on evidence, research, or direct stakeholder input
+* DO: Distinguish between regional, demographic, and psychographic factors
+* DO: Identify culturally sensitive areas that require local expert review
+* DO NOT: Rely on stereotypes or broad generalizations about cultures or regions
+* DO NOT: Assume one cultural framework applies uniformly to an entire continent or language group
+* ASK IF UNCLEAR: Whether localization (not just translation) is in scope for specific markets
 
 ### OUTPUT SPECIFICATION
 Produce a "Cultural Context Analysis" containing:
@@ -3500,6 +4401,19 @@ Produce a "Cultural Context Analysis" containing:
 * Peak usage times
 * Content consumption preferences
 * Decision-making cultural factors
+
+### QUALITY CRITERIA
+* [ ] Cultural factors are evidence-based, not assumption-based
+* [ ] Recommendations are specific enough to guide design and content decisions
+* [ ] Sensitive cultural considerations are flagged for local expert review
+* [ ] Analysis covers all target markets and audience segments
+
+### HANDOFF
+This document feeds directly into:
+* Creative Designer (for culturally appropriate visual direction)
+* Content Strategist (for localization planning and content adaptation)
+* Visual Design Expert (for Flavor System regional variants)
+* Communications Expert (for voice and tone calibration per market)
 ```
 
 ## AI-POWERED FEATURES
@@ -4005,6 +4919,60 @@ This document feeds directly into:
 - [ ] Canonical URLs set  
 - [ ] Image optimization complete  
 - [ ] Header hierarchy correct
+
+#### Security
+
+- [ ] HTTPS enforced on all pages
+- [ ] Content Security Policy (CSP) headers configured
+- [ ] Dependency vulnerability scan passed
+- [ ] Form inputs sanitized and validated server-side
+- [ ] Sensitive data excluded from client-side code
+- [ ] Admin/staging URLs not publicly accessible
+
+#### Performance
+
+- [ ] Largest Contentful Paint (LCP) < 2.5s
+- [ ] Interaction to Next Paint (INP) < 200ms
+- [ ] Cumulative Layout Shift (CLS) < 0.1
+- [ ] Total page weight within budget
+- [ ] Images served in modern formats (WebP/AVIF) with fallbacks
+- [ ] Third-party script impact assessed
+
+#### Analytics & Tracking
+
+- [ ] Analytics tracking firing correctly on all pages
+- [ ] Conversion events configured and tested
+- [ ] Event tracking matches Analytics Implementation Plan
+- [ ] Dashboard or reporting access confirmed
+
+#### Legal & Compliance
+
+- [ ] Cookie consent mechanism implemented
+- [ ] Privacy policy linked and current
+- [ ] Terms of service linked and current
+- [ ] GDPR / regional data protection requirements met
+- [ ] Accessibility statement published
+
+#### Internationalization (if multilingual)
+
+- [ ] All supported languages functional
+- [ ] Language switcher working correctly
+- [ ] `hreflang` tags set for all language variants
+- [ ] RTL layout tested (if applicable)
+- [ ] Localized content reviewed by native speakers
+
+#### Backup & Recovery
+
+- [ ] Pre-launch backup of all assets and content created
+- [ ] Rollback procedure documented and tested
+- [ ] DNS and domain configuration verified
+
+#### Brand Consistency
+
+- [ ] Flavor System base and at least 2 variants verified
+- [ ] Voice and tone consistent across all pages
+- [ ] Visual assets match Style Guide specifications
+- [ ] Brand DNA alignment spot-checked across key pages
 
 ## APPENDIX C: STYLE GUIDE TEMPLATE
 
