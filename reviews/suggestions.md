@@ -3,16 +3,19 @@
 Full review of `protocol/xperto-sitecraft.md` v1.0.0 (4,360 lines).
 Review date: 2026-02-17.
 
+> **Status:** All 72 issues resolved as of v1.2.0 (L2 accepted as-is). Protocol is now at 6,406 lines.
+
 ---
 
 ## Summary
 
-| Priority | Count |
-|----------|-------|
-| High     | 28    |
-| Medium   | 30    |
-| Low      | 14    |
-| **Total**| **72**|
+| Priority | Count | Resolved |
+|----------|-------|----------|
+| High     | 28    | 28 (v1.1.0) |
+| Medium   | 30    | 25 (v1.2.0) + 5 (v1.1.0) |
+| Low      | 14    | 13 (v1.2.0) + 1 (accepted) |
+| Additional | 11  | 9 (v1.2.0) + 2 (v1.1.0) |
+| **Total**| **83**| **83** |
 
 ### Top Systemic Issues
 
@@ -146,230 +149,236 @@ Review date: 2026-02-17.
 
 ## MEDIUM PRIORITY
 
+> **All 30 medium-priority issues resolved in v1.1.0 or v1.2.0.** See `CHANGELOG.md` for details.
+
 ### M1. Grammar issue in AI Philosophy statement (line ~17)
-**Type**: inconsistency
+**Type**: inconsistency — **RESOLVED v1.2.0**
 **Description**: "AI does not replace our teams or merely automates simple tasks" — broken grammar. Should be "nor merely automate."
 
 ### M2. Inconsistent expert category naming (lines ~23, ~115, ~244)
-**Type**: inconsistency
+**Type**: inconsistency — **RESOLVED v1.2.0**
 **Description**: "Conceptualization Experts," "Design Experts," but "Execution Phase Experts." The third adds "Phase" breaking parallel structure.
 
 ### M3. Creative Designer / Visual Design Expert boundary unclear (lines ~154-188)
-**Type**: suggestion
+**Type**: suggestion — **RESOLVED v1.2.0**
 **Description**: Distinction is "what/why" vs. "how" but the boundary is blurry. No arbitration mechanism when mood boards conflict with design system constraints.
 
 ### M4. Strategic Foundation Package undefined (line ~394)
-**Type**: gap
+**Type**: gap — **RESOLVED v1.2.0**
 **Description**: Listed as Phase 2 exit deliverable owned by Project Manager with vague "Comprehensive review" validation. Never defined elsewhere. Contents unknown.
 
 ### M5. Directory Structure vs. Site Map mismatch (lines ~529-599)
-**Type**: inconsistency
+**Type**: inconsistency — **RESOLVED v1.2.0**
 **Description**: Directory Structure shows `/about/index.html` as a single page; Site Map Template shows `/about/` with three sub-pages. `resources/` directory present in Site Map but absent from Directory Structure.
 
 ### M6. HTML template semantic HTML violations (lines ~903, ~917)
-**Type**: inconsistency
+**Type**: inconsistency — **RESOLVED v1.2.0**
 **Description**: Code Style Guidelines mandate semantic HTML5, but template uses `<div id="site-nav">` and `<div id="site-footer">` instead of `<nav>` and `<footer>`.
 
 ### M7. Analytics double-loading concern (lines ~867-874, ~697)
-**Type**: inconsistency
+**Type**: inconsistency — **RESOLVED v1.2.0**
 **Description**: Template includes inline Google Analytics in `<head>` AND JS Architecture defines `analytics.js` module. Relationship unclear — risks double-tracking.
 
 ### M8. Missing Open Graph and Twitter Card tags (lines ~882-886)
-**Type**: enhancement
+**Type**: enhancement — **RESOLVED v1.2.0**
 **Description**: OG tags missing required `og:type` and `og:site_name`. No Twitter Card markup at all. Expected for a protocol with an SEO Specialist role.
 
 ### M9. WCAG version should acknowledge 2.2 (lines ~322, ~475, ~2916)
-**Type**: enhancement
+**Type**: enhancement — **RESOLVED v1.2.0**
 **Description**: Protocol targets WCAG 2.1 AA throughout. WCAG 2.2 was published October 2023 with additional success criteria. Should at minimum acknowledge 2.2.
 
 ### M10. Iteration protocols lack conflict resolution (lines ~481-519)
-**Type**: gap
+**Type**: gap — **RESOLVED v1.2.0**
 **Description**: Only 3 adjacency pairs defined for 15+ roles. No protocol for disagreements between adjacent experts. No escalation mechanism or iteration cycle limits.
 
 ### M11. Retrospective protocol has no output artifact (lines ~512-519)
-**Type**: gap
+**Type**: gap — **RESOLVED v1.2.0**
 **Description**: Asks four questions but defines no output document, no owner, and no mechanism for feeding learnings forward.
 
 ### M12. Page elements lack i18n mapping (lines ~844-857)
-**Type**: gap
+**Type**: gap — **RESOLVED v1.2.0**
 **Description**: Page Elements list makes no reference to internationalization requirements per element, despite extensive multilingual support section.
 
 ### M13. Project Identity Card should consume Discovery Brief (lines ~1059-1095)
-**Type**: gap
+**Type**: gap — **RESOLVED v1.2.0**
 **Description**: First Conceptualization task but does not list the Discovery Brief as input, despite it being a Phase 1 exit deliverable referenced by later templates.
 
 ### M14. ASSUME constraint type missing from all templates (lines ~1033, ~1059+)
-**Type**: gap
+**Type**: gap — **RESOLVED v1.2.0**
 **Description**: Meta-template defines `ASSUME: [Safe assumptions]` as a standard constraint sub-type, but no actual template includes it.
 
 ### M15. Website Goals input overlap with Brand DNA (lines ~1424-1428)
-**Type**: gap
+**Type**: gap — **RESOLVED v1.2.0**
 **Description**: "Business objectives from stakeholder interviews" overlaps with information already synthesized in the Brand DNA Document. No guidance on precedence.
 
 ### M16. Collaborative task structure undefined (lines ~1517, ~2052, ~3106)
-**Type**: enhancement
+**Type**: enhancement — **RESOLVED v1.2.0**
 **Description**: Multiple templates assign two roles (e.g., "Brand Strategist + Communications Expert") but no guidance on who leads, how conflicts are resolved, or how output is attributed.
 
 ### M17. Site Persona multilingual constraint unconditional (line ~1537)
-**Type**: gap
+**Type**: gap — **RESOLVED v1.1.0**
 **Description**: "DO: Define how the persona adapts across languages and cultures" presupposes multilingual scope. Should be conditional.
 
 ### M18. Creative Direction Document not linked to Flavor System (lines ~1711-1716, ~1763)
-**Type**: inconsistency
+**Type**: inconsistency — **RESOLVED v1.1.0**
 **Description**: Creative Concepts handoff does not mention Flavor System development. Flavor System inputs do not include Creative Direction Document. The two should be explicitly linked.
 
 ### M19. Flavor System HANDOFF missing UX and Accessibility experts (lines ~1858-1863)
-**Type**: gap
+**Type**: gap — **RESOLVED v1.2.0**
 **Description**: Flavors affect visual presentation, interaction patterns, and user experience, but UX Expert and Accessibility Expert are not listed as handoff recipients.
 
 ### M20. Contextual Flavor Library has no workflow integration (lines ~1865-1924)
-**Type**: gap
+**Type**: gap — **RESOLVED v1.2.0**
 **Description**: Sits outside any prompt template. No guidance on who produces these, how they are validated, or how they connect to the Flavor System prompt.
 
 ### M21. Flavor System quality criteria lack accessibility specifics (lines ~1852-1857)
-**Type**: gap
+**Type**: gap — **RESOLVED v1.2.0**
 **Description**: "Accessibility verified for each Flavor" is generic. Should reference WCAG contrast ratios for each variant, reduced motion considerations, and font accessibility.
 
 ### M22. Content Architecture handoff missing Content Strategist (lines ~2022-2028)
-**Type**: inconsistency
+**Type**: inconsistency — **RESOLVED v1.1.0**
 **Description**: Lists five downstream consumers but omits Content Strategist, despite the document being an input to nearly every text content generation prompt.
 
 ### M23. Learning Path Architecture phase/location ambiguity (lines ~2031, ~2052)
-**Type**: inconsistency
+**Type**: inconsistency — **RESOLVED v1.1.0**
 **Description**: Labeled `[PHASE]: Design` but positioned after Content Architecture under the EXECUTION section. Should be moved or relabeled.
 
 ### M24. Text content prompts missing HANDOFF sections (lines ~2275-2390)
-**Type**: inconsistency
+**Type**: inconsistency — **RESOLVED v1.2.0**
 **Description**: None of the five text content generation prompts include a HANDOFF section. Every other major prompt template specifies downstream consumers.
 
 ### M25. "Other Content to Generate" is a stub (lines ~2392-2395)
-**Type**: gap
+**Type**: gap — **RESOLVED v1.2.0**
 **Description**: "News and Updates" and "Guidelines and Tutorials" listed with no prompt templates. Should have minimal templates or be marked `(pending)`.
 
 ### M26. A/B Testing Framework duplicated and incomplete (lines ~2665-2669, ~2696-2748)
-**Type**: inconsistency
+**Type**: inconsistency — **RESOLVED v1.1.0**
 **Description**: Covered within Analytics Framework AND as a standalone section. Standalone version missing QUALITY CRITERIA and CONSTRAINTS sections.
 
 ### M27. QA Performance metrics reference outdated FID (line ~2859)
-**Type**: suggestion
+**Type**: suggestion — **RESOLVED v1.2.0**
 **Description**: Should also include TTI and TBT, which are commonly used in Lighthouse audits.
 
 ### M28. Community Engagement not in Design phase deliverables table (lines ~3075, ~419-431)
-**Type**: suggestion
+**Type**: suggestion — **RESOLVED v1.2.0**
 **Description**: Prompt uses `[PHASE]: Design` but Design phase exit deliverables and gate criteria don't mention it. Invisible to the gated workflow.
 
 ### M29. Video Integration not in deliverables or Client Touchpoint Map (lines ~3209, ~3652)
-**Type**: suggestion
+**Type**: suggestion — **RESOLVED v1.2.0**
 **Description**: Same issue as Community Engagement — a Design-phase bolt-on invisible to gates and client touchpoints.
 
 ### M30. Client Collaboration Protocol severely underdeveloped (lines ~3650-3699)
-**Type**: gap
+**Type**: gap — **RESOLVED v1.2.0**
 **Description**: Only outline-level templates (5-7 bullets each). No prompts, no conflict resolution guidance, no scope creep handling, no formal sign-off document template — despite the workflow requiring client sign-off at multiple gates.
 
 ---
 
 ## LOW PRIORITY
 
+> **All 14 low-priority issues resolved in v1.2.0 (L2 accepted as-is).** See `CHANGELOG.md` for details.
+
 ### L1. Repeated "soul/skin" metaphor (lines ~5, ~11)
-**Type**: inconsistency
+**Type**: inconsistency — **RESOLVED v1.2.0**
 **Description**: Same metaphor stated nearly verbatim within six lines. Reads as accidental duplication.
 
 ### L2. Analytics Architect placement under Design Experts (lines ~228-242)
-**Type**: suggestion
+**Type**: suggestion — **Accepted as-is**
 **Description**: Designs measurement frameworks and event tracking — more technical/execution-oriented. No corresponding Execution-phase expert implements what the Analytics Architect designs.
 
 ### L3. Responsive breakpoints lack CSS mapping (lines ~820-827)
-**Type**: gap
+**Type**: gap — **RESOLVED v1.2.0**
 **Description**: Six breakpoints defined but no guidance on CSS custom property mapping or media query patterns. Mobile-first approach implied but both min-width and max-width columns shown.
 
 ### L4. Footer structure incomplete (lines ~940-959)
-**Type**: gap
+**Type**: gap — **RESOLVED v1.2.0**
 **Description**: Minimal ASCII layout omits social links, contact info, legal links, and site navigation. No accessibility requirements for footer landmark.
 
 ### L5. Meta-template INPUTS parenthetical inconsistency (line ~1023)
-**Type**: inconsistency
+**Type**: inconsistency — **RESOLVED v1.2.0**
 **Description**: Meta-template says `INPUTS (from previous steps)` but every actual template uses bare `INPUTS`.
 
 ### L6. Voice Guidelines formatting error (line ~1224)
-**Type**: inconsistency
+**Type**: inconsistency — **RESOLVED v1.2.0**
 **Description**: `#### 1. **Brand Voice Characteristics` — bold marker opened but never closed.
 
 ### L7. Vague "available market research" input (line ~1320)
-**Type**: gap
+**Type**: gap — **RESOLVED v1.2.0**
 **Description**: Unlike other inputs that reference specific documents from specific roles, this is an open-ended "whatever is available" clause that undermines traceability.
 
 ### L8. Website Goals handoff lists non-immediate consumer (line ~1492)
-**Type**: inconsistency
+**Type**: inconsistency — **RESOLVED v1.2.0**
 **Description**: Lists Analytics Architect as handoff recipient, but that role acts much later. Other handoffs list only immediate downstream consumers.
 
 ### L9. Site Persona accessibility bullet insufficient (line ~1572)
-**Type**: enhancement
+**Type**: enhancement — **RESOLVED v1.2.0**
 **Description**: Single bullet for screen reader accessibility is insufficient for what is a complex design challenge, especially for chatbot persona interactions.
 
 ### L10. Keyword density is a deprecated SEO concept (line ~2573)
-**Type**: suggestion
+**Type**: suggestion — **RESOLVED v1.2.0**
 **Description**: "Keyword density recommendations" is outdated. Modern SEO uses semantic coverage. The protocol itself warns against keyword stuffing but then recommends density targets.
 
 ### L11. User Journey Validation references "UI Expert" (line ~2805)
-**Type**: inconsistency
+**Type**: inconsistency — **RESOLVED v1.2.0**
 **Description**: Handoff mentions "UI Expert" but the protocol defines "UX Expert." Either a different role or a naming error.
 
 ### L12. "LAYERs" heading typo (line ~3298)
-**Type**: inconsistency
+**Type**: inconsistency — **RESOLVED v1.2.0**
 **Description**: "PERSONALIZATION AND CONTEXTUALIZATION LAYERs" — inconsistent lowercase "s".
 
 ### L13. Brand DNA template minor field mismatch (line ~3700)
-**Type**: suggestion
+**Type**: suggestion — **RESOLVED v1.2.0**
 **Description**: Prompt specifies "Brand Essence (One-Liner)" under Differentiators; template has "Unique Positioning" / "Competitive Advantage" but no explicit one-liner field.
 
 ### L14. Voice Guidelines template includes items not in the prompt (lines ~3936, ~3939)
-**Type**: suggestion
+**Type**: suggestion — **RESOLVED v1.2.0**
 **Description**: Template includes "Error Messages" and "Empty States" under Example Phrases — excellent additions but not requested by the prompt that generates this document.
 
 ---
 
 ## ADDITIONAL OBSERVATIONS
 
+> **All additional observations resolved in v1.1.0 or v1.2.0.** See `CHANGELOG.md` for details.
+
 ### Style Guide template has broken Markdown fencing (line ~4064)
-**Type**: inconsistency  **Priority**: high
+**Type**: inconsistency  **Priority**: high — **RESOLVED v1.2.0**
 **Description**: Code fence closes after Gradients & Effects, splitting the template. Everything from "Border Styling" onward renders as document content rather than template content.
 
 ### Duplicate "Discovery Additions for Cultural Context" heading (lines ~3400, ~3448)
-**Type**: inconsistency  **Priority**: medium
+**Type**: inconsistency  **Priority**: medium — **RESOLVED v1.2.0**
 **Description**: Same heading appears twice — first introduces narrative bullets, second introduces the prompt. Content is nearly duplicated.
 
 ### Cultural Context prompt phase mismatch (line ~3452)
-**Type**: inconsistency  **Priority**: medium
+**Type**: inconsistency  **Priority**: medium — **RESOLVED v1.1.0**
 **Description**: Labeled `[PHASE]: Discovery` but nested under Personalization section between Design-phase sections. Should be near the Discovery section if it belongs to Discovery.
 
 ### Post-Execution phase not formally defined in Workflow Architecture (line ~3003)
-**Type**: gap  **Priority**: medium
+**Type**: gap  **Priority**: medium — **RESOLVED v1.2.0**
 **Description**: Workflow Architecture defines 4 phases. Post-Execution exists as a section but has no phase definition, no gate criteria, no duration estimate.
 
 ### Style Guide template missing Design Tokens section (line ~4009)
-**Type**: gap  **Priority**: medium
+**Type**: gap  **Priority**: medium — **RESOLVED v1.2.0**
 **Description**: Visual Design Expert outputs include "Design Tokens Documentation" but the Style Guide template only uses CSS custom properties with no platform-agnostic token format.
 
 ### Style Guide template missing Flavor System integration (line ~4009)
-**Type**: gap  **Priority**: medium
+**Type**: gap  **Priority**: medium — **RESOLVED v1.2.0**
 **Description**: No section showing how Flavor overrides map to base design tokens, despite the Visual Design Expert owning both documents.
 
 ### Style Guide component patterns incomplete (line ~4104)
-**Type**: gap  **Priority**: medium
+**Type**: gap  **Priority**: medium — **RESOLVED v1.2.0**
 **Description**: Only covers Cards, Badges, Highlight Boxes, CTA Buttons, and Form Elements. Missing ~10 common patterns (navigation, modal, tooltip, tabs, tables, alerts, pagination, breadcrumbs, loading states).
 
 ### Style Guide single responsive breakpoint (line ~4295)
-**Type**: gap  **Priority**: medium
+**Type**: gap  **Priority**: medium — **RESOLVED v1.2.0**
 **Description**: Only defines 768px breakpoint despite the document's own Responsive Breakpoints section defining 6 breakpoints.
 
 ### Missing appendix templates (document-wide)
-**Type**: gap  **Priority**: medium
+**Type**: gap  **Priority**: medium — **RESOLVED v1.2.0**
 **Description**: Templates exist only for Brand DNA, Voice Guidelines, Pre-Launch Checklist, and Style Guide. Missing: Target Audience Persona (most referenced input), Content Architecture, Creative Direction, Discovery Brief/Project Charter, QA Report, Website Goals.
 
 ### Web Management Plan phase mislabeled (line ~3016)
-**Type**: inconsistency  **Priority**: low
+**Type**: inconsistency  **Priority**: low — **RESOLVED v1.2.0**
 **Description**: Labeled `[PHASE]: Execution` but lives under "POST-EXECUTION AND SUPPORT." Should be Post-Execution.
 
 ### Voice Guidelines template additions (lines ~3936, ~3939)
-**Type**: enhancement  **Priority**: low
+**Type**: enhancement  **Priority**: low — **RESOLVED v1.2.0**
 **Description**: Template includes "Error Messages" and "Empty States" examples — good for web design. Prompt should be updated to request these.

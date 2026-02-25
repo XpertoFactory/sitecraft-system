@@ -4,6 +4,102 @@ All notable changes to the Xperto SiteCraft protocol are documented here.
 
 ## [Unreleased]
 
+### Added
+- **Social Sharing Architecture** — three-level sharing system (site, page, item) with in-page modal, SVG icons, Web Share API fallback, share data model, platform configuration, accessibility and i18n requirements
+- **`share.js` module** — added to Directory Structure, JS Architecture table, and HTML template
+- **Share Trigger and Share Modal component patterns** — added to Style Guide template
+- **Character & People Imagery Standards** — all character imagery must feature Hispanic/Mediterranean/Latino characters with dark hair in warm-weather appropriate clothing; wardrobe table, prompt enforcement note, and cross-references added to Hero Image, Section Image, all 3 video prompts, and Visual Design System imagery guidelines
+- **Light/Dark Theme System** — full architecture section under Website Structure defining toggle UI, persistence strategy (`localStorage` + `prefers-color-scheme`), anti-flash inline script, four-layer CSS token cascade, image/media handling, and accessibility requirements
+- **`theme.js` and `theme.css` modules** — added to Directory Structure, CSS/JS Architecture tables, and HTML template
+- **Theme Toggle component pattern** — added to Style Guide template with CSS icon-swap, focus states, and reduced-motion support
+- **`<meta name="color-scheme">` and `data-theme` attribute** — added to HTML template with anti-flash inline script in `<head>`
+- **PWA/mobile meta tags** — added `<meta name="mobile-web-app-capable">` and `<meta name="theme-color">` to HTML template with deprecation warning against the old `apple-mobile-web-app-capable` tag
+- **Site Search Implementation guidance** — library comparison table (Pagefind, Lunr, Fuse.js, Algolia), build pipeline requirements, and common 404 troubleshooting note
+- **Pre-Launch Checklist additions** — deprecated meta tag check and search index build verification
+- **OG Image Specifications** — dimension, format, file size, and safe-zone requirements with per-platform table (Facebook, X, LinkedIn, WhatsApp, Pinterest, Discord/Slack/Telegram)
+- **Article/Blog Post meta tag variant** — `og:type=article` with `article:published_time`, `article:modified_time`, `article:author`, `article:section`, `article:tag`
+- **Social Meta Tag Fallback Behavior table** — documents which Twitter tags fall back to OG and which must be explicit
+- **AI Output Anti-Pattern Catalog** — (inspired by [taste-skill](https://github.com/Leonxlnx/taste-skill)) concrete banned-patterns lists for Visual/CSS, Typography, Layout, Content/Copywriting, and Component/Interaction categories, each with "why it's generic" explanation and recommended alternative; cross-referenced from Creative Direction and Visual Design System prompts
+- **Design Calibration Dials** — three parameterized scales (Design Variance, Motion Intensity, Visual Density) added to Creative Direction Document output specification; each dial maps 1–10 to specific design implications; values carry forward as binding constraints to Visual Design System
+- **Motion System expansion** — expanded from 4 bullet points to full architecture: duration scale tokens, easing function tokens, 5 animation categories with purpose/performance rules, scroll animation guidelines, micro-interaction specifications per element, performance constraints (compositor-only animation, 60fps target), and comprehensive reduced-motion requirements
+- **AI-Generated Content Guardrails** — new section in Voice Guidelines output: banned filler words/phrases table, placeholder/fake data policy, 3-question Authenticity Test (Specificity, Evidence, Voice match); shared content quality constraint note added above all Text Content Generation Prompts
+- **AI Self-Audit Protocol** — pre-delivery checklist added to the meta-template: anti-pattern check, Brand DNA alignment, calibration dial compliance, authenticity test, placeholder scan, accessibility verification, distinctiveness check; runs before every deliverable
+- **Landing Page Pattern Library** — (inspired by [ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)) 12 named page patterns (Hero-Centric, Storytelling Scroll, Feature Showcase, Social Proof-Led, Funnel, Editorial, Portfolio Gallery, Comparison, FAQ/Resource Hub, Waitlist, Dashboard Landing, Local/Service Area) with section flows, best-for guidance, and conversion strategies; cross-referenced from Creative Direction Document
+- **UI Style Vocabulary** — 10 named contemporary UI styles (Minimalism, Glassmorphism, Neumorphism, Brutalism, Editorial/Print, Bento Grid, Organic/Liquid, Corporate/Enterprise, High Contrast/Bold, Retro/Nostalgic) with CSS signatures, best-for/caution guidance; Creative Direction must reference by name
+- **Data Visualization Guidelines** — chart type selection table (10 data relationships), visualization accessibility rules, chart design token system with dark mode guidance, library recommendations (Chart.js, D3.js, Recharts, Apache ECharts)
+- **Typography Pairing Principles** — 5 pairing principles (Contrast, Mood alignment, Hierarchy service, Weight range, Metric compatibility) and 6 archetypal mood-based pairing references added to Visual Design System Typography System section
+- **Industry Context and Conventions** — new section (6) in Creative Direction Document output: industry visual profile questionnaire, common visual expectations table for 8 industries (Healthcare, Finance, Luxury, Tech/SaaS, Education, Food & Beverage, Legal/Government, Creative/Agency)
+- **Implementation Detail Rules** — added to Style Guide template: cursor rules table, z-index scale system (7 layers), text contrast minimums by text role, spacing consistency rules with touch target sizes, border and divider rules per theme
+
+### Changed
+- **Visual Design System prompt** — dark mode changed from optional to mandatory first-class deliverable
+- **Flavor System prompt** — light/dark theme variants now required for every Flavor
+- **Style Guide Color Palette** — restructured with Light/Dark columns for all color tokens
+- **Design Tokens methodology** — Theme dimension added alongside Flavor as orthogonal override axis
+- **Flavor System Integration CSS** — rewritten with four-layer cascade (Base Light → Dark → Flavor → Flavor+Dark)
+- **Pre-Launch Checklist** — added Light/Dark Theme verification section (8 items)
+- **`variables.css` description** — updated to reference light/dark token sets
+- **Open Graph meta tags** — expanded from 6 to 12 tags: added `og:locale`, `og:locale:alternate`, `og:image:width`, `og:image:height`, `og:image:type`, `og:image:alt`; fixed `og:image` to use absolute URL; removed brand name from `og:title` (redundant with `og:site_name`)
+- **Twitter/X Card meta tags** — expanded from 4 to 7 tags: added `twitter:site`, `twitter:creator`, `twitter:image:alt`; fixed `twitter:image` to use absolute URL; added note that `twitter:` prefix remains standard despite X rebrand
+- **Share Data Model** — added absolute URL requirement note and OG Image Specifications cross-reference
+- **Creative Direction Document** — Recommended Concept section now references UI Style Vocabulary, Landing Page Pattern Library, and Typography Pairing Principles; Industry Context added as section 6; Concept Adaptation Notes renumbered to section 8; new quality criteria for industry context documentation
+
+## [1.2.0] — 2026-02-17
+
+Resolves 39 of the remaining 44 medium/low/additional-observation items from the v1.0.0 review. 5 items (M17, M18, M22, M23, M26) were already resolved in v1.1.0; L2 and AO3 are acceptable as-is.
+
+### Added
+- **Phase 5: Post-Execution definition** (AO4) — duration, activities, exit deliverables, and gate criteria added to Workflow Architecture
+- **Strategic Foundation Package definition** (M4) — contents, validation method, and consistency-check process documented
+- **Collaborative Task Protocol** (M16) — lead role, review role, conflict escalation, and joint attribution guidelines for multi-role prompts
+- **Iteration conflict resolution protocol** (M10) — evidence-based resolution process, escalation chain, and iteration cycle limits
+- **Retrospective output artifact** (M11) — Phase Retrospective Summary template with owner, format, and feed-forward requirement
+- **HANDOFF sections for text content prompts** (M24) — all 5 text generation prompts now specify downstream consumers
+- **TBT and TTI metrics** (M27) — added to QA Performance Audit section
+- **Community Engagement and Video Integration in Phase 3** (M28+M29) — added as conditional exit deliverables and gate criteria
+- **Client Collaboration expansions** (M30) — Scope Change Protocol, Conflict Resolution Framework, and Formal Sign-Off Template
+- **CSS custom property mapping and media queries** (L3) — mobile-first breakpoint patterns for all 6 breakpoints
+- **Footer accessibility requirements** (L4) — landmark, ARIA labels, legal links, contrast requirements
+- **OG and Twitter Card meta tags** (M8) — `og:type`, `og:site_name`, and full Twitter Card markup in HTML template
+- **Analytics clarification comment** (M7) — inline GA4 vs. `analytics.js` relationship documented in HTML template
+- **i18n requirements per page element** (M12) — table format with translation/localization needs per element
+- **WCAG 2.2 acknowledgment** (M9) — note added at first WCAG reference pointing to 2.2 additional criteria
+- **Site Persona accessibility expansion** (L9) — screen reader, keyboard, chatbot a11y, and non-visual fallback requirements
+- **Brand Essence field** (L13) — one-liner field added to Brand DNA template Differentiators section
+- **Error Messages and Empty States in Voice Guidelines** (L14/AO11) — prompt output now requests these explicitly
+- **Design Tokens section** (AO5) — token methodology, naming conventions, and platform-agnostic format in Style Guide template
+- **Flavor System Integration section** (AO6) — token override mapping, CSS custom property pattern, variant documentation in Style Guide template
+- **Missing component patterns** (AO7) — Navigation, Modal, Toast, Dropdown, Tabs, Accordion, Table, Pagination, Breadcrumbs, Loading States added to Style Guide template
+- **Discovery Brief template** (AO9a) — full template in Appendix D
+- **Target Audience Persona template** (AO9b) — full template in Appendix E
+- **QA Report template** (AO9c) — full template in Appendix F
+- **Creative Designer ↔ Visual Design Expert boundary** (M3) — conflict resolution protocol between the two roles
+- **Contextual Flavor Library workflow note** (M20) — producer, validator, and connection to Flavor System prompt
+- **Brand DNA precedence note** (M15) — clarifies Brand DNA as canonical reference when business objectives overlap
+- **Directory Structure ↔ Site Map reconciliation** (M5) — `/about/` expanded, `/resources/` added, relationship note added
+
+### Changed
+- **Grammar fix** (M1) — "or merely automates" → "nor merely automate"
+- **Expert category naming** (M2) — "Execution Phase Experts" → "Execution Experts" for parallel structure
+- **Duplicate metaphor removed** (L1) — "soul/skin" phrasing deduplicated from line 5
+- **Meta-template INPUTS** (L5) — "(from previous steps)" parenthetical removed to match actual templates
+- **Voice Guidelines bold marker** (L6) — unclosed `**` removed from heading
+- **Role name "UI Expert"** (L11) — corrected to "User Interface Expert" in User Journey Validation handoff
+- **Heading typo** (L12) — "LAYERs" → "LAYERS"
+- **Semantic HTML** (M6) — `<div id="site-nav">` → `<nav>`, `<div id="site-footer">` → `<footer>` in HTML template
+- **SEO keyword density** (L10) — replaced deprecated "keyword density" with "semantic coverage and topic authority assessment"
+- **Web Management Plan phase** (AO10) — `[PHASE]: Execution` → `[PHASE]: Post-Execution`
+- **ASSUME removed from meta-template** (M14) — unused constraint type removed for consistency
+- **Duplicate Cultural Context heading** (AO2) — merged into single section with transition sentence
+- **Flavor System HANDOFF** (M19) — UX Expert and Accessibility Expert added as recipients
+- **Flavor System QUALITY CRITERIA** (M21) — WCAG contrast, reduced-motion, font accessibility, and focus state requirements added
+- **Market research input** (L7) — vague "available" clause replaced with traceable source reference
+- **Website Goals HANDOFF** (L8) — Analytics Architect removed (not an immediate consumer)
+- **Other Content stubs** (M25) — marked as "(pending — to be developed per project needs)"
+- **Style Guide code fencing** (AO1) — outer fence upgraded to 5 backticks; inner CSS block properly nested
+- **Responsive breakpoints** (AO8) — expanded from single 768px breakpoint to all 6 breakpoints with media query examples
+- **Discovery Brief input** (M13) — added to Project Identity Card INPUTS
+
 ## [1.1.0] — 2026-02-17
 
 ### Added

@@ -2,7 +2,7 @@
 
 ## OVERVIEW
 
-Xperto SiteCraft is a comprehensive AI-assisted web design framework that defines the soul of a website before touching its skin. Our methodology provides clarity, purpose, and creative direction that guides design, tone, structure, and every component of each site and project.
+Xperto SiteCraft is a comprehensive AI-assisted web design framework. Our methodology provides clarity, purpose, and creative direction that guides design, tone, structure, and every component of each site and project.
 
 ### Our Approach to Web Design
 
@@ -14,7 +14,7 @@ Every project begins with understanding the essence of your brand. We define the
 
 Beyond just using AI to do things faster and easier—we leverage AI to do things better, do more things, and do new things. That's our exponential advantage.
 
-AI does not replace our teams or merely automates simple tasks or complex processes. 
+AI does not replace our teams nor merely automate simple tasks or complex processes. 
 
 Our human experts take care of the creative process while AI diligently executes with blazing speed, astounding detail and technical precision our original vision. Together our human experts and AI are able to explore possibilities and stretch the boundaries of creativity and productivity.
 
@@ -189,6 +189,10 @@ Our human experts take care of the creative process while AI diligently executes
 * **Style Guide Document** (Implementation-ready reference)  
 * Design Tokens Documentation
 
+##### Creative Designer ↔ Visual Design Expert Boundary
+
+The Creative Designer defines the conceptual and thematic foundation (the *what* and *why*), while the Visual Design Expert handles the systematic execution (the *how*). When mood boards or creative concepts conflict with design system constraints (e.g., a conceptual direction that cannot meet contrast requirements or scale across breakpoints), the Visual Design Expert raises the conflict and the two roles negotiate a resolution. If no agreement is reached, the Creative Designer's thematic intent is preserved and the Visual Design Expert documents alternative implementations that honor the intent within technical constraints.
+
 #### User Experience Expert
 
 ##### Responsibilities
@@ -253,7 +257,7 @@ The Content Strategist and UX Expert share ownership of Information Architecture
 * A/B Testing Framework  
 * Reporting Templates
 
-### Execution Phase Experts
+### Execution Experts
 
 #### Graphic Designer
 
@@ -349,8 +353,10 @@ The Content Strategist and UX Expert share ownership of Information Architecture
 
 ##### Responsibilities
 
-* Ensures WCAG 2.1 AA compliance (minimum)  
-* Reviews designs for inclusive patterns  
+* Ensures WCAG 2.1 AA compliance (minimum)
+* Reviews designs for inclusive patterns
+
+> **WCAG version note:** This protocol targets WCAG 2.1 AA as the minimum compliance standard throughout. Teams should review WCAG 2.2 (published October 2023) for additional success criteria — particularly 2.5.7 Dragging Movements, 2.5.8 Target Size (Minimum), and 3.3.7 Redundant Entry — and adopt applicable criteria where feasible.  
 * Validates screen reader compatibility  
 * Tests keyboard navigation  
 * Audits color contrast and visual accessibility
@@ -429,12 +435,25 @@ The Xperto SiteCraft model follows a gated workflow where each phase must produc
 | Website Goals & Value Propositions | Website Strategy Consultant | Strategic alignment score |
 | Strategic Foundation Package | Project Manager | Comprehensive review |
 
+##### Strategic Foundation Package
+
+The Strategic Foundation Package is a consolidated reference produced by the Project Manager that bundles all Phase 2 deliverables into a single handoff document for Phase 3. It contains:
+
+* Brand DNA Document (from Brand Strategist)
+* Voice Guidelines (from Communications Expert)
+* Target Audience Personas (from Market / User Research Specialist)
+* Website Goals & Value Propositions (from Website Strategy Consultant)
+* Strategic Alignment Assessment — a brief summary confirming that all deliverables are internally consistent, cross-referenced, and ready to inform Design phase work
+* Open questions or flags requiring resolution in early Phase 3
+
+> **Validation:** The Project Manager reviews all deliverables for internal consistency (e.g., Persona needs align with Website Goals, Voice Guidelines reflect Brand DNA personality). Any contradictions are flagged and resolved before the phase gate.
+
 ##### Gate Criteria
 
-- [ ] Brand DNA Document approved  
-- [ ] Voice Guidelines aligned with Brand DNA  
-- [ ] Personas validated by client  
-- [ ] Value propositions clearly differentiated  
+- [ ] Brand DNA Document approved
+- [ ] Voice Guidelines aligned with Brand DNA
+- [ ] Personas validated by client
+- [ ] Value propositions clearly differentiated
 - [ ] All experts aligned on strategic direction
 
 #### Phase 3: Design
@@ -481,17 +500,21 @@ Phase 3 deliverables have internal dependencies. The recommended sequencing is:
 | SEO Strategy Document | SEO Specialist | Technical review |
 | Analytics Implementation Plan | Analytics Architect | KPI alignment check |
 | **Style Guide Document** | Visual Design Expert | Implementation review |
+| Community Engagement Document (if applicable) | Website Strategy Consultant + UX Expert | Moderation feasibility review |
+| Video Integration Plan (if applicable) | Creative Designer | Production coordination review |
 | Design Package | Project Manager | Client presentation & approval |
 
 ##### Gate Criteria
 
-- [ ] Information architecture supports all user journeys  
-- [ ] Visual design system complete and documented  
-- [ ] Style Guide ready for development handoff  
-- [ ] At least 2 Flavors fully specified  
-- [ ] All page wireframes approved  
-- [ ] SEO requirements integrated into content briefs  
-- [ ] Analytics tracking plan approved  
+- [ ] Information architecture supports all user journeys
+- [ ] Visual design system complete and documented
+- [ ] Style Guide ready for development handoff
+- [ ] At least 2 Flavors fully specified
+- [ ] All page wireframes approved
+- [ ] SEO requirements integrated into content briefs
+- [ ] Analytics tracking plan approved
+- [ ] Community engagement scope validated (if applicable)
+- [ ] Video integration plan coordinated with production (if applicable)
 - [ ] Client sign-off on design direction
 
 #### Phase 4: Execution
@@ -532,6 +555,40 @@ Phase 3 deliverables have internal dependencies. The recommended sequencing is:
 - [ ] Content reviewed and approved  
 - [ ] Client final sign-off
 
+#### Phase 5: Post-Execution
+
+##### Duration
+
+Ongoing (initial setup: 1-2 weeks; then continuous)
+
+##### Activities
+
+* Website launch and deployment
+* Post-launch monitoring and stabilization
+* Performance baseline establishment
+* Knowledge transfer to client team
+* Ongoing maintenance and content updates
+* Analytics review and optimization cycles
+* Flavor activation management
+
+##### Exit Deliverables
+
+| Deliverable | Owner | Validation Method |
+| :---- | :---- | :---- |
+| Website Management Plan | Content Strategist | Client team readiness review |
+| Analytics Baseline Report | Analytics Architect | Data accuracy verification |
+| Training Documentation | Project Manager | Client team sign-off |
+| Post-Launch Optimization Recommendations | QA Expert + Analytics Architect | Data-driven justification |
+
+##### Gate Criteria
+
+- [ ] Website stable in production for 2+ weeks
+- [ ] Client team trained on content management
+- [ ] Analytics collecting accurate data
+- [ ] Post-launch issues resolved or documented
+- [ ] Maintenance plan activated and calendar set
+- [ ] Project retrospective completed
+
 ### Iteration Protocols
 
 #### Micro-Iterations (Within Phase)
@@ -558,19 +615,52 @@ Execution Insight → Design Review → Conceptualization Adjustment (if needed)
 
 ##### Triggers for Macro-Iteration
 
-* Technical constraints discovered during execution  
-* User testing reveals conceptual misalignment  
-* Performance requirements impact design decisions  
+* Technical constraints discovered during execution
+* User testing reveals conceptual misalignment
+* Performance requirements impact design decisions
 * Client feedback requires strategic adjustment
+
+#### Iteration Conflict Resolution
+
+When adjacent experts disagree during micro- or macro-iterations:
+
+1. **Document** — Both parties articulate their position with specific evidence (user data, brand alignment, technical constraints)
+2. **Reference** — Ground the discussion in project artifacts: Brand DNA, Website Goals, Target Audience Personas
+3. **Negotiate** — Experts attempt to find a solution that addresses both concerns within one iteration cycle
+4. **Escalate** — If unresolved after one cycle, the Project Manager arbitrates using this priority order:
+   * User data and testing results (highest weight)
+   * Brand DNA alignment
+   * Technical feasibility
+   * Expert domain expertise
+5. **Record** — Document the decision and rationale in the phase retrospective for future reference
+
+> **Iteration limits:** Micro-iterations should resolve within 2 cycles. If a third cycle is needed, the Project Manager must be involved. Macro-iterations require Project Manager approval before initiating.
 
 #### Retrospective Protocol
 
 At each phase gate, conduct a brief retrospective:
 
-* What worked well?  
-* What could be improved?  
-* What learnings apply to future phases?  
+* What worked well?
+* What could be improved?
+* What learnings apply to future phases?
 * What adjustments needed for this project?
+
+##### Output: Phase Retrospective Summary
+
+**Owner:** Project Manager
+
+The retrospective produces a "Phase Retrospective Summary" containing:
+
+| Section | Content |
+|---------|---------|
+| Phase | [Phase name and duration] |
+| Participants | [Roles involved] |
+| Strengths | [What worked well — specific examples] |
+| Improvements | [What could be improved — specific examples] |
+| Learnings | [Key insights for future phases] |
+| Action Items | [Specific changes to apply in next phase] |
+
+> **Feed-forward requirement:** Action items from the retrospective must be reviewed at the start of the next phase kickoff. The Project Manager is responsible for ensuring learnings are applied.
 
 ## WEBSITE STRUCTURE & ARCHITECTURE
 
@@ -584,7 +674,13 @@ This section defines the technical structure, modular architecture, and implemen
 /
 ├── index.html                    # Homepage
 ├── /about/
-│   └── index.html               # About page
+│   ├── index.html               # About overview
+│   ├── /team/
+│   │   └── index.html           # Team members
+│   ├── /process/
+│   │   └── index.html           # Methodology/process
+│   └── /values/
+│       └── index.html           # Mission, vision, values
 ├── /services/
 │   ├── index.html               # Services overview
 │   ├── /service-1/
@@ -599,6 +695,12 @@ This section defines the technical structure, modular architecture, and implemen
 │       └── index.html           # Individual post
 ├── /contact/
 │   └── index.html               # Contact page
+├── /resources/
+│   ├── index.html               # Resources overview
+│   ├── /guides/
+│   │   └── index.html           # Downloadable guides
+│   └── /faq/
+│       └── index.html           # Frequently asked questions
 ├── /assets/
 │   ├── /images/                 # Image assets
 │   ├── /videos/                 # Video assets
@@ -612,6 +714,7 @@ This section defines the technical structure, modular architecture, and implemen
 │   ├── components.css           # UI components
 │   ├── utilities.css            # Helper classes
 │   ├── animations.css           # Transitions and micro-interactions
+│   ├── theme.css                # Light/dark theme overrides and toggle component
 │   └── flavors/                 # Flavor variation overrides
 │       └── [flavor-name].css    # Per-flavor style overrides
 ├── /js/
@@ -624,6 +727,8 @@ This section defines the technical structure, modular architecture, and implemen
 │   ├── lazy-load.js             # Image/video lazy loading
 │   ├── animations.js            # Scroll animations, transitions
 │   ├── footer.js                # Dynamic footer injection
+│   ├── share.js                 # Social sharing modal and handlers
+│   ├── theme.js                 # Light/dark theme toggle, persistence, system preference detection
 │   └── video-player.js          # Video player controls
 └── /legal/
     ├── privacy/
@@ -660,6 +765,8 @@ Visual representation format for content architecture:
     ├── /privacy/       Privacy policy
     └── /terms/         Terms of service
 ```
+
+> **Directory Structure vs. Site Map:** The Directory Structure above defines the physical file organization on disk. The Site Map defines the logical content architecture as presented to users. Both should align on top-level sections, but the Site Map may include additional navigational groupings or content types that do not correspond 1:1 to physical directories (e.g., filtered views, tag-based listings). When adding pages, update both to maintain consistency.
 
 ### Multilingual Support
 
@@ -740,12 +847,13 @@ For each supported language, the Content Strategist should produce a Localizatio
 | File | Purpose | Contents |
 | :---- | :---- | :---- |
 | `fonts.css` | Typography imports | Google Fonts or self-hosted font declarations |
-| `variables.css` | Design tokens | Brand colors, spacing scale, typography tokens, breakpoints |
+| `variables.css` | Design tokens | Brand colors (light and dark theme values), spacing scale, typography tokens, breakpoints. Contains the full light/dark token cascade — see Light/Dark Theme System |
 | `layout.css` | Structural elements | Header, navigation, footer, main containers, grid system |
 | `typography.css` | Text styling | Headings, body text, links, lists, blockquotes |
 | `components.css` | UI components | Cards, buttons, forms, modals, alerts, badges |
 | `utilities.css` | Helper classes | Spacing utilities, display helpers, text alignment |
 | `animations.css` | Motion design | Transitions, keyframe animations, micro-interactions |
+| `theme.css` | Light/dark theme | Theme toggle component styles, dark-mode-specific overrides not covered by token swap, image filters, and `prefers-color-scheme` fallback |
 | `flavors/` | Flavor variations | Seasonal and contextual style overrides |
 
 ### Modular JavaScript Architecture
@@ -763,6 +871,8 @@ For each supported language, the Content Strategist should produce a Localizatio
 | `lazy-load.js` | Performance | Image/video lazy loading |
 | `animations.js` | Motion | Scroll animations, transitions |
 | `footer.js` | Footer injection | Dynamic footer with links and translations |
+| `share.js` | Social sharing | Share modal, platform URLs, Web Share API, clipboard fallback |
+| `theme.js` | Light/dark theme | Theme toggle, `localStorage` persistence, `prefers-color-scheme` detection, `data-theme` attribute management |
 | `video-player.js` | Video handling | Player controls, overlays, disclaimers |
 
 ### Web Framework Decision
@@ -1118,6 +1228,43 @@ All assets referenced with **absolute paths**:
 * Use **SVG icons** for all iconography — either from a curated library (Lucide, Heroicons) or custom-designed SVGs aligned with the Visual Design System.
 * SVG icons must be accessible: include `aria-label` or `aria-hidden="true"` with adjacent text labels as appropriate.
 
+#### Character & People Imagery Standards
+
+All imagery, illustrations, AI-generated visuals, and photography featuring people must follow these representation and styling guidelines. These apply to hero images, section images, persona illustrations, testimonial photos, team photos, marketing materials, and any visual content produced through the protocol.
+
+##### Character Representation
+
+* **Ethnicity and appearance:** Characters must be Hispanic, Mediterranean, and Latino. Feature dark hair consistently. Do not use Anglo-Saxon or Caucasian character representations.
+* **Diversity within scope:** Represent the full range of Hispanic, Mediterranean, and Latino communities — varying skin tones, ages, body types, and cultural backgrounds within these groups.
+* **Authenticity:** Avoid stereotypical or caricatured portrayals. Characters should look like real people in professional, everyday, or aspirational contexts appropriate to the brand.
+
+##### Wardrobe Guidelines
+
+| Context | Appropriate | Not Appropriate |
+|---------|-------------|-----------------|
+| **Professional / formal** | Tailored suits, blazers (lightweight fabrics), dress shirts, structured dresses, linen trousers | Heavy overcoats, layered winter business wear |
+| **Business casual** | Lightweight button-downs, polo shirts, chinos, sundresses, smart separates | Woven/wool sweaters, chunky knits, fleece |
+| **Casual** | Linen shirts, cotton tees, light dresses, shorts, tropical prints, sandals | Wool sweaters, heavy denim jackets, beanies |
+| **Active / outdoor** | Athletic wear, light jackets, sun-protective clothing | Parkas, ski wear, heavy boots |
+
+* **Climate:** All wardrobe choices must be suitable for warm weather and tropical climates. Fabrics should read as light, breathable, and comfortable — linen, cotton, silk, lightweight blends.
+* **Never use:** Woven sweaters, wool sweaters, heavy knits, cable-knit pullovers, thick scarves, winter hats, or cold-weather layering in any character imagery.
+* **Seasonal Flavors:** Even for winter-themed or holiday Flavors, characters should wear warm-weather interpretations — e.g., a festive linen guayabera rather than a Christmas sweater.
+
+##### Application Across Prompts
+
+These standards apply whenever an image brief, visual concept, or asset specification involves people:
+
+* Hero Image briefs (Creative Designer)
+* Section Image briefs (Graphic Designer)
+* Persona visual descriptions (Market / User Research Specialist)
+* Video production briefs (Creative Designer)
+* AI image generation prompts
+* Stock photography selection criteria
+* Illustration style guides
+
+> **Prompt enforcement:** When generating image briefs, include an explicit line: *"Characters: Hispanic/Mediterranean/Latino appearance, dark hair. Wardrobe: warm-weather appropriate — no wool, knit, or cold-climate clothing."*
+
 #### JavaScript Standards
 
 * ES6+ syntax with appropriate transpilation  
@@ -1126,6 +1273,168 @@ All assets referenced with **absolute paths**:
 * Meaningful variable and function names  
 * JSDoc comments for public methods  
 * Error handling and graceful degradation
+
+### AI Output Anti-Pattern Catalog
+
+LLMs generating design and content outputs gravitate toward the statistical mean of their training data — the most common layouts, the most frequent color choices, the most popular phrasing. The result is output that is immediately recognizable as AI-generated: generic, homogeneous, and devoid of brand personality. This catalog defines specific patterns to avoid across all SiteCraft deliverables. Every expert should cross-check their output against these lists before delivery.
+
+> **Cross-reference:** This catalog is enforced via the AI Self-Audit Protocol in the meta-template. The Creative Direction Document, Visual Design System, and all content prompts reference this section.
+
+#### Visual & CSS Anti-Patterns
+
+| Avoid | Why It's Generic | Instead |
+|-------|-----------------|---------|
+| Purple-to-blue gradients as primary accent | Statistically the most common AI-generated color choice | Derive palette from Brand DNA; use project-specific accent colors |
+| Neon glows / oversaturated accent colors (saturation > 85%) | AI defaults to high-saturation for "impact" | Calibrate saturation to brand personality; most professional brands sit at 50-75% |
+| Pure black (`#000000`) backgrounds | Harsh and uncommon in professional design | Use near-blacks (`#0A0A0A`–`#1A1A1A`) for depth; let Brand DNA drive tone |
+| Gradient text on large headings | Overused AI flourish with accessibility risks | Solid color headings; reserve gradients for small decorative accents if brand warrants |
+| Generic card shadows (`shadow-lg` with no customization) | Default framework elevation looks identical across AI sites | Define a project-specific shadow scale in design tokens |
+| Background images with heavy dark overlays for text contrast | Lazy solution to contrast; hides imagery | Use proper image selection, selective blur, or text-safe regions in layout |
+
+#### Typography Anti-Patterns
+
+| Avoid | Why It's Generic | Instead |
+|-------|-----------------|---------|
+| Inter, Roboto, or Open Sans as default without justification | The 3 most statistically likely AI font choices | Select typography that expresses brand personality; justify the choice in Creative Direction |
+| Oversized hero headings (`text-7xl`+) with no typographic hierarchy | AI gravitates to "bigger = more impactful" | Design a deliberate type scale where heading sizes serve information hierarchy |
+| Uniform font weight across all text (everything medium/regular) | Missed opportunity for visual rhythm | Use weight contrast intentionally: bold for emphasis, light for supporting text |
+| Lorem ipsum or placeholder text in deliverables | Signals unfinished work; masks content problems | Use real or realistic content from the Content Architecture; flag placeholders explicitly |
+
+#### Layout Anti-Patterns
+
+| Avoid | Why It's Generic | Instead |
+|-------|-----------------|---------|
+| 3-column equal-width card grid as default content layout | The single most common AI layout pattern | Choose layout based on content type: masonry, asymmetric grid, list, feature panels |
+| Everything centered on every page | AI defaults to `text-center` universally | Use alignment that serves content: left-align body text, center only hero/CTA where appropriate |
+| Identical section rhythm (alternating image-left/image-right) | Predictable and monotonous | Vary section patterns: full-bleed, overlapping, split-screen, cards, editorial columns |
+| Hero → 3-column features → testimonials → CTA → footer | The "standard AI landing page" skeleton | Design page flow from the brand's story arc and user journey (see Creative Direction Document) |
+
+#### Content & Copywriting Anti-Patterns
+
+| Avoid | Why It's Generic | Instead |
+|-------|-----------------|---------|
+| "Elevate", "Seamless", "Unleash", "Empower", "Revolutionize" | The 5 most overused AI marketing verbs | Use specific, concrete verbs from the brand's vocabulary |
+| "Welcome to [Brand]" as hero headline | Generic greeting; wastes prime real estate | Lead with the value proposition or a compelling hook |
+| "Your trusted partner in [industry]" | Indistinguishable from thousands of AI-generated sites | State what the brand actually does differently, in its own voice |
+| Round placeholder metrics ("99.9%", "10,000+", "24/7") | Feels fabricated; AI defaults to impressive-sounding round numbers | Use real data; if unavailable, flag as TBD rather than inventing numbers |
+| "John Doe", "Jane Smith", "Acme Corp" in examples | Signals generic AI output | Use culturally appropriate names from the target audience; align with Character & People Imagery Standards |
+| "Lorem ipsum" or "Click here" | Placeholder text and non-descriptive link text | Write real microcopy; use descriptive link text ("View our services", "Read the case study") |
+
+#### Component & Interaction Anti-Patterns
+
+| Avoid | Why It's Generic | Instead |
+|-------|-----------------|---------|
+| Default unstyled framework components (shadcn/ui, Bootstrap, MUI out of the box) | Instantly recognizable as uncustomized | Customize components to match design tokens; no default theme should ship to production |
+| Hamburger menu on desktop viewports | AI sometimes applies mobile patterns to all viewports | Use hamburger for mobile only; desktop gets full navigation |
+| Decorative animations with no purpose | AI adds animation for visual interest without intent | Every animation should serve a UX goal: guide attention, provide feedback, show state change |
+| Custom cursor effects | Accessibility hazard; overused AI flourish | Preserve native cursor behavior; use hover states on interactive elements instead |
+
+> **This is not exhaustive.** Each project may identify additional anti-patterns specific to its industry or competitive landscape. The Creative Direction Document should include a "Differentiation Analysis" section (already in the prompt template) that identifies competitor patterns to avoid.
+
+### Landing Page Pattern Library
+
+When designing page layouts, the Creative Designer and Content Strategist should draw from established page patterns rather than defaulting to the generic "hero → 3 features → testimonials → CTA" skeleton (see AI Output Anti-Pattern Catalog). This library provides a shared vocabulary of named patterns. Each pattern defines a section flow, best-for guidance, and conversion strategy.
+
+> **Cross-reference:** The Creative Direction Document references this library in Section 3 (Recommended Concept) and Section 7 (Concept Adaptation Notes). The Content Architecture Document uses these patterns for page-level content briefs.
+
+#### Page Patterns
+
+| Pattern | Section Flow | Best For | Conversion Strategy |
+|---------|-------------|----------|-------------------|
+| **Hero-Centric** | Hero (full-viewport) → Value proposition → Supporting evidence → CTA | Brand launches, single-product pages, high-impact campaigns | Strong singular message; one primary CTA above the fold |
+| **Storytelling Scroll** | Opening scene → Problem → Journey → Solution → Transformation → CTA | Brand origin stories, case studies, mission-driven organizations | Emotional arc builds to conversion; CTA appears at narrative climax |
+| **Feature Showcase** | Hero → Feature deep-dives (alternating layouts) → Comparison → CTA | SaaS products, multi-feature services, technical products | Each feature section has a secondary CTA; primary CTA after comparison |
+| **Social Proof-Led** | Hero with testimonial → Client logos → Results/stats → Case studies → CTA | Consulting, agencies, B2B services, professional services | Trust signals front-loaded; CTA follows credibility build |
+| **Funnel (Multi-Step)** | Awareness (hero) → Interest (benefits) → Consideration (proof) → Decision (pricing/comparison) → Action (CTA) | E-commerce, subscription services, SaaS pricing pages | Progressive disclosure; reduce friction at each step |
+| **Editorial / Magazine** | Featured article → Grid of stories → Sidebar/categories → Newsletter CTA | Blogs, news sites, content-heavy brands, media companies | Content as conversion; newsletter and engagement CTAs throughout |
+| **Portfolio Gallery** | Hero statement → Filterable project grid → Selected case study → Contact CTA | Creative agencies, designers, photographers, architects | Visual work as proof; CTA follows portfolio browsing |
+| **Comparison / Versus** | Problem statement → Option A vs. Option B → Why-us differentiators → CTA | Competitive markets, migration campaigns, "switch to us" messaging | Position against alternatives; CTA after differentiation is clear |
+| **FAQ / Resource Hub** | Hero → Categorized FAQ or resource grid → Search → Contact fallback CTA | Support pages, knowledge bases, educational services | Self-service first; human contact as escalation CTA |
+| **Waitlist / Coming Soon** | Teaser hero → Vision statement → Early-access benefits → Email capture CTA | Pre-launch products, beta programs, upcoming events | Scarcity and exclusivity; single-field email CTA |
+| **Dashboard Landing** | Hero with product screenshot → Key metrics/results → Feature walkthrough → Integration logos → Free trial CTA | SaaS dashboards, analytics tools, admin panels | Show the product in action; trial CTA with low commitment |
+| **Local / Service Area** | Hero with location context → Services grid → Map/locations → Reviews → Contact CTA | Local businesses, multi-location services, restaurants, clinics | Location relevance; contact/booking CTA with map proximity |
+
+#### Using Patterns
+
+* Patterns are starting points, not rigid templates — adapt section order and content to the project's story arc and audience
+* Combine patterns when appropriate (e.g., Hero-Centric hero with Social Proof-Led body)
+* The Creative Direction Document should name the selected pattern(s) and justify the choice
+* Each Flavor may warrant a different emphasis within the same pattern (e.g., a holiday Flavor might foreground seasonal offers within a Feature Showcase)
+
+### UI Style Vocabulary
+
+A shared vocabulary of named visual styles used by the Creative Designer, Visual Design Expert, and client to communicate design direction precisely. When a style is selected in the Creative Direction Document, its characteristics carry forward into the Visual Design System and Style Guide.
+
+> **Usage:** These styles are reference anchors, not rigid prescriptions. A project may blend two styles (e.g., "Minimalist with Glassmorphic cards") or define a custom style using this vocabulary as contrast points.
+
+| Style | Key Characteristics | CSS Signatures | Best For | Caution |
+|-------|-------------------|----------------|----------|---------|
+| **Minimalism** | Maximum whitespace, limited color palette (2-3 colors), clean typography, invisible UI chrome | `background: white`, large `padding`/`gap`, minimal `border`, no `box-shadow` | Luxury brands, portfolios, editorial, fashion | Can feel cold or empty without strong typography and content |
+| **Glassmorphism** | Frosted glass panels, backdrop blur, translucent overlays, layered depth, subtle light borders | `backdrop-filter: blur(10-20px)`, `background: rgba(255,255,255,0.1-0.3)`, `border: 1px solid rgba(255,255,255,0.2)` | Dashboards, SaaS, modern apps, dark-mode-forward products | Performance cost of `backdrop-filter`; ensure text contrast through glass |
+| **Neumorphism (Soft UI)** | Soft extruded/inset elements, monochromatic palette, dual shadows (light + dark), tactile feel | Dual `box-shadow` (light source + shadow), `background` matching parent, `border-radius: 12-20px` | Settings panels, calculator UIs, music players, personal tools | Poor accessibility for low-contrast elements; avoid for text-heavy pages |
+| **Brutalism** | Raw aesthetic, high contrast, exposed grid, system fonts or monospace, intentional "undesigned" feel | `font-family: monospace`, hard `border`, `background: black/white`, no `border-radius`, visible `outline` | Art, experimental brands, counter-cultural identities, tech/dev culture | Polarizing; requires strong brand justification; accessibility challenges |
+| **Editorial / Print** | Magazine-inspired, strong typographic hierarchy, columnar layouts, generous leading, pull quotes | CSS `columns`, large `line-height`, `font-size` contrast between heading/body, `letter-spacing` variation | Content-heavy sites, blogs, publications, thought leadership | Requires excellent typography choices; content must be high quality |
+| **Bento Grid** | Card-based modular layout with varying sizes, clean borders, consistent spacing, info-dense yet organized | CSS `grid` with `span` variations, consistent `gap`, `border-radius: 12-16px`, subtle `border` | Dashboards, feature overviews, portfolios, product showcases | Can feel generic if card sizes don't follow a meaningful hierarchy |
+| **Organic / Liquid** | Curved shapes, blob forms, soft gradients, flowing layouts, biomorphic elements | `border-radius: 40-60%`, SVG blob backgrounds, gradient `background`, non-rectangular `clip-path` | Wellness, creative agencies, children's brands, sustainability | Shapes must serve content, not decorate; performance cost of complex SVGs |
+| **Corporate / Enterprise** | Structured grid, neutral palette, conventional navigation, data tables, professional restraint | Standard `max-width` containers, `table` layouts, subdued `color`, `font-weight: 400-600` | Finance, legal, healthcare, government, B2B enterprise | Professional ≠ boring; use Brand DNA to inject personality within structure |
+| **High Contrast / Bold** | Stark black-white foundation with one vibrant accent, oversized type, dramatic whitespace | `color: black`, `background: white`, single accent `color`, `font-size` extremes, `font-weight: 900` | Fashion, music, sports, campaigns, activist brands | Accent color must be used sparingly; avoid neon (see Anti-Pattern Catalog) |
+| **Retro / Nostalgic** | Era-specific aesthetics (80s neon, 90s web, Y2K, vintage print), period-appropriate typography, textured backgrounds | `background-image: texture`, `border-style: groove/ridge`, themed `font-family`, grain/noise `filter` | Entertainment, food & beverage, themed campaigns, cultural events | Nostalgia must be intentional; requires deep commitment to the era's visual language |
+
+> **Selection rule:** The Creative Direction Document must name the primary style (and any secondary blend) with rationale tied to Brand DNA. "Minimalism because it's clean" is insufficient — explain *how* the style expresses this brand's specific personality and differentiates from competitors.
+
+### Data Visualization Guidelines
+
+For sites that include charts, graphs, dashboards, or data-driven content, the Visual Design System must extend into data visualization. These guidelines ensure charts are accessible, on-brand, and performant.
+
+#### Chart Type Selection
+
+| Data Relationship | Recommended Chart | When to Avoid |
+|------------------|-------------------|---------------|
+| **Comparison** (A vs. B vs. C) | Bar chart (vertical or horizontal) | Avoid if more than 10 items — use sorted horizontal bar |
+| **Trend over time** | Line chart, area chart | Avoid area chart if multiple overlapping series |
+| **Part of whole** | Donut chart, stacked bar | Avoid pie charts (poor readability); donut only for 2-5 segments |
+| **Distribution** | Histogram, box plot | Avoid for non-technical audiences — use simplified alternatives |
+| **Correlation** | Scatter plot | Avoid without clear axis labels and trend line |
+| **Geographic** | Choropleth map, dot map | Avoid without clear legend and colorblind-safe palette |
+| **Progress / KPI** | Single-number card, gauge, progress bar | Avoid gauges for precise values — use number + sparkline |
+| **Ranking** | Horizontal bar chart (sorted) | Avoid vertical bar if labels are long |
+| **Flow / Process** | Sankey diagram, funnel chart | Avoid if the audience is non-technical |
+| **Hierarchical** | Treemap, sunburst | Avoid if more than 3 levels deep |
+
+#### Visualization Accessibility
+
+* All chart colors must meet WCAG 2.1 AA contrast (3:1 against background)
+* Never rely on color alone — use patterns, labels, or shapes as secondary differentiators
+* Provide a text summary or `aria-label` for every chart (e.g., "Bar chart showing revenue growth of 23% in Q3")
+* Interactive charts must be keyboard-navigable (arrow keys to move between data points, Enter/Space to activate)
+* Use `aria-live="polite"` regions for dynamically updating data (dashboards)
+* Respect `prefers-reduced-motion` — disable animated chart entrances when active
+
+#### Chart Design Tokens
+
+Charts must use the project's design token system:
+
+| Token | Applies To |
+|-------|-----------|
+| `--chart-color-1` through `--chart-color-6` | Data series colors (derived from brand palette; must be distinguishable in grayscale) |
+| `--chart-axis-color` | Axis lines and tick marks |
+| `--chart-grid-color` | Background grid lines (subtle, low-contrast) |
+| `--chart-label-font` | Axis labels and legends (use body font at caption size) |
+| `--chart-tooltip-bg` | Tooltip background (follows component tooltip pattern) |
+
+> **Dark mode:** Chart colors often need adjustment for dark backgrounds — lighter, less saturated variants of the same hues. Include both light and dark values in the token system, following the Light/Dark Theme cascade.
+
+#### Library Recommendations
+
+| Library | Rendering | Best For | Performance |
+|---------|-----------|----------|-------------|
+| **Chart.js** | Canvas | Simple charts, quick implementation, small bundle | Good; canvas-based = fast rendering |
+| **D3.js** | SVG/Canvas | Custom visualizations, complex interactions, full control | Heavy; use only when simpler libraries are insufficient |
+| **Recharts** | SVG (React) | React projects, declarative API, responsive charts | Good; tree-shakeable |
+| **Apache ECharts** | Canvas/SVG | Large datasets, real-time dashboards, geographic maps | Excellent for large data; heavier initial bundle |
+| **Lightweight alternatives** | Varies | Sparklines, single-metric displays, micro-charts | Use CSS-only or `<canvas>` for simple indicators |
+
+> **Framework integration:** The Web Framework Decision (see Design section) determines which chart library is appropriate. For SSG sites, prefer libraries that support server-side rendering or static image export.
 
 ### Responsive Breakpoints
 
@@ -1137,6 +1446,30 @@ All assets referenced with **absolute paths**:
 | `lg` | 1024px | 1279px | Small laptops |
 | `xl` | 1280px | 1535px | Desktops |
 | `2xl` | 1536px | ∞ | Large screens |
+
+#### CSS Custom Properties & Media Queries
+
+The breakpoint system uses a mobile-first approach with `min-width` media queries. Define breakpoint values as CSS custom properties in `variables.css`:
+
+```css
+:root {
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  --bp-2xl: 1536px;
+}
+
+/* Mobile-first media query pattern */
+/* Base styles: xs (0-639px) — no media query needed */
+@media (min-width: 640px)  { /* sm */ }
+@media (min-width: 768px)  { /* md */ }
+@media (min-width: 1024px) { /* lg */ }
+@media (min-width: 1280px) { /* xl */ }
+@media (min-width: 1536px) { /* 2xl */ }
+```
+
+> **Note:** CSS custom properties cannot be used directly in media queries. The values above are for reference; use the literal pixel values in `@media` rules. If using a preprocessor or PostCSS, map these to build-time variables.
 
 ### Performance Standards
 
@@ -1155,18 +1488,20 @@ All assets referenced with **absolute paths**:
 
 For each page, the workflow defines:
 
-* **Title** — Page title and SEO title  
-* **Byline or Subtitle** — Supporting headline  
-* **Hero Image/Video** — Primary visual  
-* **Goal of the page** — What this page must accomplish  
-* **Nature of the page** — Informative, interactive, sales, support, institutional, reference, etc.  
-* **Introductory paragraph** — Opening content  
-* **Sections of the page** — Content blocks with hierarchy  
-* **Media elements** — Images, videos, graphics needed  
-* **External reference links** — Outbound links  
-* **Internal links and CTAs** — Navigation and conversion elements  
-* **SEO specifications** — Keywords, metadata, schema  
-* **Accessibility requirements** — ARIA labels, alt text, etc.
+| Element | Description | i18n Requirement |
+|---------|-------------|-----------------|
+| **Title** | Page title and SEO title | Translated per language; SEO title may vary by market |
+| **Byline or Subtitle** | Supporting headline | Translated; may adapt culturally |
+| **Hero Image/Video** | Primary visual | May need regional variants; alt text translated |
+| **Goal of the page** | What this page must accomplish | Internal reference — not translated |
+| **Nature of the page** | Informative, interactive, sales, support, institutional, reference, etc. | Internal reference — not translated |
+| **Introductory paragraph** | Opening content | Fully translated and localized |
+| **Sections of the page** | Content blocks with hierarchy | Fully translated; section order may vary by locale |
+| **Media elements** | Images, videos, graphics needed | Alt text translated; captions/subtitles per language |
+| **External reference links** | Outbound links | Locale-appropriate link targets where available |
+| **Internal links and CTAs** | Navigation and conversion elements | CTA text translated; link targets use locale prefix |
+| **SEO specifications** | Keywords, metadata, schema | Per-language keyword research and metadata |
+| **Accessibility requirements** | ARIA labels, alt text, etc. | All ARIA labels and alt text translated per language |
 
 #### HTML TEMPLATE
 
@@ -1174,9 +1509,18 @@ Standard HTML boilerplate for all pages:
 
 ```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <!-- Google Analytics -->
+    <!-- Theme anti-flash: apply saved theme before any rendering to prevent a flash of wrong theme -->
+    <script>
+        (function(){var t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.setAttribute('data-theme','dark')}})();
+    </script>
+    <meta name="color-scheme" content="light dark">
+
+    <!-- Google Analytics (GA4 tracking snippet — loads the measurement library) -->
+    <!-- Note: analytics.js (in /js/) provides an abstraction layer for custom events,
+         conversion tracking, and Flavor-aware analytics. It builds on top of this
+         base GA4 snippet — the two are complementary, not duplicative. -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -1191,11 +1535,29 @@ Standard HTML boilerplate for all pages:
     <title>Page Title | Brand Name</title>
     <meta name="description" content="Page description for SEO (150-160 characters)">
     
-    <!-- Open Graph -->
-    <meta property="og:title" content="Page Title | Brand Name">
-    <meta property="og:description" content="Page description">
-    <meta property="og:image" content="/assets/images/og-image.jpg">
+    <!-- Open Graph (all URLs must be absolute) -->
+    <meta property="og:title" content="Page Title">
+    <meta property="og:description" content="Page description (150-160 characters)">
+    <meta property="og:image" content="https://www.domain.com/assets/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="Description of what the image shows">
     <meta property="og:url" content="https://www.domain.com/page/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Brand Name">
+    <meta property="og:locale" content="en_US">
+    <!-- For multilingual sites, add one per alternate language: -->
+    <meta property="og:locale:alternate" content="es_ES">
+
+    <!-- Twitter/X Card (twitter: prefix remains standard despite X rebrand) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@brandhandle">
+    <meta name="twitter:creator" content="@authorhandle">
+    <meta name="twitter:title" content="Page Title">
+    <meta name="twitter:description" content="Page description">
+    <meta name="twitter:image" content="https://www.domain.com/assets/images/og-image.jpg">
+    <meta name="twitter:image:alt" content="Description of what the image shows">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/assets/logos/favicon-brand.png">
@@ -1206,13 +1568,14 @@ Standard HTML boilerplate for all pages:
     <link rel="stylesheet" href="/css/layout.css">
     <link rel="stylesheet" href="/css/typography.css">
     <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/theme.css">
 
     <!-- Page-specific styles (if needed) -->
     <style>/* Minimal page-specific overrides only */</style>
 </head>
 <body>
     <!-- Header placeholder (injected by nav.js) -->
-    <div id="site-nav"></div>
+    <nav id="site-nav"></nav>
 
     <!-- Main Content -->
     <main>
@@ -1226,12 +1589,14 @@ Standard HTML boilerplate for all pages:
     </main>
 
     <!-- Footer placeholder (injected by footer.js) -->
-    <div id="site-footer"></div>
+    <footer id="site-footer"></footer>
 
     <!-- Shared JS Modules -->
     <script src="/js/i18n.js"></script>
     <script src="/js/nav.js"></script>
     <script src="/js/footer.js"></script>
+    <script src="/js/share.js"></script>
+    <script src="/js/theme.js"></script>
 
     <!-- Page-specific translations and logic -->
     <script>
@@ -1249,26 +1614,313 @@ Standard HTML boilerplate for all pages:
 </html>
 ```
 
+#### Article/Blog Post Meta Tag Variant
+
+For blog posts and articles, replace `og:type` with `article` and add article-specific metadata:
+
+```html
+    <!-- Open Graph: Article type (replaces og:type "website" on blog/post pages) -->
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-02-17T10:00:00Z">
+    <meta property="article:modified_time" content="2026-02-17T12:30:00Z">
+    <meta property="article:author" content="https://www.domain.com/about/team/">
+    <meta property="article:section" content="Category Name">
+    <meta property="article:tag" content="keyword1">
+    <meta property="article:tag" content="keyword2">
+```
+
+> **When to use:** Any page with dated, authored content — blog posts, news articles, case studies. The `article:published_time` and `article:modified_time` values must be ISO 8601 format. Platforms like Facebook, LinkedIn, and Pinterest use these for rich preview cards.
+
+#### OG Image Specifications
+
+All `og:image` and `twitter:image` values **must be absolute URLs** (e.g., `https://www.domain.com/assets/images/og-image.jpg`). Relative paths will fail silently on most platforms.
+
+| Property | Requirement |
+|----------|-------------|
+| **Dimensions** | 1200 × 630 px (1.91:1 aspect ratio) — universal across platforms |
+| **Format** | JPEG for photographs; PNG for graphics, text overlays, or transparency |
+| **File size** | Under 300 KB (required for WhatsApp); under 1 MB for all other platforms |
+| **Maximum** | 5 MB practical maximum; 8 MB Facebook hard limit |
+| **Color space** | sRGB |
+| **Safe zone** | Keep critical content (text, logos) within the center 80% — platforms crop differently |
+
+| Platform | Recommended Size | Notes |
+|----------|-----------------|-------|
+| Facebook / Meta | 1200 × 630 | Standard OG; text-heavy images may be penalized in ads |
+| X / Twitter | 1200 × 675 | 16:9 aspect; minimum 300 × 157 |
+| LinkedIn | 1200 × 627 | Minimum 1200 px wide or 627 px tall |
+| WhatsApp | 1200 × 630 | **Strict 300 KB file size limit** — compress aggressively |
+| Pinterest | 1200 × 630 | For link previews; native pins prefer 1000 × 1500 (2:3) |
+| Discord / Slack / Telegram | 1200 × 630 | All read standard OG tags |
+
+> **One image for all platforms:** A single 1200 × 630 JPEG under 300 KB works everywhere. Include `og:image:width`, `og:image:height`, and `og:image:type` so platforms can render the preview card immediately without fetching and measuring the image first.
+
+#### Social Meta Tag Fallback Behavior
+
+Not all tags need to be duplicated between OG and Twitter. X/Twitter falls back to OG tags when its own tags are absent:
+
+| Twitter Tag | Falls Back To | Must Be Explicit? |
+|-------------|---------------|-------------------|
+| `twitter:card` | *(no fallback)* | **Yes — always required** |
+| `twitter:title` | `og:title` | No (but recommended for length control) |
+| `twitter:description` | `og:description` | No (but recommended) |
+| `twitter:image` | `og:image` | No |
+| `twitter:image:alt` | `og:image:alt` | No |
+| `twitter:site` | *(no fallback)* | Yes — brand @handle |
+| `twitter:creator` | *(no fallback)* | Yes — author @handle (if applicable) |
+
+LinkedIn, WhatsApp, Facebook, Slack, Discord, and Telegram all read standard OG tags exclusively — no proprietary tag namespaces.
+
+> **Cache clearing:** After updating OG tags, use platform debugger tools to refresh cached previews: Facebook Sharing Debugger, LinkedIn Post Inspector, X Card Validator.
+
 ### Footer Structure
 
-Standard footer layout and links:
+Standard footer layout and content areas:
 
 ```
-[Brand Companies/Links]
-Company A | Company B | Company C | Company D
-
-© [Year] [Brand Name]. All rights reserved.
-
-[Parent Brand Logo]
+┌─────────────────────────────────────────────────────────────┐
+│  [Brand Logo]                                               │
+│                                                             │
+│  Navigation          Resources        Connect              │
+│  ├── About           ├── FAQ          ├── Twitter/X         │
+│  ├── Services        ├── Guides       ├── LinkedIn          │
+│  ├── Portfolio       └── Blog         ├── Instagram         │
+│  └── Contact                          └── YouTube           │
+│                                                             │
+│  ─────────────────────────────────────────────────────────  │
+│  [Brand Companies/Links]                                    │
+│  Company A | Company B | Company C | Company D              │
+│                                                             │
+│  © [Year] [Brand Name]. All rights reserved.                │
+│  Privacy Policy | Terms of Service | Accessibility Statement│
+│                                                             │
+│  [Parent Brand Logo]                                        │
+└─────────────────────────────────────────────────────────────┘
 ```
 
 #### Footer Implementation
 
-* Dynamic injection via `footer.js`  
-* Translatable content with `data-i18n` attributes  
-* Links to related brands/companies  
-* Copyright with dynamic year  
+* Dynamic injection via `footer.js`
+* Translatable content with `data-i18n` attributes
+* Links to related brands/companies
+
+#### Footer Accessibility Requirements
+
+* The `<footer>` element serves as a landmark (`role="contentinfo"` is implicit)
+* Social media links must include accessible names (e.g., `aria-label="Follow us on LinkedIn"`)
+* Legal links (Privacy, Terms, Accessibility) must be present and keyboard-navigable
+* Footer navigation uses a `<nav aria-label="Footer navigation">` wrapper
+* All footer content must meet WCAG 2.1 AA contrast ratios against the footer background
+* Copyright with dynamic year
 * Optional: Social media links, contact info, legal links
+
+### Social Sharing Architecture
+
+Every shareable element on the site should provide a frictionless, on-page sharing experience. Instead of navigating users away from the page, sharing opens an in-page modal that lets users select a platform, preview the share content, and confirm — then returns them to exactly where they were.
+
+#### Share Levels
+
+Sharing applies at three distinct levels, each with its own data context:
+
+| Level | What is Shared | Where the Share Icon Appears | Share Data Source |
+|-------|---------------|------------------------------|-------------------|
+| **Site-level** | The website itself | Header, footer, or persistent floating action | Site-wide OG tags (`og:site_name`, homepage URL, brand image) |
+| **Page-level** | The current page | Page header area, end of content, floating action | Page-specific OG/meta tags (`og:title`, `og:description`, `og:image`, `og:url`) |
+| **Item-level** | An individual content item (article, service, portfolio piece, product, etc.) | Inline with each item in lists, cards, or detail views | Item-specific structured data: title, description, image, and canonical URL |
+
+#### Share Data Model
+
+Every shareable element exposes four pieces of information to the share modal:
+
+| Field | Source | Fallback |
+|-------|--------|----------|
+| **Title** | `og:title` / item heading / `<title>` | Page `<title>` stripped of site name suffix |
+| **Description** | `og:description` / item excerpt / `meta[name=description]` | First 160 characters of visible content |
+| **Image** | `og:image` / item featured image | Site-wide default share image — must be absolute URL, 1200×630 px, under 300 KB (see OG Image Specifications) |
+| **URL** | `og:url` / item canonical URL | `window.location.href` (cleaned of tracking parameters) |
+
+> **Absolute URLs required:** All image and URL values passed to share platforms must be fully qualified (`https://...`). Relative paths will fail on external platforms.
+
+These values are passed to the share modal via `data-share-*` attributes on the share trigger element:
+
+```html
+<!-- Page-level share trigger -->
+<button class="share-trigger"
+    data-share-title="Page Title"
+    data-share-description="Page description"
+    data-share-image="/assets/images/page-og.jpg"
+    data-share-url="https://www.domain.com/page/"
+    aria-label="Share this page">
+    <svg class="icon-share" aria-hidden="true"><!-- share icon --></svg>
+</button>
+
+<!-- Item-level share trigger (inside a card or list item) -->
+<button class="share-trigger"
+    data-share-title="Article Title"
+    data-share-description="Article excerpt..."
+    data-share-image="/assets/images/articles/article-thumb.jpg"
+    data-share-url="https://www.domain.com/blog/article-slug/"
+    aria-label="Share Article Title">
+    <svg class="icon-share" aria-hidden="true"><!-- share icon --></svg>
+</button>
+```
+
+#### Share Modal Behavior
+
+The share modal is a single, reusable component injected by `share.js`. When a user clicks any share trigger:
+
+1. **Modal opens** as an overlay — the page remains in place behind a dimmed backdrop
+2. **Preview** — the modal displays the share image (thumbnail), title, and description so the user sees exactly what will be shared
+3. **Platform icons** — a row of SVG platform icons (see below) lets the user pick a destination
+4. **Platform action** — clicking a platform icon opens the platform's share intent in a **new window/tab** (not a navigation), pre-populated with the share data
+5. **Copy link** — a "Copy link" button copies the URL to the clipboard with a brief confirmation toast
+6. **Web Share API** — on supported devices, show a "More options..." button inside the modal that invokes `navigator.share()`. This is an **additional** option alongside the platform icons, not a replacement or gate
+7. **Close** — the modal closes on backdrop click, Escape key, or explicit close button, returning focus to the trigger element
+
+> **Key principle:** The user never leaves the page. Platform share windows open separately. The modal is the only UI that overlays the current page. **Always show the modal** when the share trigger is clicked — never bypass it with `navigator.share()` directly, because the native share sheet on most desktop browsers lacks specific social platform options (X, WhatsApp, LinkedIn, etc.). The modal guarantees a consistent, platform-rich experience across all devices.
+
+#### Share Platforms
+
+| Platform | Share URL Pattern | Icon |
+|----------|-------------------|------|
+| X (Twitter) | `https://twitter.com/intent/tweet?text={title} — {description}&url={url}` | SVG bird/X mark |
+| Facebook | `https://www.facebook.com/sharer/sharer.php?u={url}` | SVG "f" |
+| LinkedIn | `https://www.linkedin.com/sharing/share-offsite/?url={url}` | SVG "in" |
+| WhatsApp | `https://api.whatsapp.com/send?text=*{title}*%0A{description}%0A{url}` | SVG phone |
+| Email | `mailto:?subject={title}&body={description}%0A%0A{url}` | SVG envelope |
+| Copy Link | Clipboard API with toast confirmation | SVG link/chain |
+| Native Share | `navigator.share({ title, text, url })` — additional option inside modal | SVG share (OS-native) |
+
+> **Configuration:** The set of platforms shown is project-specific. `share.js` accepts a configuration array so platforms can be added, removed, or reordered per project. At minimum, include Copy Link and one social platform.
+
+#### SVG Icon Specifications
+
+Share icons follow the project's Iconography Standards:
+
+| Attribute | Specification |
+|-----------|---------------|
+| Format | Inline SVG (not icon font, not raster) |
+| Viewbox | `0 0 24 24` (consistent with Lucide or equivalent) |
+| Stroke width | `2px` for share action icons; platform brand icons may use fills |
+| Color | Inherits `currentColor` for share action icons; platform icons use official brand colors or monochrome per Style Guide |
+| Size | `1.25rem` (inline with text/cards), `1.5rem` (standalone buttons) |
+| Hover | Color transition to `--color-primary` (0.2s ease) |
+| Active state | Brief scale pulse (`transform: scale(0.95)`) for tactile feedback |
+
+The **share trigger icon** (the icon that opens the modal) should be a single, recognizable share symbol — either the standard "share" glyph (box with arrow) or a simple "nodes" icon. It must be visually distinct from social platform icons to avoid confusion between "share this" and "follow us."
+
+#### Accessibility Requirements
+
+* Share trigger buttons use `<button>` elements with `aria-label="Share [item title]"`
+* Modal traps focus while open (per Modal/Dialog component pattern)
+* Modal closes on `Escape` and returns focus to the trigger element
+* Platform links have accessible names (e.g., `aria-label="Share on LinkedIn"`)
+* SVG icons use `aria-hidden="true"` — the accessible name comes from the button/link
+* Copy Link provides a visible confirmation (toast with `role="status"`)
+* All share icons meet WCAG 2.1 AA contrast against their background
+
+#### i18n Considerations
+
+* Modal UI text ("Share", "Copy link", "Link copied!", platform names) is translatable via `data-i18n` attributes
+* Share text (title, description) uses the page's current language variant
+* Share URLs use the localized page URL (e.g., `/es/servicios/` not `/services/`)
+* The `{title}` and `{description}` values passed to platform URLs must be URI-encoded
+
+### Light/Dark Theme System
+
+Every site built with SiteCraft includes a light/dark theme toggle. This is not optional — both themes are first-class design deliverables. The theme system is **orthogonal to the Flavor System**: theme controls luminance (light vs. dark backgrounds), while Flavors control chromatic identity (brand, seasonal, contextual). Every Flavor must work in both light and dark modes.
+
+#### Architecture Overview
+
+The theme system uses two independent `data-*` attributes on the `<html>` element:
+
+| Attribute | Purpose | Values | Default |
+|-----------|---------|--------|---------|
+| `data-theme` | Controls light/dark mode | `"light"`, `"dark"` | `"light"` |
+| `data-flavor` | Controls chromatic variation | `"[flavor-name]"` or absent for base | absent (base brand) |
+
+These attributes are fully independent. Any combination is valid: base light, base dark, holiday-warmth light, holiday-warmth dark, etc.
+
+#### Token Cascade
+
+Design tokens resolve through a four-layer CSS specificity cascade:
+
+```
+Layer 1: :root { }                                         → Base light tokens (default)
+Layer 2: :root[data-theme="dark"] { }                      → Dark theme overrides
+Layer 3: :root[data-flavor="name"] { }                     → Flavor overrides (both themes)
+Layer 4: :root[data-flavor="name"][data-theme="dark"] { }  → Flavor + dark compound
+```
+
+Each layer only overrides the tokens it needs to change. Compound selectors in Layer 4 are naturally more specific than single-attribute selectors, so no `!important` is needed. See the Style Guide template (Appendix C: Flavor System Integration) for the full CSS pattern.
+
+#### Theme Toggle UI
+
+The theme toggle is a persistent UI element visible on every page:
+
+* **Position:** Header/navigation bar, typically near the language switcher
+* **Control type:** A single button (not a checkbox or switch) that toggles between light and dark
+* **Icon:** Sun icon for light mode, moon icon for dark mode — the icon shows the *current* theme (not the target)
+* **Accessible name:** `aria-label="Switch to dark theme"` / `aria-label="Switch to light theme"` (dynamic)
+* **Transition:** Smooth color transitions on theme change (`transition: background-color 0.3s ease, color 0.3s ease` on relevant elements)
+
+#### Persistence Strategy
+
+`theme.js` manages theme state with the following priority:
+
+1. **User preference** — stored in `localStorage` under the key `theme` (value: `"light"` or `"dark"`)
+2. **System preference** — `prefers-color-scheme` media query (if no `localStorage` value exists)
+3. **Default** — light theme (if neither of the above is available)
+
+When the user clicks the toggle:
+1. The new theme value is written to `localStorage`
+2. `data-theme` on `<html>` is updated immediately
+3. A custom event `site-theme-change` is dispatched with `detail: { theme: "light"|"dark" }` so other modules (analytics, Flavor system) can react
+
+#### Anti-Flash Script
+
+To prevent a flash of the wrong theme on page load, a small inline `<script>` in `<head>` (before any CSS) reads `localStorage` and the system preference, then sets `data-theme` on the document element synchronously. This runs before the first paint. See the HTML Template for the exact implementation.
+
+#### CSS Implementation Notes
+
+* `theme.css` contains: theme toggle component styles, dark-mode-specific adjustments not covered by token swaps (e.g., image brightness filters, shadow adjustments, border opacity), and the `prefers-color-scheme` media query fallback for no-JS scenarios
+* `variables.css` contains the full token definitions for both light and dark themes (Layers 1 and 2 of the cascade)
+* Each `flavors/[name].css` file contains both light and dark variants for that Flavor (Layers 3 and 4)
+
+#### Image and Media Handling
+
+* Decorative images may use `filter: brightness(0.85)` in dark mode to reduce glare
+* Images with transparent backgrounds (logos, icons) must have variants or filters for both themes
+* SVG icons using `currentColor` adapt automatically
+* Hero images and photos should be tested for visual comfort in both themes
+* Consider `<picture>` with `media="(prefers-color-scheme: dark)"` for critical images that need distinct dark variants
+
+#### Accessibility Requirements
+
+* The toggle must be keyboard-accessible and included in the tab order
+* Color contrast must meet WCAG 2.1 AA in **both** themes independently
+* `prefers-reduced-motion` must be respected — disable theme transition animations if the user prefers reduced motion
+* `<meta name="color-scheme" content="light dark">` is required in the HTML `<head>` so the browser renders form controls and scrollbars in the correct theme
+* Focus indicators must be visible in both light and dark themes
+
+#### i18n Considerations
+
+* Toggle label text ("Light theme", "Dark theme") is translatable via `data-i18n`
+* The `site-theme-change` event allows locale-specific adjustments if needed
+* Theme preference is language-independent — switching language preserves the selected theme
+
+#### Relationship to Flavor System
+
+| Concern | Theme (Light/Dark) | Flavor |
+|---------|-------------------|--------|
+| **What it controls** | Luminance, background lightness, text color | Chromatic identity, accent colors, imagery, mood |
+| **How many** | Exactly 2 (light and dark) | Variable per project (base + seasonal/contextual) |
+| **User control** | Toggle button, always available | May be automatic (seasonal), manual, or both |
+| **CSS mechanism** | `[data-theme]` attribute | `[data-flavor]` attribute |
+| **Persistence** | `localStorage("theme")` | `localStorage("flavor")` or server-driven |
+| **Required** | Yes — always | Yes — at least the base (default) Flavor |
+
+> **Design rule:** When creating a new Flavor, the designer must produce the full token set for both `data-theme="light"` and `data-theme="dark"`. A Flavor is not complete until both theme variants pass WCAG contrast checks and visual review.
 
 ## DISCOVERY: STRATEGIC IDENTIFICATION
 
@@ -1349,7 +2001,7 @@ All prompts in Xperto SiteCraft follow this standardized structure to ensure con
 ### CONTEXT
 You are working on [Website Project] for [Website Project's Owner or Brand].
 
-### INPUTS (from previous steps)
+### INPUTS
 * [Input 1 from specific previous role/task]
 * [Input 2 from specific previous role/task]
 
@@ -1359,7 +2011,6 @@ You are working on [Website Project] for [Website Project's Owner or Brand].
 ### CONSTRAINTS
 * DO: [Specific inclusions]
 * DO NOT: [Specific exclusions]
-* ASSUME: [Safe assumptions]
 * ASK IF UNCLEAR: [Areas where clarification should be requested]
 
 ### OUTPUT SPECIFICATION
@@ -1375,7 +2026,32 @@ Your output will be evaluated on:
 
 ### HANDOFF
 This output will be used by [Next Role] for [Purpose].
+
+### AI SELF-AUDIT (run before delivering output)
+* [ ] No banned anti-patterns present (see AI Output Anti-Pattern Catalog)
+* [ ] Brand DNA alignment verified — output reflects the brand's personality, not generic defaults
+* [ ] Design Calibration Dials respected (if applicable to this deliverable)
+* [ ] Content passes the Authenticity Test: specific, evidence-backed, voice-matched
+* [ ] No placeholder content ("Lorem ipsum", "John Doe", invented statistics) unless explicitly flagged as [TBD]
+* [ ] Accessibility requirements met (WCAG 2.1 AA, reduced-motion, keyboard, screen reader)
+* [ ] Output is distinctive — would not be mistaken for a competitor's or a generic template
 ```
+
+> **When to use the AI Self-Audit:** This checklist is part of the meta-template and applies to every prompt in the protocol. Before delivering any output — design system, content draft, creative concept, code specification — the producing expert (or AI agent) must verify all applicable items pass. Items that do not apply to a specific deliverable type (e.g., "Design Calibration Dials" for a content-only task) may be skipped. The audit is a self-check, not a phase gate; it does not require external review, but failed items must be fixed before delivery.
+
+### Collaborative Task Protocol
+
+Several prompts assign two roles (e.g., "Brand Strategist + Communications Expert"). When a task is collaborative, the following protocol applies:
+
+* **Lead role:** The first role listed owns the deliverable, drives the timeline, and makes final decisions on structure and content.
+* **Review role:** The second role listed provides domain-specific input, reviews drafts, and validates outputs within their area of expertise.
+* **Process:**
+  1. Lead role produces initial draft
+  2. Review role provides written feedback within one working cycle
+  3. Lead role integrates feedback and produces revised draft
+  4. If disagreements remain, both roles document their positions and the Project Manager arbitrates based on project goals and Brand DNA alignment
+* **Attribution:** Collaborative deliverables credit both roles: "Produced by [Lead Role] with [Review Role]."
+* **Escalation:** If the collaboration produces conflicting outputs, the Project Manager resolves based on which output best serves the project's strategic objectives (as defined in Brand DNA and Website Goals).
 
 ### Defining the \[Website Project\] and \[Website Project's Owner or Brand\]
 
@@ -1394,6 +2070,7 @@ Establish a clear identification of the website's name or short description and 
 Beginning a new website project requiring clear identification and reference terminology.
 
 ### INPUTS
+* Discovery Brief (from Phase 1)
 * Initial client briefing materials
 * Stakeholder contact information
 * Preliminary project scope
@@ -1552,7 +2229,7 @@ Translate the Brand DNA into a practical Voice Guidelines document that ensures 
 ### OUTPUT SPECIFICATION
 Produce a "Voice Guidelines Document" containing:
 
-#### 1. **Brand Voice Characteristics
+#### 1. Brand Voice Characteristics
 * Primary characteristics (3-5 descriptors with explanations)
 * What the voice IS and IS NOT
 
@@ -1602,11 +2279,47 @@ Produce a "Voice Guidelines Document" containing:
 * Industry jargon policy
 * Inclusive language guidelines
 
-#### 10. Example Phrases and Sentences
+#### 10. AI-Generated Content Guardrails
+
+Since AI tools may be used to draft content throughout the SiteCraft workflow, the Voice Guidelines must include explicit rules to prevent generic, recognizably AI-generated copy. This section acts as a quality filter for all AI-assisted content production.
+
+##### Banned Filler Words and Phrases
+
+The following terms are statistically overrepresented in AI-generated marketing copy and should be avoided unless they are genuinely part of the brand's established vocabulary:
+
+| Category | Banned Examples |
+|----------|----------------|
+| **Vague superlatives** | "Elevate", "Revolutionize", "Unleash", "Transform", "Supercharge", "Turbocharge" |
+| **Empty connectors** | "Seamless", "Cutting-edge", "Best-in-class", "World-class", "State-of-the-art", "Next-generation" |
+| **Faux intimacy** | "We're passionate about...", "At [Brand], we believe...", "Your trusted partner in..." |
+| **Generic CTAs** | "Click here", "Learn more", "Get started today", "Don't miss out" |
+| **Hollow promises** | "Empower your journey", "Unlock your potential", "Take it to the next level" |
+
+> **Rule:** If a phrase could appear unchanged on any competitor's website without seeming out of place, it is too generic for this brand. Replace it with language drawn from the Brand DNA personality, the brand's actual vocabulary, and the specific value being communicated.
+
+##### Placeholder and Fake Data Policy
+
+* Never use "John Doe", "Jane Smith", "Acme Corp", or similar generic placeholder names in deliverables — use culturally appropriate names aligned with the Character & People Imagery Standards
+* Never invent round-number statistics ("99.9% uptime", "10,000+ customers", "24/7 support") — use verified data or mark as `[TBD — real data required]`
+* Never use "Lorem ipsum" in any deliverable presented to a client — use real or realistic draft content
+* "Click here" is never acceptable as link text — use descriptive action phrases
+
+##### Authenticity Test
+
+Before finalizing any content block, apply this 3-question filter:
+
+1. **Specificity:** Does this sentence say something only this brand could say, or could any company in the industry use it verbatim?
+2. **Evidence:** Does this claim point to something real (a feature, a number, a story), or is it an unsupported assertion?
+3. **Voice match:** Does this sound like the Brand DNA personality archetype, or does it sound like default AI output?
+
+If any answer is "no," rewrite.
+
+#### 11. Example Phrases and Sentences
 * Headlines (3-5 examples in brand voice)
 * Body copy (paragraph example)
 * CTAs (5-7 examples)
-* Error messages / empty states
+* Error messages (3-5 examples showing how the brand voice handles errors gracefully)
+* Empty states (3-5 examples for zero-content scenarios that maintain brand personality)
 * Micro-copy examples
 
 #### 11. Audience-Specific Adaptations
@@ -1648,7 +2361,7 @@ You are working on [Website Project] for [Website Project's Owner or Brand].
 * Discovery Brief
 * Brand DNA Document
 * Stakeholder descriptions of target audience
-* Any available market research or analytics data
+* Market research data and analytics (from Discovery Brief and Market / User Research Specialist, if available)
 * Competitive Analysis Summary (from Business Strategist)
 
 ### OBJECTIVE
@@ -1758,6 +2471,8 @@ You are working on [Website Project] for [Website Project's Owner or Brand].
 * Discovery Brief
 * Business objectives from stakeholder interviews
 
+> **Precedence note:** Where business objectives overlap with Brand DNA synthesis, the Brand DNA Document takes precedence as the canonical strategic reference.
+
 ### OBJECTIVE
 Establish clear website goals, articulate compelling value propositions for both audience and owner, and define measurable success criteria.
 
@@ -1820,7 +2535,6 @@ Produce a "Website Strategy Document" containing:
 This document feeds directly into:
 * Content Strategist (for content prioritization and CTAs)
 * UX Expert (for conversion-focused design)
-* Analytics Architect (for measurement implementation)
 * Creative Designer (for value communication approach)
 ```
 
@@ -1900,7 +2614,11 @@ Produce a "Site Persona Document" containing:
 * Appearance guidelines: what the persona looks like across contexts
 * Avatar specifications for different placements (navigation, chat, content, hero)
 * Emotional range: visual variations for different content moods
-* Accessibility: how the persona is conveyed to screen reader users
+* Accessibility requirements:
+  * Screen reader: how the persona is conveyed via alt text, ARIA labels, and live region announcements
+  * Keyboard navigation: all persona-driven interactive elements (chat, guided tours) must be fully keyboard-accessible
+  * Chatbot a11y: chatbot interactions must support screen readers, provide text alternatives for visual responses, and respect `prefers-reduced-motion`
+  * Non-visual fallback: define how persona value is delivered when visual representation is unavailable
 
 #### 5. Site Presence Map
 Where and how the persona appears:
@@ -1986,7 +2704,7 @@ Develop distinctive creative concepts that differentiate this website while auth
 * DO: Push creative boundaries within brand parameters
 * DO: Consider technical feasibility
 * DO: Ensure concepts resonate with target personas
-* DO NOT: Create concepts that feel generic or template-like
+* DO NOT: Create concepts that feel generic or template-like — cross-check against the AI Output Anti-Pattern Catalog (Website Structure)
 * DO NOT: Ignore accessibility requirements
 * ASK IF UNCLEAR: Budget or technical constraints
 
@@ -2009,9 +2727,11 @@ For each concept:
 
 #### 3. Recommended Concept
 * Selected concept with rationale
+* Primary UI style (reference the UI Style Vocabulary in Website Structure) and any secondary blend
+* Selected landing page pattern(s) (reference the Landing Page Pattern Library in Website Structure)
 * Detailed visual direction:
   - Color psychology and palette
-  - Typography personality
+  - Typography personality and pairing rationale (see Typography Pairing Principles)
   - Imagery approach
   - Layout philosophy
   - Motion principles
@@ -2027,7 +2747,53 @@ For each concept:
 * Ownable visual elements
 * Memorability factors
 
-#### 6. Concept Adaptation Notes
+#### 6. Industry Context and Conventions
+
+Every industry carries visual expectations that audiences have internalized. Ignoring them risks confusion; blindly following them risks invisibility. This section documents the industry landscape so the creative concept can make informed decisions about which conventions to honor, which to subvert, and which to avoid entirely.
+
+**Industry visual profile:**
+
+| Question | Answer |
+|----------|--------|
+| What industry does this brand operate in? | [e.g., Healthcare, Financial services, Luxury retail, SaaS, Education, Hospitality] |
+| What are the 3-5 dominant visual conventions in this industry? | [e.g., "Healthcare: blue palette, clean white space, stock photos of smiling people, trust badges"] |
+| Which conventions does this project follow (and why)? | [e.g., "Keep clean white space (clinical clarity) and trust badges (regulatory expectation)"] |
+| Which conventions does this project intentionally break (and why)? | [e.g., "Replace generic stock photos with real team photography to signal authenticity"] |
+| What are the industry-specific anti-patterns? | [e.g., "Healthcare: avoid dark themes (read as aggressive), neon accents (read as unserious), overly playful motion"] |
+
+**Common industry visual expectations:**
+
+| Industry | Typically Expected | Typically Risky |
+|----------|-------------------|-----------------|
+| **Healthcare / Medical** | Clean whites and blues, generous whitespace, trust signals, accessible text sizes | Dark themes, high saturation, aggressive animation, playful typography |
+| **Finance / Banking** | Conservative palette (navy, green, grey), structured grids, data tables, security indicators | Bright colors, unconventional layouts, heavy animation, informal tone |
+| **Luxury / Fashion** | High contrast, editorial typography, generous whitespace, large imagery, restrained palette | Cluttered layouts, default framework styles, rounded friendly elements |
+| **Technology / SaaS** | Modern sans-serif, product screenshots, feature grids, gradient accents, dark mode option | Overly corporate/stiff layouts, serif-heavy typography, stock photography |
+| **Education** | Approachable typography, structured navigation, content-first layouts, accessibility prominence | Data-dense dashboards (for general audience), overly minimal layouts |
+| **Food & Beverage** | Warm colors, appetizing photography, organic/textured elements, clear CTAs for ordering | Cold palettes, overly technical layouts, small food imagery |
+| **Legal / Government** | Formal typography, neutral palette, structured hierarchy, plain language, high readability | Casual tone, experimental layouts, flashy animation, dark themes |
+| **Creative / Agency** | Portfolio-forward, distinctive typography, bold layout choices, motion-rich | Safe/corporate templates, stock imagery, generic card grids |
+
+> **This is guidance, not prescription.** The Creative Direction's job is to navigate between industry convention and brand distinctiveness. Use the Differentiation Analysis (above) to articulate *where* and *why* the concept departs from category norms.
+
+#### 7. Design Calibration Dials
+
+Three calibrated scales (1–10) that establish shared expectations between the Creative Designer, Visual Design Expert, client, and downstream implementers. Set each dial based on Brand DNA, target audience, and project goals. These values carry forward into the Visual Design System and Flavor System as binding constraints.
+
+| Dial | What It Controls | 1 (Low) | 5 (Mid) | 10 (High) |
+|------|-----------------|---------|---------|-----------|
+| **Design Variance** | Layout adventurousness and visual unpredictability | Symmetrical grids, conventional sections, predictable rhythm | Moderate asymmetry, mixed section patterns, some visual surprise | Asymmetric compositions, unconventional layouts, bold whitespace, editorial experimentation |
+| **Motion Intensity** | Animation complexity and presence | No animation; static transitions | Subtle entrances, hover feedback, smooth page transitions | Scroll-triggered choreography, physics-based interactions, staggered orchestration, parallax layers |
+| **Visual Density** | Information density and whitespace ratio | "Art gallery" — generous whitespace, minimal content per viewport, breathing room | Balanced — clear hierarchy with moderate content density | "Cockpit" — data-rich layouts, compact spacing, maximum information per viewport |
+
+For each dial, document:
+* The selected value (1–10) with rationale tied to Brand DNA and audience expectations
+* Specific implications for the Visual Design System (e.g., "Design Variance: 7 → use asymmetric grid for portfolio section, editorial layout for blog")
+* Any per-page overrides (e.g., "homepage Motion Intensity: 8, inner pages: 4")
+
+> **Downstream binding:** The Visual Design Expert must respect these dial values when defining the Motion System, Layout Patterns, and Spacing System. The QA Expert should verify the implemented site reflects the intended calibration.
+
+#### 8. Concept Adaptation Notes
 * How concept flexes for different sections
 * How concept accommodates thematic variations (to be reconciled with Flavor System in the next design step)
 * Scalability considerations
@@ -2038,6 +2804,8 @@ For each concept:
 * [ ] Resonates with target personas
 * [ ] Technically feasible
 * [ ] Differentiates from competition
+* [ ] Industry context documented — conventions followed/broken with rationale
+* [ ] Design Calibration Dials are set with clear rationale and agreed upon with client
 
 ### HANDOFF
 This document feeds directly into:
@@ -2064,7 +2832,7 @@ You are working on [Website Project] for [Website Project's Owner or Brand].
 
 ### INPUTS
 * Brand DNA Document (from Brand Strategist)
-* Creative Direction Document (from Creative Designer)
+* Creative Direction Document (from Creative Designer) — including Design Calibration Dials
 * Voice Guidelines (from Communications Expert)
 * Target Audience Personas (from Market / User Research Specialist)
 * Website Goals & Value Propositions (from Website Strategy Consultant)
@@ -2081,12 +2849,15 @@ Create a complete Visual Design System that defines every visual element of the 
 * DO: Ensure all color combinations meet WCAG 2.1 AA contrast requirements (4.5:1 for text, 3:1 for UI elements)
 * DO: Design for all defined responsive breakpoints
 * DO: Create a system that supports Flavor variations through token overrides
-* DO: Specify both light and dark mode tokens (if dark mode is in scope)
+* DO: Define both light and dark theme tokens for every color, background, shadow, and border value — light/dark is always required, not optional
+* DO: Ensure all token pairings pass WCAG 2.1 AA contrast in both themes independently
 * DO: Align component design with the selected UI framework's capabilities (if applicable)
 * DO NOT: Create one-off styles — everything must be part of the system
 * DO NOT: Define visual elements that cannot be implemented with the chosen technology stack
 * DO NOT: Ignore the Creative Direction — this system implements it, not replaces it
-* ASK IF UNCLEAR: Technology constraints, dark mode requirement, animation budget, icon system preference
+* DO NOT: Treat dark theme as an afterthought — it is a first-class design deliverable
+* DO NOT: Use generic patterns flagged in the AI Output Anti-Pattern Catalog (Website Structure) — no default framework themes, no purple-blue gradients, no unstyled component libraries
+* ASK IF UNCLEAR: Technology constraints, animation budget, icon system preference
 
 ### OUTPUT SPECIFICATION
 Produce a "Visual Design System" containing:
@@ -2094,14 +2865,16 @@ Produce a "Visual Design System" containing:
 #### 1. Design Tokens
 
 ##### Color System
-* Primary palette (hex, RGB, HSL) with usage rules
-* Secondary and accent palettes
-* Neutral/gray scale
-* Semantic colors (success, warning, error, info)
-* Background and surface colors
-* Text colors with contrast-passing pairings
-* Gradient definitions
+For every color, define both light and dark theme values:
+* Primary palette (hex, RGB, HSL) with usage rules — light and dark variants
+* Secondary and accent palettes — light and dark variants
+* Neutral/gray scale — light and dark variants
+* Semantic colors (success, warning, error, info) — light and dark variants
+* Background and surface colors — light and dark variants
+* Text colors with contrast-passing pairings — verified in both themes
+* Gradient definitions — light and dark variants
 * Opacity scale
+* Shadow system — adjusted for light backgrounds and dark backgrounds
 
 ##### Typography System
 * Font families (primary, secondary, monospace) with fallback stacks
@@ -2110,6 +2883,31 @@ Produce a "Visual Design System" containing:
 * Letter spacing rules
 * Font weight usage (when to use each weight)
 * Maximum line length (ch) per context
+
+**Font Pairing Principles**
+
+The primary and secondary font families must be deliberately paired, not arbitrarily chosen. Document the pairing rationale using these principles:
+
+| Principle | Description | Example |
+|-----------|-------------|---------|
+| **Contrast** | Pair fonts with visible structural differences — serif with sans-serif, geometric with humanist, display with text | Playfair Display (heading) + Source Sans Pro (body): high-contrast serif/sans pairing with shared x-height |
+| **Mood alignment** | Both fonts should express the same brand personality, even if structurally different | Merriweather + Open Sans: both are warm and approachable despite serif/sans difference |
+| **Hierarchy service** | The heading font should command attention; the body font should maximize readability | A distinctive display face for headings; a neutral, high-legibility face for body text |
+| **Weight range** | Both fonts should offer sufficient weight variants (at minimum: regular, medium/semibold, bold) to build hierarchy without needing a third font | Avoid fonts with only one or two weights |
+| **Metric compatibility** | Similar x-height, cap height, and character width prevents jarring shifts when fonts appear in adjacent elements | Test by setting both fonts at the same `font-size` and comparing visually |
+
+**Archetypal Pairings Reference**
+
+| Mood | Heading Font Type | Body Font Type | Effect |
+|------|------------------|----------------|--------|
+| **Authoritative / Traditional** | Transitional or Didone serif | Humanist sans-serif | Credibility with modern readability |
+| **Modern / Technical** | Geometric sans-serif | Grotesque or neo-grotesque sans-serif | Clean, precise, systematic feel |
+| **Warm / Approachable** | Rounded sans-serif or soft serif | Humanist sans-serif | Friendly without sacrificing professionalism |
+| **Luxury / Editorial** | High-contrast display serif | Light-weight sans-serif | Elegance and visual drama |
+| **Playful / Creative** | Display or hand-drawn | Geometric or rounded sans-serif | Personality in headings; clarity in body |
+| **Neutral / Corporate** | Neo-grotesque sans-serif | Same family at different weight | Unified, no-nonsense; relies on weight/size for hierarchy |
+
+> **Anti-pattern:** Do not default to Inter, Roboto, or Open Sans without justification (see AI Output Anti-Pattern Catalog). These are excellent fonts but their ubiquity in AI output makes them feel generic. If selected, document why they are the right choice for this brand specifically.
 
 ##### Spacing System
 * Base unit and scale (e.g., 4px base: 4, 8, 12, 16, 24, 32, 48, 64, 96)
@@ -2125,10 +2923,78 @@ Produce a "Visual Design System" containing:
 * Focus ring specification
 
 ##### Motion System
-* Duration scale (fast, normal, slow)
-* Easing functions by context (enter, exit, emphasis)
-* Reduced-motion fallback rules
-* Animation principles (what animates, what doesn't)
+
+> **Calibration:** The Motion Intensity dial from the Creative Direction Document (1–10) governs the overall ambition of this section. A value of 1–3 means minimal motion (state changes only); 4–6 means purposeful motion (entrances, feedback, transitions); 7–10 means expressive motion (scroll choreography, physics-based interactions, staggered orchestration).
+
+**Duration Scale**
+
+| Token | Value | Use Case |
+|-------|-------|----------|
+| `--duration-instant` | 100ms | Micro-feedback: checkbox, toggle, focus ring |
+| `--duration-fast` | 200ms | Hover states, button press, tooltip appear |
+| `--duration-normal` | 300ms | Panel open/close, page transitions, accordion |
+| `--duration-slow` | 500ms | Modal entrance, large layout shifts |
+| `--duration-expressive` | 700–1000ms | Hero entrance, scroll-triggered reveals (Motion Intensity 7+) |
+
+**Easing Functions**
+
+| Token | Value | Context |
+|-------|-------|---------|
+| `--ease-default` | `ease` | General-purpose transitions |
+| `--ease-in` | `cubic-bezier(0.4, 0, 1, 0.6)` | Elements exiting view |
+| `--ease-out` | `cubic-bezier(0, 0.4, 0.6, 1)` | Elements entering view |
+| `--ease-in-out` | `cubic-bezier(0.4, 0, 0.2, 1)` | Symmetric transitions (expand/collapse) |
+| `--ease-spring` | `cubic-bezier(0.34, 1.56, 0.64, 1)` | Playful overshoot (Motion Intensity 6+) |
+| `--ease-bounce` | `cubic-bezier(0.68, -0.55, 0.27, 1.55)` | Attention-getting bounce (Motion Intensity 8+) |
+
+**Animation Categories**
+
+Every animation must belong to exactly one category. This prevents purposeless decoration:
+
+| Category | Purpose | Examples | Performance Rule |
+|----------|---------|----------|-----------------|
+| **State feedback** | Confirm user action | Button press, toggle, focus ring, checkbox | `transform` and `opacity` only; `--duration-instant` to `--duration-fast` |
+| **Orientation** | Help user understand spatial changes | Accordion open, tab switch, modal enter/exit, page transition | `transform` and `opacity`; may use `height`/`max-height` with `will-change` |
+| **Attention** | Draw eye to important elements | Notification badge pulse, new-item highlight, CTA shimmer | Runs once or on a slow infinite loop; must not distract from content |
+| **Entrance** | Reveal content as it enters viewport | Scroll-triggered fade-up, staggered list reveal, hero animation | Intersection Observer–triggered; fire once only; stagger delay ≤ 50ms per item |
+| **Narrative** | Advance the brand story | Parallax layers, scroll-linked progress, animated illustrations | Motion Intensity 7+; isolated in dedicated components; `will-change: transform` |
+
+**Scroll Animation Guidelines**
+
+* Use `IntersectionObserver` (not scroll event listeners) to trigger entrance animations
+* Each element animates **once** when it enters the viewport — do not re-animate on scroll-up
+* Stagger delay for lists/grids: 30–50ms per item, capped at 500ms total (do not make users wait)
+* Parallax effects (Motion Intensity 7+): limit to 1–2 layers per viewport; use `transform: translateY()` only — never manipulate `background-position` on scroll
+* Horizontal scroll hijacking: avoid unless explicitly justified in the Creative Direction; it breaks native scroll expectations
+
+**Micro-Interaction Specifications**
+
+| Element | Hover | Active/Press | Focus | Loading |
+|---------|-------|-------------|-------|---------|
+| Button | Subtle lift (`translateY(-1px)`) + color shift | Scale down (`scale(0.98)`) | Focus ring (see Focus Ring spec) | Spinner replaces label; maintain button dimensions |
+| Card | Elevation increase (shadow token change) | — | Focus ring on entire card | Skeleton screen |
+| Link | Underline animation or color shift | — | Focus ring | — |
+| Input | Border color change | — | Border color + focus ring | — |
+| Toggle/Switch | Thumb highlight | Thumb slides with easing | Focus ring on track | — |
+| Icon button | Background fill or scale | Scale down | Focus ring | Spinner replaces icon |
+
+**Performance Constraints**
+
+* Only animate `transform` and `opacity` on the compositor layer — never animate `width`, `height`, `top`, `left`, `margin`, or `padding`
+* Use `will-change: transform` sparingly and only on elements that will actually animate — remove after animation completes if it was a one-shot
+* Keep total animated elements per viewport under 20 to prevent frame drops
+* Infinite animations (looping pulses, spinners) must be isolated in their own compositing layer and should use CSS animations (not JS-driven requestAnimationFrame) to avoid main-thread contention
+* Test all animations at 4× CPU throttle in DevTools; target 60fps (16.6ms per frame) at throttled speed
+
+**Reduced-Motion Requirements**
+
+When `prefers-reduced-motion: reduce` is active:
+* All `transition-duration` and `animation-duration` values collapse to `0s` (via the `--animation-duration` token override already defined in the Style Guide)
+* Entrance animations: elements appear immediately in their final state (no fade, no slide)
+* Scroll-linked animations: disabled entirely; show static final state
+* Looping/attention animations: stopped
+* State feedback (hover, focus, press): may retain instant color/opacity changes but no movement
+* Page transitions: instant cut, no animation
 
 #### 2. Component Library Specifications
 
@@ -2162,6 +3028,7 @@ For each component (Button, Card, Form Input, Navigation Item, Badge, Alert, Mod
 * Image aspect ratios per context (hero, card, thumbnail, avatar)
 * Image treatment (filters, overlays, borders)
 * Placeholder and loading state imagery
+* Character & People Imagery Standards compliance (see Website Structure & Architecture) — all people imagery must feature Hispanic/Mediterranean/Latino characters with dark hair in warm-weather appropriate clothing
 
 #### 6. Flavor Extension Points
 * Which tokens are Flavor-overridable vs. fixed
@@ -2245,9 +3112,11 @@ Create a comprehensive Flavor System that allows for creative visual variations 
 ### CONSTRAINTS
 * DO: Maintain brand recognition across all Flavors
 * DO: Ensure accessibility compliance in all Flavors
+* DO: Define both light and dark theme variants for every Flavor — theme and Flavor are independent dimensions
 * DO: Create technically implementable specifications
 * DO NOT: Create Flavors that contradict brand values
 * DO NOT: Overwhelm with too many simultaneous changes
+* DO NOT: Define a Flavor for only one theme — both light and dark are always required
 * ASK IF UNCLEAR: Technical implementation constraints
 
 ### OUTPUT SPECIFICATION
@@ -2269,11 +3138,11 @@ For each proposed Flavor (minimum 5):
 * Scope
 
 ##### Chromatic Specifications
-* Primary color shift (hex codes with Base comparison)
-* Secondary palette (hex codes)
-* Accent variations
-* Gradient modifications
-* Contrast compliance verification
+* Primary color shift (hex codes with Base comparison) — light and dark theme values
+* Secondary palette (hex codes) — light and dark theme values
+* Accent variations — light and dark theme values
+* Gradient modifications — light and dark theme values
+* Contrast compliance verification — verified in both themes
 
 ##### Typographic Adjustments
 * Weight variations
@@ -2323,7 +3192,11 @@ For each proposed Flavor (minimum 5):
 
 ### QUALITY CRITERIA
 * [ ] All Flavors maintain brand recognition
-* [ ] Accessibility verified for each Flavor
+* [ ] Accessibility verified for each Flavor:
+  * WCAG 2.1 AA contrast ratios met for every Flavor's color palette
+  * Reduced-motion alternatives provided for Flavor-specific animations
+  * Font choices remain legible at all specified sizes across Flavors
+  * Focus states remain visible with each Flavor's color scheme
 * [ ] Technical implementation is feasible
 * [ ] Flavors enhance rather than confuse
 
@@ -2332,11 +3205,15 @@ This document feeds directly into:
 * Graphic Designer (for asset production)
 * Coding Expert (for implementation)
 * Content Strategist (for tonal adjustments)
+* UX Expert (for Flavor-aware interaction patterns and user testing)
+* Accessibility Expert (for per-Flavor contrast and motion compliance)
 ```
 
 #### Contextual Flavor Library
 
 Beyond seasonal Flavors, the system includes Flavors for specific audiences, regions, and contexts.
+
+> **Workflow integration:** The Contextual Flavor Library is produced by the Visual Design Expert as part of the Flavor System Specifications deliverable. Entries are validated by the Creative Designer for brand alignment and the Accessibility Expert for per-variant compliance. Each selected Flavor feeds into the Flavor System prompt above — the library provides the palette of options; the prompt structures their implementation.
 
 ##### Regional Flavors
 
@@ -2659,8 +3536,10 @@ Create a detailed image brief for a hero image that establishes the page's visua
 * DO: Specify whether AI-generated, stock, or custom photography is appropriate
 * DO: Provide multiple responsive crop directions (desktop, tablet, mobile)
 * DO: Ensure the image works with text overlay if applicable
+* DO: Follow Character & People Imagery Standards — if people appear, they must be Hispanic/Mediterranean/Latino with dark hair, wearing warm-weather appropriate clothing (no wool, knit, or cold-climate attire)
 * DO NOT: Use generic stock imagery that could represent any brand
 * DO NOT: Specify images that require ongoing licensing without noting the requirement
+* DO NOT: Use Anglo-Saxon or Caucasian character representations
 * ASK IF UNCLEAR: Photography vs. illustration preference, budget for custom imagery
 
 ### OUTPUT SPECIFICATION
@@ -2712,8 +3591,10 @@ Create detailed briefs for all section-level and content images, ensuring visual
 * DO: Ensure images serve the content — every image must have a clear purpose
 * DO: Maintain visual consistency across sections within the same page
 * DO: Specify lazy-loading suitability for below-the-fold images
+* DO: Follow Character & People Imagery Standards — if people appear, they must be Hispanic/Mediterranean/Latino with dark hair, wearing warm-weather appropriate clothing (no wool, knit, or cold-climate attire)
 * DO NOT: Use decorative images without providing aria-hidden or empty alt attributes
 * DO NOT: Specify images that compete with or duplicate the hero
+* DO NOT: Use Anglo-Saxon or Caucasian character representations
 * ASK IF UNCLEAR: Whether stock, custom, or AI-generated imagery is preferred per section
 
 ### OUTPUT SPECIFICATION
@@ -2800,6 +3681,7 @@ Create a detailed production brief for an authentic first-person or testimonial 
 * DO: Prioritize authenticity over production polish
 * DO: Provide speaker coaching notes that maintain natural delivery
 * DO: Specify how brand elements appear without overwhelming the testimonial
+* DO: Follow Character & People Imagery Standards — speakers and on-screen talent must be Hispanic/Mediterranean/Latino with dark hair, wearing warm-weather appropriate clothing
 * DO NOT: Script testimonials verbatim — provide talking points only
 * DO NOT: Use stock footage as a substitute for real testimonials
 * ASK IF UNCLEAR: Speaker availability, filming location options, legal release requirements
@@ -2852,6 +3734,7 @@ Create a detailed production brief for an educational or explanatory video that 
 * DO: Define the single key takeaway the viewer must understand
 * DO: Specify visual metaphors that make abstract concepts concrete
 * DO: Design for viewers who may watch without sound (captions, visual storytelling)
+* DO: Follow Character & People Imagery Standards for any live-action talent or illustrated characters — Hispanic/Mediterranean/Latino appearance, dark hair, warm-weather attire
 * DO NOT: Overload with information — one concept per video
 * DO NOT: Exceed 3 minutes without strong justification
 * ASK IF UNCLEAR: Audience knowledge level, whether animation or live-action is preferred
@@ -2904,6 +3787,7 @@ Create a detailed production brief for a conversion-focused promotional video th
 * DO: Lead with audience benefit, not product features
 * DO: Include a clear, single call-to-action
 * DO: Specify how urgency is communicated without being manipulative
+* DO: Follow Character & People Imagery Standards for any on-screen talent — Hispanic/Mediterranean/Latino appearance, dark hair, warm-weather attire
 * DO NOT: Make claims that cannot be substantiated
 * DO NOT: Use pressure tactics that contradict brand values
 * ASK IF UNCLEAR: Offer details, promotion duration, legal disclaimers required
@@ -2933,6 +3817,8 @@ This brief feeds into:
 
 ### Text Content Generation Prompts
 
+> **Content quality constraint (applies to all prompts below):** All text content must comply with the AI-Generated Content Guardrails in the Voice Guidelines Document. Specifically: no banned filler words/phrases, no placeholder names or fabricated statistics, no "Lorem ipsum" or "Click here", and every content block must pass the 3-question Authenticity Test (Specificity, Evidence, Voice match). Cross-check against the Content & Copywriting Anti-Patterns in the AI Output Anti-Pattern Catalog.
+
 #### Sales Content
 
 ```
@@ -2957,6 +3843,12 @@ This brief feeds into:
 6. Objection handling content
 7. CTA text options
 8. Urgency/scarcity elements (if appropriate)
+
+### HANDOFF
+This content feeds into:
+* Content Writer / Copywriter (for final copy production)
+* UX Expert (for conversion flow optimization)
+* Graphic Designer (for supporting visual assets)
 ```
 
 #### Informative Content
@@ -2983,6 +3875,12 @@ This brief feeds into:
 6. Conclusion with next steps
 7. Related content suggestions
 8. Meta description
+
+### HANDOFF
+This content feeds into:
+* Content Writer / Copywriter (for final copy production)
+* SEO / Discoverability Specialist (for on-page optimization)
+* Graphic Designer (for supporting visual and media assets)
 ```
 
 #### Authoritative Content
@@ -3008,6 +3906,12 @@ This brief feeds into:
 5. Citation and source approach
 6. Credibility markers to include
 7. Shareability factors
+
+### HANDOFF
+This content feeds into:
+* Content Writer / Copywriter (for final copy production)
+* SEO / Discoverability Specialist (for authority and link strategy)
+* Creative Designer (for visual storytelling alignment)
 ```
 
 #### Support Content
@@ -3032,6 +3936,12 @@ This brief feeds into:
 5. Escalation paths
 6. Related help content links
 7. Feedback mechanism
+
+### HANDOFF
+This content feeds into:
+* Content Writer / Copywriter (for final copy production)
+* UX Expert (for support flow validation)
+* Coding Expert (for help system implementation)
 ```
 
 #### Seasonal/Timely Content
@@ -3056,12 +3966,19 @@ This brief feeds into:
 4. Flavor-aligned tone adjustments
 5. Promotional integration (if applicable)
 6. Expiration and update plan
+
+### HANDOFF
+This content feeds into:
+* Graphic Designer (for seasonal visual asset needs)
+* Coding Expert (for Flavor-aware implementation)
+* Content Writer / Copywriter (for final copy production)
+* Analytics Architect (for seasonal campaign tracking)
 ```
 
 #### Other Content to Generate
 
-* News and Updates
-* Guidelines and Tutorials
+* News and Updates *(pending — prompt template to be developed per project needs)*
+* Guidelines and Tutorials *(pending — prompt template to be developed per project needs)*
 
 ### Interactive Utility Tools & Calculators
 
@@ -3239,7 +4156,7 @@ Produce an "SEO Strategy Document" containing:
 * SSL/HTTPS requirements
 
 #### 4. Content Optimization Guidelines
-* Keyword density recommendations
+* Semantic coverage and topic authority assessment
 * Content length guidelines by page type
 * Readability requirements
 * Featured snippet optimization
@@ -3472,7 +4389,7 @@ For each primary persona:
 
 ### HANDOFF
 This document guides:
-* UI Expert (for implementation refinement)
+* User Interface Expert (for implementation refinement)
 * Content Strategist (for content optimization)
 * QA Expert (for journey testing)
 ```
@@ -3537,6 +4454,8 @@ Produce a "Quality Assurance Report" containing:
 * Largest Contentful Paint (target: <2.5s)
 * Interaction to Next Paint (target: <200ms)
 * Cumulative Layout Shift (target: <0.1)
+* Total Blocking Time (target: <200ms — Lighthouse lab metric)
+* Time to Interactive (target: <3.8s — Lighthouse lab metric)
 * Time to First Byte
 * Page weight analysis
 * Image optimization status
@@ -3899,7 +4818,7 @@ To establish sustainable processes for ongoing website maintenance and improveme
 
 ```
 ## [ROLE]: Content Strategist
-## [PHASE]: Execution
+## [PHASE]: Post-Execution
 ## [TASK]: Create Maintenance & Update Plan
 
 ### CONTEXT
@@ -4182,7 +5101,7 @@ This document feeds directly into:
 * Analytics Architect (for tracking setup)
 ```
 
-## PERSONALIZATION AND CONTEXTUALIZATION LAYERs
+## PERSONALIZATION AND CONTEXTUALIZATION LAYERS
 
 ### Adaptive Personalization Framework
 
@@ -4332,7 +5251,9 @@ Xperto SiteCraft incorporates cultural intelligence to create websites that reso
 * Content consumption preferences  
 * Decision-making cultural factors
 
-#### Discovery Additions for Cultural Context
+#### Cultural Context Analysis Prompt
+
+The following prompt operationalizes the discovery additions above into a structured deliverable:
 
 ```
 ## [ROLE]: Market / User Research Specialist
@@ -4605,11 +5526,66 @@ This document feeds directly into:
 
 #### Feedback Request Format
 
-1. What we're asking for feedback on  
-2. Specific questions to answer  
-3. Deadline for feedback  
-4. How to provide feedback  
+1. What we're asking for feedback on
+2. Specific questions to answer
+3. Deadline for feedback
+4. How to provide feedback
 5. What happens after feedback
+
+#### Scope Change Protocol
+
+When the client requests changes that fall outside the agreed project scope:
+
+1. **Acknowledge** — Confirm receipt and understanding of the request
+2. **Assess** — Project Manager evaluates impact on timeline, budget, and deliverables
+3. **Document** — Produce a Scope Change Request containing:
+   * Description of requested change
+   * Affected deliverables and phases
+   * Estimated additional time and cost
+   * Risks of including vs. deferring
+   * Recommendation (include now, defer to post-launch, or decline with rationale)
+4. **Approve** — Client signs off on the Scope Change Request before work begins
+5. **Integrate** — Update project timeline, resource allocation, and relevant phase deliverables
+
+> **Guideline:** Minor clarifications and refinements within existing deliverables are not scope changes. New deliverables, additional pages, new features, or changes that alter previously approved direction are scope changes.
+
+#### Conflict Resolution Framework
+
+When disagreements arise between the project team and the client:
+
+1. **Clarify** — Ensure both parties understand each other's position and the underlying concern
+2. **Reference** — Ground the discussion in project artifacts (Brand DNA, Goals, Personas) to provide objective criteria
+3. **Explore** — Present alternative solutions that address the client's concern while preserving strategic integrity
+4. **Escalate** — If unresolved, the Project Manager escalates to the project sponsor or executive stakeholder
+5. **Document** — Record the decision, rationale, and any trade-offs in the Phase Completion Summary
+
+#### Formal Sign-Off Template
+
+```
+# Phase Sign-Off
+## [Phase Name] — [Website Project]
+
+### Deliverables Presented
+| Deliverable | Status | Notes |
+|-------------|--------|-------|
+| [Deliverable] | Approved / Approved with Changes / Rejected | [Notes] |
+
+### Decisions Made
+* [Decision 1]
+* [Decision 2]
+
+### Outstanding Items
+* [Item requiring follow-up]
+
+### Authorization
+By signing below, [Client Representative] confirms that the deliverables
+listed above are approved and work may proceed to the next phase.
+
+| Role | Name | Date | Signature |
+|------|------|------|-----------|
+| Client Representative | | | |
+| Project Manager | | | |
+```
 
 ## APPENDIX A: DELIVERABLE TEMPLATES
 
@@ -4686,6 +5662,9 @@ This document feeds directly into:
 [Emotional factors at play]
 
 ### 6. Brand Differentiators
+
+#### Brand Essence (One-Liner)
+[A single sentence that captures what makes this brand uniquely valuable]
 
 #### Unique Positioning
 [What makes this brand distinct]
@@ -4974,53 +5953,66 @@ This document feeds directly into:
 - [ ] Visual assets match Style Guide specifications
 - [ ] Brand DNA alignment spot-checked across key pages
 
+#### Light/Dark Theme
+
+- [ ] Light theme renders correctly on all pages
+- [ ] Dark theme renders correctly on all pages
+- [ ] Theme toggle works and persists user preference
+- [ ] System preference (`prefers-color-scheme`) respected when no manual selection
+- [ ] All text/background combinations pass WCAG 2.1 AA contrast in both themes
+- [ ] Images and media remain appropriate in both themes (no white-background PNGs on dark, etc.)
+- [ ] Each active Flavor verified in both light and dark modes
+- [ ] Theme transition is smooth (no flash of wrong theme on page load)
+
 ## APPENDIX C: STYLE GUIDE TEMPLATE
 
 The Style Guide is an implementation-ready reference document that bridges design decisions and code. It should be produced by the Visual Design Expert during the Design phase and serves as the primary reference for developers during Execution.
 
 ### Style Guide Document Structure
 
-````
+`````
 # [Project Name] Style Guide
 
 Reference document for maintaining visual and tonal consistency across the website.
 
 ## Color Palette
 
+> **Light/Dark:** Every color below is defined for both themes. The Light column is the default; the Dark column applies when `data-theme="dark"` is set. Both must pass WCAG 2.1 AA contrast requirements against their respective backgrounds.
+
 ### Primary Colors
-| Variable | Hex | Usage |
-|----------|-----|-------|
-| `--color-primary` | `#XXXXXX` | [Primary usage - headings, links, accents, CTAs] |
-| `--color-primary-dark` | `#XXXXXX` | [Gradient endpoint, darker accents] |
-| `--color-primary-light` | `#XXXXXX` | [Backgrounds, subtle highlights] |
+| Variable | Light | Dark | Usage |
+|----------|-------|------|-------|
+| `--color-primary` | `#XXXXXX` | `#XXXXXX` | [Primary usage - headings, links, accents, CTAs] |
+| `--color-primary-dark` | `#XXXXXX` | `#XXXXXX` | [Gradient endpoint, darker accents] |
+| `--color-primary-light` | `#XXXXXX` | `#XXXXXX` | [Backgrounds, subtle highlights] |
 
 ### Secondary Colors
-| Variable | Hex | Usage |
-|----------|-----|-------|
-| `--color-secondary` | `#XXXXXX` | [Secondary accent usage] |
-| `--color-accent` | `#XXXXXX` | [Highlight, hover states] |
+| Variable | Light | Dark | Usage |
+|----------|-------|------|-------|
+| `--color-secondary` | `#XXXXXX` | `#XXXXXX` | [Secondary accent usage] |
+| `--color-accent` | `#XXXXXX` | `#XXXXXX` | [Highlight, hover states] |
 
 ### Background Colors
-| Variable | Hex | Usage |
-|----------|-----|-------|
-| `--color-bg` | `#XXXXXX` | [Page background] |
-| `--color-bg-card` | `#XXXXXX` | [Card backgrounds, sections] |
-| `--color-bg-alt` | `#XXXXXX` | [Alternate section backgrounds] |
+| Variable | Light | Dark | Usage |
+|----------|-------|------|-------|
+| `--color-bg` | `#XXXXXX` | `#XXXXXX` | [Page background] |
+| `--color-bg-card` | `#XXXXXX` | `#XXXXXX` | [Card backgrounds, sections] |
+| `--color-bg-alt` | `#XXXXXX` | `#XXXXXX` | [Alternate section backgrounds] |
 
 ### Text Colors
-| Variable | Hex | Usage |
-|----------|-----|-------|
-| `--color-text` | `#XXXXXX` | [Primary text] |
-| `--color-text-muted` | `#XXXXXX` | [Secondary text, descriptions] |
-| `--color-text-inverse` | `#XXXXXX` | [Text on dark backgrounds] |
+| Variable | Light | Dark | Usage |
+|----------|-------|------|-------|
+| `--color-text` | `#XXXXXX` | `#XXXXXX` | [Primary text] |
+| `--color-text-muted` | `#XXXXXX` | `#XXXXXX` | [Secondary text, descriptions] |
+| `--color-text-inverse` | `#XXXXXX` | `#XXXXXX` | [Text on dark/light backgrounds] |
 
 ### Semantic Colors
-| Variable | Hex | Usage |
-|----------|-----|-------|
-| `--color-success` | `#XXXXXX` | [Success states, confirmations] |
-| `--color-warning` | `#XXXXXX` | [Warning states] |
-| `--color-error` | `#XXXXXX` | [Error states, alerts] |
-| `--color-info` | `#XXXXXX` | [Informational elements] |
+| Variable | Light | Dark | Usage |
+|----------|-------|------|-------|
+| `--color-success` | `#XXXXXX` | `#XXXXXX` | [Success states, confirmations] |
+| `--color-warning` | `#XXXXXX` | `#XXXXXX` | [Warning states] |
+| `--color-error` | `#XXXXXX` | `#XXXXXX` | [Error states, alerts] |
+| `--color-info` | `#XXXXXX` | `#XXXXXX` | [Informational elements] |
 
 ### Gradients & Effects
 ```css
@@ -5029,7 +6021,7 @@ Reference document for maintaining visual and tonal consistency across the websi
 --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
 --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
 --shadow-glow: 0 0 40px rgba(X, X, X, 0.15);
-````
+```
 
 ### Border Styling
 
@@ -5038,6 +6030,65 @@ Reference document for maintaining visual and tonal consistency across the websi
 | Default | `1px solid rgba(X, X, X, 0.1)` | Subtle borders |
 | Hover | `1px solid rgba(X, X, X, 0.3)` | More visible on interaction |
 | Active | `1px solid var(--color-primary)` | Full color when active |
+
+### Design Tokens
+
+Design tokens are platform-agnostic design decisions expressed as key-value pairs. They serve as the single source of truth for design values, enabling consistent implementation across web, native, and documentation.
+
+#### Token Methodology
+
+Tokens follow a three-tier hierarchy, with theme and Flavor as orthogonal override dimensions:
+
+| Tier | Purpose | Example |
+|------|---------|---------|
+| **Global** | Raw values with no semantic meaning | `--blue-500: #3B82F6` |
+| **Semantic** | Purpose-driven aliases of global tokens | `--color-primary: var(--blue-500)` |
+| **Component** | Component-specific overrides of semantic tokens | `--button-bg: var(--color-primary)` |
+
+Override dimensions (applied independently):
+
+| Dimension | Mechanism | Example |
+|-----------|-----------|---------|
+| **Theme** | `[data-theme="dark"]` on `:root` | `--color-bg` changes from white to dark |
+| **Flavor** | `[data-flavor="name"]` on `:root` | `--color-primary` shifts to seasonal palette |
+| **Theme + Flavor** | Compound selector `[data-flavor][data-theme]` | Flavor's dark-specific adjustments |
+
+#### Naming Conventions
+
+```
+--{category}-{property}-{variant}-{state}
+
+Examples:
+--color-text-primary
+--color-text-primary-hover
+--spacing-section-lg
+--font-size-heading-h1
+--shadow-card-hover
+--border-radius-sm
+```
+
+#### Platform-Agnostic Format
+
+Tokens should be maintained in a format that can generate platform-specific outputs:
+
+```json
+{
+  "color": {
+    "primary": { "value": "#XXXXXX", "type": "color" },
+    "primary-dark": { "value": "#XXXXXX", "type": "color" }
+  },
+  "spacing": {
+    "section": { "value": "3rem", "type": "dimension" },
+    "component": { "value": "1.5rem", "type": "dimension" }
+  },
+  "font": {
+    "family-heading": { "value": "'[Font Name]', serif", "type": "fontFamily" },
+    "size-h1": { "value": "clamp(2rem, 5vw, 3rem)", "type": "dimension" }
+  }
+}
+```
+
+> **Implementation:** Use tools like Style Dictionary, Tokens Studio, or a custom build step to transform tokens into CSS custom properties, SCSS variables, or other platform formats.
 
 ### Typography
 
@@ -5163,6 +6214,514 @@ Reference document for maintaining visual and tonal consistency across the websi
 }
 ```
 
+#### Navigation
+
+```css
+.site-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-nav, 1rem 2rem);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: var(--color-bg);
+    border-bottom: 1px solid rgba(X, X, X, 0.2);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-link {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-link:hover,
+.nav-link[aria-current="page"] {
+    color: var(--color-primary);
+}
+```
+
+#### Modal / Dialog
+
+```css
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+}
+
+.modal {
+    background: var(--color-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal:focus-visible {
+    outline: 2px solid var(--color-primary);
+}
+```
+> **Accessibility:** Modal must trap focus, close on Escape, and return focus to trigger element.
+
+#### Toast / Alert
+
+```css
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    color: var(--color-text-inverse);
+    z-index: 300;
+    animation: slideIn 0.3s ease;
+}
+
+.toast--success { background: var(--color-success); }
+.toast--error   { background: var(--color-error); }
+.toast--warning { background: var(--color-warning); }
+.toast--info    { background: var(--color-info); }
+```
+> **Accessibility:** Use `role="alert"` for errors, `role="status"` for informational toasts. Respect `prefers-reduced-motion`.
+
+#### Dropdown
+
+```css
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--color-bg);
+    border: 1px solid rgba(X, X, X, 0.2);
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    min-width: 200px;
+    box-shadow: var(--shadow-md);
+    z-index: 50;
+}
+
+.dropdown-item {
+    padding: 0.5rem 1rem;
+    display: block;
+    color: var(--color-text);
+    transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+    background: var(--color-bg-alt);
+}
+```
+
+#### Tabs
+
+```css
+.tabs {
+    display: flex;
+    border-bottom: 1px solid rgba(X, X, X, 0.2);
+    gap: 0;
+}
+
+.tab {
+    padding: 0.75rem 1.5rem;
+    border-bottom: 2px solid transparent;
+    color: var(--color-text-muted);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.tab[aria-selected="true"] {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+}
+
+.tab-panel[hidden] {
+    display: none;
+}
+```
+
+#### Accordion
+
+```css
+.accordion-item {
+    border-bottom: 1px solid rgba(X, X, X, 0.1);
+}
+
+.accordion-trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+    background: none;
+    border: none;
+    color: var(--color-text);
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.accordion-content {
+    padding: 0 0 1rem 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+```
+
+#### Table
+
+```css
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(X, X, X, 0.1);
+}
+
+.table th {
+    font-weight: 600;
+    color: var(--color-text);
+    background: var(--color-bg-alt);
+}
+
+.table tr:hover td {
+    background: var(--color-bg-card);
+}
+```
+
+#### Pagination
+
+```css
+.pagination {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination-link {
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    color: var(--color-text);
+    transition: background 0.2s;
+}
+
+.pagination-link:hover {
+    background: var(--color-bg-alt);
+}
+
+.pagination-link[aria-current="page"] {
+    background: var(--color-primary);
+    color: var(--color-text-inverse);
+}
+```
+
+#### Breadcrumbs
+
+```css
+.breadcrumbs {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+.breadcrumb-separator {
+    color: var(--color-text-muted);
+}
+
+.breadcrumb-link {
+    color: var(--color-text-muted);
+    text-decoration: none;
+}
+
+.breadcrumb-link:hover {
+    color: var(--color-primary);
+}
+
+.breadcrumb-current {
+    color: var(--color-text);
+}
+```
+> **Accessibility:** Use `<nav aria-label="Breadcrumb">` with `<ol>` markup.
+
+#### Loading States
+
+```css
+.skeleton {
+    background: linear-gradient(90deg,
+        var(--color-bg-alt) 25%,
+        var(--color-bg-card) 50%,
+        var(--color-bg-alt) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 8px;
+}
+
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.spinner {
+    width: 2rem;
+    height: 2rem;
+    border: 3px solid var(--color-bg-alt);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+```
+> **Accessibility:** Use `aria-busy="true"` on loading containers and `role="status"` on spinner elements. Respect `prefers-reduced-motion`.
+
+#### Share Trigger
+
+```css
+.share-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 4px;
+    transition: color 0.2s ease;
+}
+
+.share-trigger:hover {
+    color: var(--color-primary);
+}
+
+.share-trigger:active .icon-share {
+    transform: scale(0.95);
+}
+
+.share-trigger .icon-share {
+    width: 1.25rem;
+    height: 1.25rem;
+    transition: transform 0.1s ease;
+}
+
+/* Larger variant for standalone share buttons */
+.share-trigger--lg .icon-share {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+```
+
+#### Share Modal
+
+```css
+.share-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-modal);
+    animation: fadeIn 0.2s ease;
+}
+
+.share-modal {
+    background: var(--color-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 480px;
+    width: 90%;
+    box-shadow: var(--shadow-lg);
+}
+
+.share-modal__preview {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--color-bg-alt);
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.share-modal__preview-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.share-modal__preview-title {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.share-modal__preview-description {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.share-modal__platforms {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.share-platform {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    background: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    color: var(--color-text);
+    transition: border-color 0.2s, background 0.2s;
+    text-decoration: none;
+    min-width: 64px;
+}
+
+.share-platform:hover {
+    border-color: rgba(X, X, X, 0.2);
+    background: var(--color-bg-alt);
+}
+
+.share-platform__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.share-platform__label {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}
+
+.share-modal__copy-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: var(--color-bg-alt);
+    border: 1px solid rgba(X, X, X, 0.2);
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--color-text);
+    transition: border-color 0.2s;
+}
+
+.share-modal__copy-link:hover {
+    border-color: var(--color-primary);
+}
+
+.share-modal__copy-link--copied {
+    border-color: var(--color-success);
+    color: var(--color-success);
+}
+```
+> **Accessibility:** Modal traps focus, closes on Escape, returns focus to trigger. Platform links open in new tabs (`target="_blank" rel="noopener"`). Copy confirmation uses `role="status"`.
+
+#### Theme Toggle
+
+```css
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    background: var(--color-bg-alt);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--color-primary);
+    color: var(--color-bg);
+    border-color: var(--color-primary);
+}
+
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.theme-toggle__icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover .theme-toggle__icon {
+    transform: rotate(15deg);
+}
+
+/* Icon visibility: show sun in light mode, moon in dark mode */
+.theme-toggle__icon--sun  { display: block; }
+.theme-toggle__icon--moon { display: none; }
+
+:root[data-theme="dark"] .theme-toggle__icon--sun  { display: none; }
+:root[data-theme="dark"] .theme-toggle__icon--moon { display: block; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .theme-toggle,
+    .theme-toggle__icon {
+        transition: none;
+    }
+}
+```
+
+```html
+<button class="theme-toggle" aria-label="Switch to dark theme">
+    <svg class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true" viewBox="0 0 24 24">
+        <!-- Sun icon (Lucide or custom) -->
+    </svg>
+    <svg class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true" viewBox="0 0 24 24">
+        <!-- Moon icon (Lucide or custom) -->
+    </svg>
+</button>
+```
+
+> **Behavior:** `theme.js` toggles `data-theme` on `<html>`, persists to `localStorage`, and updates `aria-label` dynamically ("Switch to dark theme" / "Switch to light theme"). Icon swap is handled purely via CSS. See Light/Dark Theme System (Website Structure) for full architecture.
+
 ### Layout Patterns
 
 #### Container Widths
@@ -5240,6 +6799,68 @@ transition: all 0.3s ease;
 | Smooth | `ease-in-out` | Enter/exit animations |
 | Bounce | `cubic-bezier(0.68, -0.55, 0.265, 1.55)` | Playful interactions |
 
+### Implementation Detail Rules
+
+Small CSS and UX rules that are easy to overlook but make the difference between a polished implementation and a rough one. These apply globally across all components and pages.
+
+#### Cursor Rules
+
+| Element | Cursor | Rule |
+|---------|--------|------|
+| Buttons, links, clickable cards | `cursor: pointer` | Every clickable element must show pointer — never leave default arrow on interactive elements |
+| Disabled buttons/inputs | `cursor: not-allowed` | Combined with reduced opacity (0.5–0.6) |
+| Draggable elements | `cursor: grab` / `cursor: grabbing` | Switch to `grabbing` on mousedown |
+| Text inputs, textareas | `cursor: text` | Browser default; do not override |
+| Loading/processing states | `cursor: wait` (or `cursor: progress`) | While async actions are in progress |
+
+> **Anti-pattern:** Never use custom cursor images (see AI Output Anti-Pattern Catalog). Use native cursor keywords only.
+
+#### Z-Index Scale
+
+Use a systematic scale to prevent z-index conflicts. Never use arbitrary values.
+
+| Token | Value | Layer |
+|-------|-------|-------|
+| `--z-base` | `0` | Normal document flow |
+| `--z-raised` | `10` | Cards, raised surfaces, dropdowns |
+| `--z-sticky` | `20` | Sticky headers, floating elements |
+| `--z-overlay` | `30` | Backdrop overlays, dimmed backgrounds |
+| `--z-modal` | `40` | Modals, dialogs, share modal |
+| `--z-toast` | `50` | Toast notifications (must appear above modals) |
+| `--z-tooltip` | `60` | Tooltips (must appear above everything) |
+
+#### Text Contrast Minimums
+
+Beyond WCAG compliance (which is required), apply these practical minimums for readability:
+
+| Text Role | Minimum Contrast | Implementation |
+|-----------|-----------------|----------------|
+| Body text | 7:1 (AAA recommended) | Dark text on light: `#1A1A1A` minimum; Light text on dark: `#E0E0E0` minimum |
+| Muted / secondary text | 4.5:1 (AA required) | Light mode: no lighter than `--color-text-muted` ≈ `#6B7280`; Dark mode: no darker than `#9CA3AF` |
+| Placeholder text | 3:1 (AA for large text) | Clearly lighter than user-entered text to distinguish empty vs. filled state |
+| Caption / fine print | 4.5:1 (AA required) | Small text needs *more* contrast, not less — never use light gray for fine print |
+
+#### Spacing Consistency Rules
+
+| Rule | Implementation |
+|------|---------------|
+| Container max-width | Every page has a `max-width` container (typically `--container-max: 1280px` or `1400px`) with `margin: 0 auto` — content must never stretch to screen edge on large viewports |
+| Page horizontal padding | Minimum `1rem` on mobile (`xs`), `2rem` on tablet (`md`+) — content must never touch viewport edges |
+| Section vertical spacing | Use the spacing scale consistently — do not mix arbitrary pixel values |
+| Component internal padding | Follow the spacing scale (e.g., `8px`, `12px`, `16px`, `24px`) — no magic numbers |
+| Touch target size | Minimum 44×44px for all interactive elements (WCAG 2.5.5) |
+
+#### Border and Divider Rules
+
+| Context | Light Mode | Dark Mode |
+|---------|-----------|-----------|
+| Card borders | `1px solid rgba(0, 0, 0, 0.08–0.12)` | `1px solid rgba(255, 255, 255, 0.08–0.12)` |
+| Section dividers | `1px solid rgba(0, 0, 0, 0.06)` or use whitespace instead | `1px solid rgba(255, 255, 255, 0.06)` |
+| Input borders | `1px solid` using `--color-border` token; focus state uses `--color-primary` | Same token, dark theme override |
+| Avoid | Heavy borders (`2px+`) on cards, visible borders on every element, border as primary visual structure | Same |
+
+> **Theme note:** Border colors should use RGBA transparency so they adapt naturally to varying backgrounds. Include these as design tokens in `variables.css` (see Light/Dark Theme System).
+
 ### Iconography
 
 #### Icon Style
@@ -5262,17 +6883,53 @@ transition: all 0.3s ease;
 
 ### Responsive Design
 
-#### Primary Breakpoint
+#### Breakpoint Behavior Map
 
-`768px` (tablet/mobile)
+| Breakpoint | Width | Layout Changes |
+|-----------|-------|----------------|
+| `xs` | 0–639px | Single column, hamburger nav, stacked cards, minimal padding, vertically stacked footer |
+| `sm` | 640–767px | Single column with wider cards, slightly increased padding |
+| `md` | 768–1023px | Two-column grids, tablet nav (may still use hamburger), side-by-side cards |
+| `lg` | 1024–1279px | Full desktop nav, three-column grids, sidebar layouts enabled |
+| `xl` | 1280–1535px | Max-width containers, comfortable spacing, full component display |
+| `2xl` | 1536px+ | Wide layouts, increased max-widths, large-screen typography scaling |
 
-#### Mobile Behavior
+#### Media Query Examples
 
-* Navigation hidden, hamburger menu shown  
-* Stacked layouts for grids  
-* Reduced padding and margins  
-* Footer links stack vertically  
-* Font sizes may reduce slightly
+```css
+/* xs: base styles — no media query */
+.grid { grid-template-columns: 1fr; }
+.site-nav .nav-links { display: none; }
+.site-nav .hamburger { display: block; }
+
+/* sm: large phones */
+@media (min-width: 640px) {
+    .card { min-width: 280px; }
+}
+
+/* md: tablets */
+@media (min-width: 768px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-links { flex-direction: row; }
+}
+
+/* lg: small laptops — full nav */
+@media (min-width: 1024px) {
+    .site-nav .nav-links { display: flex; }
+    .site-nav .hamburger { display: none; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* xl: desktops */
+@media (min-width: 1280px) {
+    .container { max-width: 1200px; }
+}
+
+/* 2xl: large screens */
+@media (min-width: 1536px) {
+    .container-wide { max-width: 1400px; }
+}
+```
 
 ### Accessibility
 
@@ -5292,6 +6949,96 @@ transition: all 0.3s ease;
     outline-offset: 2px;
 }
 ```
+
+### Flavor System Integration
+
+This section documents how the Flavor System overrides the base Style Guide tokens.
+
+#### Token Override Mapping
+
+Each Flavor overrides a subset of the base design tokens. Document overrides using this format:
+
+| Base Token | Base Value | Flavor Override | Flavor Value |
+|------------|-----------|-----------------|-------------|
+| `--color-primary` | `#XXXXXX` | Holiday Warmth | `#XXXXXX` |
+| `--color-bg` | `#XXXXXX` | Holiday Warmth | `#XXXXXX` |
+| `--font-family-heading` | `'[Font]'` | Holiday Warmth | `'[Alt Font]'` |
+
+#### Theme × Flavor Token Layering
+
+Theme (light/dark) and Flavor are independent dimensions. The token cascade is:
+
+```
+Base Light → Theme override (dark) → Flavor override → Flavor + Theme override
+```
+
+Every Flavor must define both light and dark variants. The combination is resolved via two `data-*` attributes on `<html>`: `data-theme` and `data-flavor`.
+
+#### CSS Custom Property Pattern
+
+```css
+/* ── Layer 1: Base Light tokens (default) ── */
+:root {
+    --color-primary: #XXXXXX;
+    --color-bg: #FFFFFF;
+    --color-text: #1A1A1A;
+    --color-bg-card: #F5F5F5;
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --animation-duration: 0.3s;
+}
+
+/* ── Layer 2: Dark theme override ── */
+:root[data-theme="dark"] {
+    --color-bg: #121212;
+    --color-text: #E0E0E0;
+    --color-bg-card: #1E1E1E;
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+/* ── Layer 3: Flavor override (applies to both themes) ── */
+:root[data-flavor="holiday-warmth"] {
+    --color-primary: #C62828;
+    --animation-duration: 0.4s;
+}
+
+/* ── Layer 4: Flavor + Dark theme compound override ── */
+:root[data-flavor="holiday-warmth"][data-theme="dark"] {
+    --color-primary: #EF5350;
+    --color-bg: #1B0000;
+    --color-bg-card: #2C0A0A;
+}
+
+/* ── System preference fallback (before JS loads) ── */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+        --color-bg: #121212;
+        --color-text: #E0E0E0;
+        --color-bg-card: #1E1E1E;
+        --shadow-md: 0 4px 6px rgba(0,0,0,0.3);
+    }
+}
+
+/* ── Reduced-motion override (all combinations) ── */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --animation-duration: 0s;
+    }
+}
+```
+
+> **Specificity note:** Compound selectors (`[data-flavor][data-theme="dark"]`) are more specific than single-attribute selectors, so Layer 4 naturally overrides Layers 2 and 3 without `!important`.
+
+#### Variant Documentation Format
+
+For each Flavor variant, document:
+
+1. **Flavor name** and activation trigger (seasonal, demographic, manual)
+2. **Light mode token overrides** — complete list of tokens changed from base light
+3. **Dark mode token overrides** — complete list of tokens changed from base dark
+4. **New assets** — any images, icons, or patterns specific to the Flavor (note if light/dark variants needed)
+5. **Contrast verification** — WCAG AA status for all text/background combinations in **both** light and dark modes
+6. **Animation changes** — any motion differences with reduced-motion fallbacks
+7. **Preview** — screenshots or staging links for **both** light and dark versions of the Flavor
 
 ### Assets
 
@@ -5325,4 +7072,377 @@ All assets in `/assets/` directory with **absolute paths**.
 ---
 
 *Last updated: \[Date\]*
+`````
+
+## APPENDIX D: DISCOVERY BRIEF TEMPLATE
+
+```
+# Discovery Brief
+## [Website Project] — [Website Project's Owner or Brand]
+
+### Document Information
+* Version: [#]
+* Date: [Date]
+* Author: Project Manager
+* Status: [Draft/Final]
+
+### 1. Project Overview
+
+#### Project Name
+[Website Project name]
+
+#### Project Owner
+[Website Project's Owner or Brand]
+
+#### Project Type
+[ ] New website  [ ] Redesign  [ ] Migration  [ ] Expansion
+
+#### Project Summary
+[2-3 sentence overview of the project scope and purpose]
+
+### 2. Business Context
+
+#### Organization Background
+[Brief description of the organization, its history, and current position]
+
+#### Industry / Market
+[Industry sector, market size, trends]
+
+#### Current Digital Presence
+[Existing website URL, social media, digital tools in use]
+
+#### Reason for This Project
+[What prompted this initiative — growth, rebrand, new offering, competitive pressure, etc.]
+
+### 3. Stakeholder Input
+
+#### Key Stakeholders
+| Name | Role | Involvement Level | Contact |
+|------|------|-------------------|---------|
+| [Name] | [Title] | Decision Maker / Contributor / Reviewer | [Email] |
+
+#### Vision Statements
+[Captured verbatim from stakeholder interviews — what does the ideal website look like?]
+
+#### Concerns and Constraints
+[Stakeholder-expressed worries, limitations, or non-negotiables]
+
+### 4. Target Audience (Preliminary)
+
+#### Primary Audience
+[Who is this website for? Initial description before formal Persona development]
+
+#### Secondary Audiences
+[Additional audiences the site must serve]
+
+#### Known User Needs
+[What do target users need from this website? Based on stakeholder input or existing data]
+
+### 5. Competitive Landscape (Initial)
+
+| Competitor | URL | Strengths | Weaknesses | Relevance |
+|------------|-----|-----------|------------|-----------|
+| [Name] | [URL] | [What they do well] | [Gaps] | [Why they matter] |
+
+### 6. Content & Materials Inventory
+
+#### Materials Received
+| Material | Format | Status | Notes |
+|----------|--------|--------|-------|
+| [Logo files] | [PNG/SVG] | [Received/Pending] | [Notes] |
+| [Brand guidelines] | [PDF] | [Received/Pending] | [Notes] |
+| [Existing content] | [Docs/CMS export] | [Received/Pending] | [Notes] |
+| [Analytics data] | [GA export] | [Received/Pending] | [Notes] |
+
+#### Materials Still Needed
+* [List of outstanding materials]
+
+### 7. Technical Context
+
+#### Hosting / Infrastructure
+[Current or planned hosting environment]
+
+#### Integrations Required
+[CRM, email marketing, payment processing, etc.]
+
+#### Technical Constraints
+[Browser support requirements, accessibility mandates, performance requirements]
+
+### 8. Project Parameters
+
+#### Timeline
+| Milestone | Target Date |
+|-----------|-------------|
+| Discovery complete | [Date] |
+| Conceptualization complete | [Date] |
+| Design complete | [Date] |
+| Development complete | [Date] |
+| Launch | [Date] |
+
+#### Budget Range
+[If disclosed — otherwise note "To be discussed"]
+
+#### Success Criteria
+[How will the project be measured as successful?]
+
+### 9. Open Questions
+
+| # | Question | For Whom | Priority |
+|---|----------|----------|----------|
+| 1 | [Question] | [Stakeholder/Role] | High/Medium/Low |
+
+### 10. Next Steps
+
+* [Immediate action items following Discovery]
+
+### Approval
+
+| Role | Name | Date | Signature |
+|------|------|------|-----------|
+| Project Manager | | | |
+| Client Representative | | | |
+```
+
+## APPENDIX E: TARGET AUDIENCE PERSONA TEMPLATE
+
+```
+# Target Audience Persona
+## [Persona Name] — [Website Project]
+
+### Document Information
+* Version: [#]
+* Date: [Date]
+* Author: Market / User Research Specialist
+* Status: [Draft/Final]
+* Persona: [#] of [Total]
+
+### 1. Identity
+
+#### Name
+[Memorable, fitting name]
+
+#### Photo Description
+[For visualization — physical description or stock photo direction]
+
+#### Representative Quote
+"[A quote that encapsulates this persona's primary need or motivation]"
+
+### 2. Demographics
+
+| Attribute | Details |
+|-----------|---------|
+| Age Range | [Range] |
+| Occupation / Role | [Title, industry] |
+| Location Context | [Urban/suburban/rural, region] |
+| Family / Life Situation | [Relevant context] |
+| Economic Context | [Income range, spending patterns relevant to project] |
+| Education | [Level, relevance] |
+
+### 3. Psychographics
+
+#### Core Values (Top 3-5)
+1. **[Value]:** [How it manifests]
+2. **[Value]:** [How it manifests]
+3. **[Value]:** [How it manifests]
+
+#### Interests and Passions
+* [Interest relevant to the project]
+
+#### Personality Traits
+* [Trait] — [Behavioral description]
+
+#### Aspirations
+* [What they're working toward]
+
+#### Fears / Concerns
+* [What worries them in the context of this project's domain]
+
+### 4. Goals Related to [Website Project]
+
+#### Primary Goal
+[What they are ultimately trying to achieve when visiting this site]
+
+#### Secondary Goals
+* [Additional goals]
+
+#### Success Definition
+[How this persona measures whether the site helped them]
+
+### 5. Pain Points and Frustrations
+
+| Pain Point | Severity | Current Workaround |
+|------------|----------|-------------------|
+| [Pain point] | High/Medium/Low | [How they cope today] |
+
+### 6. Website Usage Expectations
+
+| Attribute | Details |
+|-----------|---------|
+| Tech Savviness | [1-5 scale with description] |
+| Primary Device | [Mobile/Desktop/Tablet] |
+| Browsing Behavior | [Scans/Reads deeply/Task-focused] |
+| Visit Frequency | [One-time/Occasional/Regular] |
+| Content Preference | [Video/Text/Interactive/Mixed] |
+
+### 7. Decision-Making Factors
+
+| Factor | Weight | Notes |
+|--------|--------|-------|
+| [Trust signals] | High/Medium/Low | [What builds trust for this persona] |
+| [Price sensitivity] | High/Medium/Low | [How price factors in] |
+| [Social proof] | High/Medium/Low | [Testimonials, reviews, case studies] |
+| [Expertise signals] | High/Medium/Low | [Credentials, authority markers] |
+
+### 8. Brand Interaction Preferences
+
+* **Tone they respond to:** [Formal/Casual/Expert/Friendly]
+* **Communication channels:** [Email/Social/Chat/Phone]
+* **Content formats:** [Long-form/Bite-sized/Visual/Data-driven]
+
+### 9. Scenario
+
+[A 3-5 sentence narrative describing a typical interaction between this persona and the website — their entry point, what they're looking for, how they navigate, and what success looks like.]
+
+### Approval
+
+| Role | Name | Date | Signature |
+|------|------|------|-----------|
+| Market / User Research Specialist | | | |
+| Client Representative | | | |
+```
+
+## APPENDIX F: QA REPORT TEMPLATE
+
+```
+# Quality Assurance Report
+## [Website Project] — [Website Project's Owner or Brand]
+
+### Document Information
+* Version: [#]
+* Date: [Date]
+* Author: QA / Testing Expert
+* Status: [Draft/Final]
+* Testing Environment: [Staging URL]
+* Testing Period: [Start Date] — [End Date]
+
+### 1. Executive Summary
+
+#### Overall Status
+[ ] Ready for Launch  [ ] Conditional Launch (with known issues)  [ ] Not Ready
+
+#### Key Findings
+* Critical issues: [count]
+* High issues: [count]
+* Medium issues: [count]
+* Low issues: [count]
+* Total tests executed: [count]
+* Pass rate: [percentage]
+
+### 2. Functional Testing Results
+
+| Feature | Test Cases | Passed | Failed | Blocked | Notes |
+|---------|-----------|--------|--------|---------|-------|
+| Navigation | [#] | [#] | [#] | [#] | [Notes] |
+| Forms | [#] | [#] | [#] | [#] | [Notes] |
+| Search | [#] | [#] | [#] | [#] | [Notes] |
+| Interactive elements | [#] | [#] | [#] | [#] | [Notes] |
+| Video/Audio | [#] | [#] | [#] | [#] | [Notes] |
+| Third-party integrations | [#] | [#] | [#] | [#] | [Notes] |
+
+### 3. Cross-Platform Testing Matrix
+
+| Device / Browser | Visual | Functional | Performance | Accessibility | Status |
+|-----------------|--------|------------|-------------|---------------|--------|
+| Chrome / Desktop | [Pass/Fail] | [Pass/Fail] | [Score] | [Pass/Fail] | [Overall] |
+| Firefox / Desktop | [Pass/Fail] | [Pass/Fail] | [Score] | [Pass/Fail] | [Overall] |
+| Safari / macOS | [Pass/Fail] | [Pass/Fail] | [Score] | [Pass/Fail] | [Overall] |
+| Safari / iOS | [Pass/Fail] | [Pass/Fail] | [Score] | [Pass/Fail] | [Overall] |
+| Chrome / Android | [Pass/Fail] | [Pass/Fail] | [Score] | [Pass/Fail] | [Overall] |
+| Edge / Desktop | [Pass/Fail] | [Pass/Fail] | [Score] | [Pass/Fail] | [Overall] |
+
+### 4. Performance Audit
+
+| Metric | Target | Desktop | Mobile | Status |
+|--------|--------|---------|--------|--------|
+| LCP | < 2.5s | [Value] | [Value] | [Pass/Fail] |
+| INP | < 200ms | [Value] | [Value] | [Pass/Fail] |
+| CLS | < 0.1 | [Value] | [Value] | [Pass/Fail] |
+| TBT | < 200ms | [Value] | [Value] | [Pass/Fail] |
+| TTI | < 3.8s | [Value] | [Value] | [Pass/Fail] |
+| TTFB | < 600ms | [Value] | [Value] | [Pass/Fail] |
+| Total Page Weight | [Budget] | [Value] | [Value] | [Pass/Fail] |
+
+### 5. Accessibility Audit
+
+| Criterion | Standard | Status | Notes |
+|-----------|----------|--------|-------|
+| Color contrast | WCAG 2.1 AA (4.5:1 text, 3:1 UI) | [Pass/Fail] | [Details] |
+| Keyboard navigation | All interactive elements reachable | [Pass/Fail] | [Details] |
+| Screen reader | Semantic HTML, ARIA labels, alt text | [Pass/Fail] | [Details] |
+| Focus states | Visible focus indicator on all elements | [Pass/Fail] | [Details] |
+| Form labels | All inputs have associated labels | [Pass/Fail] | [Details] |
+| Heading hierarchy | Logical H1-H6 structure | [Pass/Fail] | [Details] |
+
+### 6. Brand Consistency Audit
+
+| Page | Voice/Tone | Visual Identity | Messaging | Status |
+|------|-----------|-----------------|-----------|--------|
+| [Page] | [Aligned/Deviation] | [Aligned/Deviation] | [Aligned/Deviation] | [Pass/Fail] |
+
+### 7. Content Quality Check
+
+- [ ] All placeholder content replaced
+- [ ] Spelling and grammar verified
+- [ ] Internal links validated
+- [ ] External links validated
+- [ ] Image alt text complete
+- [ ] No Lorem Ipsum detected
+
+### 8. SEO Validation
+
+- [ ] Meta titles and descriptions complete
+- [ ] Schema markup validated
+- [ ] XML sitemap accurate and submitted
+- [ ] Robots.txt properly configured
+- [ ] Canonical URLs set
+- [ ] Open Graph and Twitter Card tags verified
+
+### 9. Issue Log
+
+| ID | Description | Severity | Page | Steps to Reproduce | Screenshot | Status | Owner | Resolution |
+|----|-------------|----------|------|-------------------|------------|--------|-------|------------|
+| [#] | [Issue] | Critical/High/Medium/Low | [URL] | [Steps] | [Link] | Open/In Progress/Fixed/Won't Fix | [Name] | [How resolved] |
+
+### 10. Automated Test Summary
+
+| Test Type | Tool | Coverage | Pass Rate | Notes |
+|-----------|------|----------|-----------|-------|
+| Smoke tests | [Tool] | [Scope] | [%] | [Notes] |
+| Regression tests | [Tool] | [Scope] | [%] | [Notes] |
+| Visual regression | [Tool] | [Pages] | [%] | [Notes] |
+| Accessibility linting | [axe-core/etc.] | [Pages] | [%] | [Notes] |
+| Load testing | [Tool] | [Scenarios] | [Pass/Fail] | [Notes] |
+
+### 11. Recommendations
+
+| Priority | Issue | Impact | Effort | Recommendation |
+|----------|-------|--------|--------|----------------|
+| 1 | [Issue] | [What it affects] | Low/Medium/High | [Action] |
+
+### 12. Launch Readiness Decision
+
+#### Blockers (must resolve before launch)
+* [List of critical/blocking issues]
+
+#### Known Issues (acceptable for launch)
+* [List of deferred issues with justification]
+
+#### Sign-Off
+
+| Role | Name | Decision | Date | Signature |
+|------|------|----------|------|-----------|
+| QA / Testing Expert | | Ready / Not Ready | | |
+| Project Manager | | Launch / Hold | | |
+| Client Representative | | Approved / Not Approved | | |
+```
 
