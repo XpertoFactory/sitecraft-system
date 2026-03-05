@@ -863,7 +863,7 @@ For each supported language, the Content Strategist should produce a Localizatio
 | File | Purpose | Exports/Namespace |
 | :---- | :---- | :---- |
 | `main.js` | Core initialization | `SiteCraft` namespace |
-| `nav.js` | Navigation functionality | Mobile menu, dropdowns, scroll behavior |
+| `nav.js` | Navigation functionality | Mobile menu, dropdowns, smooth scroll, scroll-spy active-state tracking |
 | `i18n.js` | Internationalization | Language switching, translation loading |
 | `analytics.js` | Tracking implementation | GA4, custom events |
 | `seo.js` | SEO utilities | Canonical URLs, structured data injection |
@@ -1579,12 +1579,12 @@ Standard HTML boilerplate for all pages:
 
     <!-- Main Content -->
     <main>
-        <section class="hero">
+        <section id="hero" class="hero">
             <!-- Hero content -->
         </section>
-        
-        <section class="content-section">
-            <!-- Page content -->
+
+        <section id="content" class="content-section">
+            <!-- Page content — add unique id to each section for anchor links and scroll-spy -->
         </section>
     </main>
 
@@ -2959,6 +2959,18 @@ Every animation must belong to exactly one category. This prevents purposeless d
 | **Entrance** | Reveal content as it enters viewport | Scroll-triggered fade-up, staggered list reveal, hero animation | Intersection Observer–triggered; fire once only; stagger delay ≤ 50ms per item |
 | **Narrative** | Advance the brand story | Parallax layers, scroll-linked progress, animated illustrations | Motion Intensity 7+; isolated in dedicated components; `will-change: transform` |
 
+**Smooth Scroll & Scroll-Spy Guidelines**
+
+* Enable smooth scrolling globally via `html { scroll-behavior: smooth; }` — this applies to all anchor-link navigation (e.g., `<a href="#section">`)
+* Account for fixed/sticky headers by setting `scroll-padding-top` on `html` to match the nav height (e.g., `scroll-padding-top: var(--nav-height, 4rem)`) so targets are not hidden behind the header
+* **Scroll-spy** — automatically highlight the active navigation link as the user scrolls through page sections:
+  - Use `IntersectionObserver` on each target section (identified by `id` attributes matching nav `href` anchors) to detect which section is currently in view
+  - Apply an `.active` class (or `aria-current="true"`) to the corresponding nav link when its section enters the viewport threshold (recommended `threshold: 0.3–0.6` or `rootMargin: "-20% 0px -60% 0px"` to activate near the top of the viewport)
+  - Remove the `.active` class from all other nav links so only one is highlighted at a time
+  - On pages with defined sections (e.g., landing pages, long-form content), scroll-spy must be enabled by default in `nav.js`
+  - For multi-page sites, scroll-spy activates only on pages that contain in-page section anchors
+* Respect `prefers-reduced-motion: reduce` — when active, set `scroll-behavior: auto` (instant jump) instead of `smooth`
+
 **Scroll Animation Guidelines**
 
 * Use `IntersectionObserver` (not scroll event listeners) to trigger entrance animations
@@ -3321,6 +3333,7 @@ Produce a "Content Architecture Document" containing:
   - Secondary navigation
   - Footer navigation
   - Utility navigation
+  - In-page anchor navigation with scroll-spy (for long-form or single-page layouts)
 * Content grouping rationale
 * Depth guidelines (maximum click depth for key content)
 
@@ -6243,8 +6256,19 @@ Tokens should be maintained in a format that can generate platform-specific outp
 }
 
 .nav-link:hover,
-.nav-link[aria-current="page"] {
+.nav-link[aria-current="page"],
+.nav-link.active {
     color: var(--color-primary);
+}
+
+/* --- Smooth Scroll & Scroll-Spy --- */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--nav-height, 4rem); /* offset for fixed nav */
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
 }
 ```
 
