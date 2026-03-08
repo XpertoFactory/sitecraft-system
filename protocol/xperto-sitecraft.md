@@ -5455,6 +5455,7 @@ For each proposed AI feature:
 #### 4. Intelligent Search Specification (if applicable)
 * Search scope: what content is indexed
 * Intent detection: how search understands user meaning beyond keywords
+* **Stop-word filtering:** strip common prepositions, articles, and conjunctions from search queries before matching. Build a combined stop-word set covering **every language the site supports** (not just the default locale). Use the search library's term-processing hook: for Pagefind this means the `processTerm` callback when using PagefindUI, or pre-filtering the query string before calling `pagefind.search()` when using the JS API directly. Extend the stop-word list whenever a new locale is added. This prevents high-frequency function words from dominating results (e.g., a search for "Seguro de Auto" should not match every page containing "de"). For CJK languages, rely on the search library's built-in segmenter and only filter common grammatical particles.
 * Result types: content, prompts, tools, FAQ answers, glossary terms
 * Result presentation: grouped by type, with excerpts and context
 * "No results" experience: suggestions, related topics, Ask AI fallback

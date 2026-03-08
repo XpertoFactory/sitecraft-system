@@ -17,15 +17,22 @@ The protocol defines:
 
 ```
 sitecraft-system/
-├── protocol/                 # The SiteCraft protocol document(s)
-│   └── xperto-sitecraft.md   # Current version of the full protocol
-├── reference/                # Reference materials, examples, benchmarks
-├── resources/                # Supporting assets and tools
-├── reviews/                  # Protocol review notes and suggestions
-│   └── suggestions.md        # Running log of improvement ideas
-├── CHANGELOG.md              # Version history of protocol changes
-├── CLAUDE.md                 # Project context for Claude Code
-└── README.md                 # This file
+├── protocol/                         # Protocol documents
+│   ├── xperto-sitecraft.md           # Core protocol (~4,360 lines)
+│   └── niche-sites/                  # Niche AI site templates
+│       ├── production-book.md        # Full technical reference (Astro, Svelte, Pagefind, Firebase)
+│       ├── site-plan-template.md     # Per-site implementation plan template
+│       ├── initial-setup-template.md # Site identity & content kickoff template
+│       └── business-docs-template.md # Non-public business document templates
+├── niche-sites/                      # Working notes & fix scripts for live sites
+├── reference/                        # Reference materials, examples, benchmarks
+├── resources/                        # Supporting assets and tools
+├── reviews/                          # Protocol review notes and suggestions
+│   └── suggestions.md                # Running log of improvement ideas
+├── CHANGELOG.md                      # Version history of protocol changes
+├── CLAUDE.md                         # Project context for Claude Code
+├── INSTALL.md                        # Setup and usage guide
+└── README.md                         # This file
 ```
 
 ## Protocol Sections
@@ -87,9 +94,23 @@ Both projects contain elements that are valuable in their context but don't fit 
 - **13 technology stack guideline files** (ui-ux-pro-max) — per-framework implementation details are out of scope; SiteCraft provides the design system and lets the chosen framework determine implementation patterns
 - **100 product type → style mappings** (ui-ux-pro-max) — too granular for a methodology document; instead, SiteCraft provides the Industry Context framework for creative directors to make informed decisions
 
+## Niche AI Sites
+
+The `protocol/niche-sites/` directory contains a complete template system for building sector-specific AI educational platforms (e.g., AI in Law, AI in Insurance, AI in Business). Each site in the network shares:
+
+- **Astro + Svelte + Vanilla CSS** static site architecture
+- **8-language i18n** (EN, ES, FR, DE, IT, PT, ZH, JA)
+- **3-flavor design system** with light/dark mode
+- **Pagefind search** with multi-language stop-word filtering
+- **Firebase** for auth, chat (AI personas via Gemini), likes, and comments
+- **AI Learning Program** based on the Smoother methodology
+
+See [INSTALL.md](INSTALL.md) for step-by-step setup instructions.
+
 ## Working With This Repo
 
 - **Review the protocol**: Read `protocol/xperto-sitecraft.md` and log observations in `reviews/suggestions.md`
+- **Create a niche site**: Start with the templates in `protocol/niche-sites/` (see [INSTALL.md](INSTALL.md))
 - **Track changes**: All protocol modifications should be reflected in `CHANGELOG.md`
 - **Reference materials**: Drop examples, competitor analyses, or benchmarks into `reference/`
 - **Resources**: Store templates, tools, or assets in `resources/`

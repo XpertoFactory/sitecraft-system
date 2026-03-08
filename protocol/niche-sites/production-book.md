@@ -634,6 +634,80 @@ Each case study includes role simulation exercises per the Smoother methodology.
 - Pagefind runs post-build (`npx pagefind --site dist`)
 - Client-side search UI in navigation
 - Works offline (static index)
+- **Stop-word filtering** — search queries must strip common prepositions, articles, and conjunctions **in every language the site supports** before matching, so queries like "Seguro de Auto" don't match every page containing "de". Build a combined stop-word set covering all active locales:
+
+```js
+// Stop words for all 8 site locales — extend when adding new languages
+var stopWords = new Set([
+  // English
+  'the','a','an','in','on','of','for','to','and','or','is','it',
+  'at','by','as','be','do','if','so','up','my','we','he','us',
+  // Spanish
+  'de','del','el','la','los','las','un','una','unos','unas',
+  'en','con','por','para','al','y','o','e','que','se',
+  'su','es','lo','le','les','nos','me','te','mi','tu','si','no','ni',
+  // French
+  'le','la','les','un','une','des','de','du','au','aux',
+  'et','ou','en','dans','sur','pour','par','avec','ce','se',
+  'je','tu','il','nous','vous','ils','ne','pas','est','sont',
+  // German
+  'der','die','das','ein','eine','und','oder','in','an','auf',
+  'mit','für','von','zu','aus','bei','nach','über','um',
+  'ist','sind','den','dem','des','er','sie','es','wir','ihr',
+  // Italian
+  'il','lo','la','i','gli','le','un','una','di','del','della',
+  'dei','delle','in','con','su','per','tra','fra',
+  'e','o','che','si','non','è','sono','da','al','alla',
+  // Portuguese
+  'o','a','os','as','um','uma','uns','umas','de','do','da',
+  'dos','das','em','no','na','nos','nas','por','para','com',
+  'e','ou','que','se','é','são','ao','à','aos','às',
+  // Chinese (common particles — single characters)
+  '的','了','在','是','我','你','他','她','它','们',
+  '和','与','或','对','从','到','把','被','让','给',
+  // Japanese (common particles — hiragana)
+  'の','は','が','を','に','で','と','も','か','へ',
+  'や','よ','ね','な','だ','です','ます','から','まで','より'
+]);
+
+function filterStopWords(term) {
+  return term.split(/\s+/).filter(function(w) {
+    return !stopWords.has(w.toLowerCase());
+  }).join(' ');
+}
+```
+
+**Integration depends on which Pagefind API the project uses:**
+
+**Option A — PagefindUI** (search widget with built-in UI):
+```js
+new PagefindUI({
+  element: container,
+  showImages: false,
+  // ...keep any existing options...
+  processTerm: function(term) {
+    return filterStopWords(term);
+  }
+});
+```
+
+**Option B — Pagefind JS API** (direct programmatic search):
+```js
+const pagefind = await import('/pagefind/pagefind.js');
+await pagefind.init();
+
+async function search(rawQuery) {
+  var filtered = filterStopWords(rawQuery);
+  if (!filtered.trim()) return []; // all words were stop words
+  return await pagefind.search(filtered);
+}
+```
+
+> **Notes:**
+> - Keep any existing PagefindUI options (`element`, `showImages`, `showSubResults`, etc.) — just add `processTerm` alongside them.
+> - The `filterStopWords` function is shared between both integration paths — define it once in a utility module.
+> - When adding a new locale to the site, add its stop words to the set. Consult standard NLP stop-word lists for the language.
+> - For CJK languages, Pagefind's built-in segmenter handles tokenization; the stop words above cover only common grammatical particles.
 
 ---
 
@@ -817,7 +891,7 @@ Before each deployment:
 - [ ] `npm run build` passes with 0 errors
 - [ ] All flavors render correctly (3 × 2 = 6 combinations)
 - [ ] Language switching works for all locales
-- [ ] Search returns relevant results
+- [ ] Search returns relevant results (stop-word filtering active for all site languages — prepositions/articles stripped via `processTerm` or pre-filtered query)
 - [ ] Interactive tools complete full flow
 - [ ] CTAs link to correct destinations
 - [ ] Dark mode: all elements readable

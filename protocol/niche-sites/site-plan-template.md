@@ -276,7 +276,7 @@
 - [ ] Build passes with 0 errors
 - [ ] All 6 flavor/theme combinations render correctly
 - [ ] Language switching for all active locales
-- [ ] Search returns relevant results
+- [ ] Search returns relevant results (stop-word filtering active for all site languages — prepositions/articles stripped via `processTerm` or pre-filtered query)
 - [ ] All interactive tools complete full flow
 - [ ] All CTAs link correctly
 - [ ] Dark mode: all elements readable
