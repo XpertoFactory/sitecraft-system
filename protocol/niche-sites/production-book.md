@@ -330,7 +330,8 @@ Each flavor defines:
 │   └── Learning Program
 │       ├── Program Overview
 │       ├── Curriculum
-│       └── Case Studies
+│       ├── Case Studies
+│       └── Fast Initial Assessment
 ├── Practice
 │   ├── First Steps
 │   ├── Quick Wins
@@ -653,6 +654,7 @@ Based on the **Smoother Methodology** (see `/resources/smoother/`).
 **Core components:**
 - Hero with CTA + Flyer Slideshow
 - Problem statement (why this matters)
+- Target participant roles clearly identified (e.g., executives, managers, practitioners, creatives) — used to customize curriculum, case studies, and assessments
 - Three Pillars: Hyper-Personalized, Hands-On Practical, Smoother Methodology
 - Core Curriculum (6 modules, expandable accordions)
 - Specialization Tracks (6 tracks in card grid)
@@ -692,10 +694,19 @@ Each case study includes role simulation exercises per the Smoother methodology.
 
 ### 10.6 Personalization
 
-1. Fast initial assessment (or detailed if desired)
+1. Fast Initial Assessment / Pre-Evaluación Diagnóstica (or detailed if desired)
 2. Evaluates: learning style, speed, skill level, competencies
 3. Generates personalized: learning path, activities, content, tools, environment
 4. Includes customized case studies, role simulations, scenarios
+
+### 10.7 Evaluations
+
+Assessments are applied at two levels:
+
+1. **Per module** — Each module includes its own evaluation aligned to its learning objectives. Format adapts to the module type (quiz, practical exercise, case analysis, role simulation output, etc.)
+2. **Program-wide** — A comprehensive final evaluation covering cross-module competencies and practical application
+
+All evaluations are **personalized by participant role or profile** (e.g., an executive receives strategy-focused questions while a practitioner receives hands-on scenarios). Role identification happens during enrollment or the Fast Initial Assessment (§10.6).
 
 ---
 
