@@ -382,3 +382,45 @@ Review date: 2026-02-17.
 ### Voice Guidelines template additions (lines ~3936, ~3939)
 **Type**: enhancement  **Priority**: low — **RESOLVED v1.2.0**
 **Description**: Template includes "Error Messages" and "Empty States" examples — good for web design. Prompt should be updated to request these.
+
+---
+
+## EXISTING NICHE SITES — Improvement Suggestions
+
+> Added 2026-03-08. Recommendations for sites already deployed with Astro 5 + vanilla JS + i18n JSON architecture (Lawra, IbizAI, Insureversia, AiVideo, AiLearning, MaiMusic).
+
+### S1. Migrate interactive tools from vanilla JS to Svelte 5 islands
+**Type**: enhancement  **Priority**: medium  **Status**: OPEN
+**Applies to**: All sites with interactive tools (PromptBuilder, EthicsSimulator, AiRoadmapBuilder, AI Readiness Assessment, AI Help Calculator, Personal Guide)
+**Description**: Interactive tools were built as Astro components with inline `<script>` blocks and vanilla DOM manipulation (querySelector, classList, innerHTML). This works but becomes fragile as tools grow in complexity. Tools with multi-step wizards, branching logic, or API integrations should be migrated to Svelte 5 components with `client:idle` hydration.
+**Trigger**: Migrate when a tool's `<script>` block exceeds ~80 lines, or when adding features requires tracing 3+ querySelector chains. Prioritize tools that will gain Firebase/Gemini integration (chat, likes, comments).
+**Reference**: Production book §9.3 — Svelte Island Migration Path.
+**Effort**: ~2-4 hours per tool. One tool at a time — no big-bang rewrite.
+
+### S2. Migrate content from i18n JSON to Astro Content Collections
+**Type**: enhancement  **Priority**: medium  **Status**: OPEN
+**Applies to**: All sites where i18n JSON files exceed ~1,500 lines per locale
+**Description**: All page content (glossary terms, FAQ questions, quick-win exercises, success stories, tool directory entries, prompts) currently lives in `src/i18n/{locale}.json`. These files grow to 1,700+ lines at 2 locales and will become unmanageable at 8 locales. Structured, repeating content items should migrate to Astro Content Collections with Zod schemas, while page-level UI strings (titles, labels, CTAs) stay in i18n JSON.
+**Trigger**: Before adding a 3rd locale, or when a single JSON file exceeds 2,000 lines.
+**Migration order**: glossary → faq → quick-wins → what-to-do / what-not-to-do → success-stories → case-studies (largest and most structured first).
+**Reference**: Production book §6.3 — Content Collections Migration Path.
+**Effort**: ~1-2 hours per collection per site. One collection per sprint.
+
+### S3. Standardize Pagefind stop-word filtering across all sites
+**Type**: consistency  **Priority**: high  **Status**: OPEN
+**Applies to**: All sites using Pagefind
+**Description**: Some sites filter only English/Spanish stop words; others may not filter at all. All sites should use the production book's standard 8-locale stop-word Set (en, es, fr, de, it, pt, zh, ja) with the shared `filterStopWords()` function, regardless of how many locales are currently active. This future-proofs search for locale expansion.
+**Reference**: Production book §12.4 — Search.
+**Effort**: ~15 minutes per site. Apply the `fix-search-prepositions.md` runbook, then expand to the full 8-locale Set.
+
+### S4. Add first-steps page to Practice section
+**Type**: gap  **Priority**: low  **Status**: OPEN
+**Applies to**: Sites missing a "First Steps" or "Getting Started" page in Practice
+**Description**: The Practice section benefits from an introductory "First Steps" page that bridges Learn → Practice. AiVideo added this in Phase 3. Other sites should check if their Practice navigation includes a beginner-friendly entry point and add one if missing.
+**Effort**: ~1 hour per site (page + i18n keys).
+
+### S5. Ensure mobile nav parity with desktop nav
+**Type**: consistency  **Priority**: medium  **Status**: OPEN
+**Applies to**: All sites
+**Description**: Desktop navigation dropdowns often contain more links than the mobile nav sidebar. Common omissions: AI Roadmap, Ethics Simulator, Newsletter, First Steps. Audit each site's `Navigation.astro` and ensure every desktop dropdown link has a corresponding mobile nav link.
+**Effort**: ~30 minutes per site.

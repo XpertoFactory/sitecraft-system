@@ -374,7 +374,76 @@ Each flavor defines:
 | `success-stories` | title, company, sector, summary, takeaway, personaTakes, sources, order | 5-10 |
 | `case-studies` | title, type (real/fictional/absurd), description, subtitle, slug, sector, personaTakes, sources, order | 3 |
 
-### 6.3 Page Count Estimate
+### 6.3 Content Collections Migration Path
+
+Content starts in i18n JSON files (Phase 2-3) for speed and simplicity, then migrates to Astro Content Collections when scale demands it. This is intentional — not technical debt.
+
+**Phase 2-3 (i18n JSON — start here):**
+All content lives in `src/i18n/{locale}.json` as nested objects. Pages iterate over keys with `t(locale, 'glossary.terms.t1.term')`. This is fast to author, easy to keep en/es in sync, and requires no schema setup.
+
+**When to migrate to Content Collections:**
+- A single i18n JSON file exceeds ~2,000 lines (hard to navigate, merge conflicts)
+- Adding a 3rd+ locale makes syncing JSON objects across files error-prone
+- Content items need individual markdown rendering (rich text, code blocks, images)
+- You need build-time querying (filter by category, sort by date, paginate)
+- Multiple contributors need to add content without touching a shared JSON file
+
+**Migration steps per collection:**
+
+1. Create collection schema in `src/content/config.ts`:
+```ts
+import { defineCollection, z } from 'astro:content';
+
+const glossary = defineCollection({
+  type: 'data',  // use 'content' for markdown entries
+  schema: z.object({
+    term: z.string(),
+    definition: z.string(),
+    aka: z.string().optional(),
+    category: z.string(),
+  })
+});
+
+export const collections = { glossary };
+```
+
+2. Extract entries from i18n JSON into `src/content/{collection}/{locale}/`:
+```
+src/content/glossary/
+  en/
+    generative-ai.json    # { "term": "Generative AI", "definition": "...", ... }
+    deepfake.json
+  es/
+    generative-ai.json    # { "term": "IA Generativa", "definition": "...", ... }
+    deepfake.json
+```
+
+3. Update page files to query the collection:
+```astro
+---
+import { getCollection } from 'astro:content';
+const terms = await getCollection('glossary',
+  ({ id }) => id.startsWith(`${locale}/`)
+);
+terms.sort((a, b) => a.data.term.localeCompare(b.data.term, locale));
+---
+{terms.map(t => <dt>{t.data.term}</dt><dd>{t.data.definition}</dd>)}
+```
+
+4. Remove the migrated keys from `src/i18n/{locale}.json`
+5. Keep page-level UI strings (titles, labels, CTAs) in i18n JSON — only move **content items** to collections
+
+**Migration priority order** (largest/most structured first):
+1. `glossary` — highest entry count (30-100 terms)
+2. `faq` — high entry count (20-30 questions)
+3. `quick-wins` — complex schema (12+ fields per entry)
+4. `what-to-do` / `what-not-to-do` — moderate count, rich content
+5. `success-stories` — moderate count
+6. `case-studies` — lowest count but richest content (markdown bodies)
+
+> **Rule of thumb:** If you're adding a 3rd locale or the i18n JSON exceeds 2,000 lines, start migrating the largest collection. Don't migrate everything at once — do one collection per sprint.
+
+### 6.4 Page Count Estimate
 
 Per locale: ~60-70 pages. With 8 locales: ~480-560 pages total.
 Plus content collection entries: ~200+ markdown files.
@@ -517,7 +586,54 @@ All interactive tools are Astro components with inline `<script>` blocks for cli
 
 Complex interactions (chat, likes, comments, auth) use Svelte 5 components with `client:idle` hydration.
 
-### 9.3 Funnel Strategy
+### 9.3 Svelte Island Migration Path
+
+Interactive tools start as Astro components with vanilla JS (Phase 2-3) and graduate to Svelte 5 islands when complexity warrants it. This is a deliberate two-tier strategy — not a shortcut.
+
+**When to stay with vanilla JS (Astro `<script>`):**
+- Linear wizards with simple step navigation (show/hide panels)
+- Filter/sort UI (category tabs, search inputs)
+- Copy-to-clipboard, accordion, toggle interactions
+- Any tool where state is a single scalar (current step, active tab)
+
+**When to migrate to Svelte 5 (`client:idle`):**
+- Tool needs multi-dimensional reactive state (e.g., form values + validation + results + history)
+- Branching logic that grows beyond 3-4 code paths
+- Component needs to call Firebase/Gemini APIs and manage async state
+- Tool is being extended with new features that compound DOM manipulation complexity
+- Two or more developers will maintain the component
+
+**Migration steps:**
+1. Create `src/components/{ToolName}.svelte` alongside the existing `.astro` file
+2. Move state logic into Svelte 5 runes (`$state`, `$derived`, `$effect`)
+3. Move markup into Svelte template with `{#if}` / `{#each}` blocks
+4. Move scoped styles into the `<style>` block
+5. Replace the Astro component usage in page files: `<ToolName client:idle locale={locale} />`
+6. Pass i18n strings as props (Svelte components cannot call `t()` directly — the Astro page pre-resolves them)
+7. Delete the old `.astro` component once verified
+8. Verify build: `npm run build` → 0 errors, test the tool end-to-end
+
+**i18n prop pattern for Svelte islands:**
+```svelte
+<!-- Page file (Astro) -->
+<PromptBuilder client:idle labels={{
+  step1Title: t(locale, 'promptBuilder.step1Title'),
+  step2Title: t(locale, 'promptBuilder.step2Title'),
+  ...
+}} />
+```
+
+```svelte
+<!-- Component (Svelte 5) -->
+<script>
+  let { labels } = $props();
+</script>
+<h2>{labels.step1Title}</h2>
+```
+
+> **Rule of thumb:** If you find yourself writing more than ~80 lines of vanilla JS in a `<script>` block, or if a bug fix requires tracing 3+ `querySelector` chains, it's time to migrate to Svelte.
+
+### 9.4 Funnel Strategy
 
 Every page ends with a `FunnelCTA` component driving users toward:
 - **Primary CTA:** Learning Program or Our Services
@@ -864,19 +980,21 @@ Current network (all linked in footers and About sections):
 1. Resources section (FAQ, Glossary, Success Stories, Tools Directory, Newsletter)
 2. Opinion section
 3. Services section (6 pages)
-4. Content collections (quick-wins, what-to-do, what-not-to-do, faq, glossary, success-stories)
+4. Migrate largest content sets from i18n JSON → Astro Content Collections (see §6.3 for migration path; start with glossary and FAQ)
 
 ### Phase 4: Interactive Features
-1. AI Chat system (Ask {SiteName}) — Phase 1: Chat UI + Gemini
+1. AI Chat system (Ask {SiteName}) — Phase 1: Chat UI + Gemini (Svelte 5 island)
 2. AI Chat — Phase 2: Auth + Multi-Persona + History
-3. Like/Share/Comment system
+3. Like/Share/Comment system (Svelte 5 islands)
 4. Admin panel
+5. Migrate complex interactive tools from vanilla JS → Svelte 5 islands (see §9.3 for migration criteria and steps)
 
 ### Phase 5: Expansion
 1. Expand i18n to all 8 languages
-2. Learning Program curriculum (modules, exercises)
-3. Case Studies with Role Simulation
-4. Additional content (sector-specific deep dives)
+2. Migrate remaining content collections (quick-wins, what-to-do, what-not-to-do, success-stories, case-studies) — critical before 3rd+ locale
+3. Learning Program curriculum (modules, exercises)
+4. Case Studies with Role Simulation
+5. Additional content (sector-specific deep dives)
 
 ### Phase 6: Business
 1. Generate business documents (commercialization, business plan, investors pitch)
