@@ -26,9 +26,19 @@ This repository contains the **Xperto SiteCraft** protocol — an AI-assisted we
 - Keep changes focused — one concern per edit.
 - Log all changes in `CHANGELOG.md`.
 
+### Niche AI Sites (Astro implementations)
+- The `protocol/niche-sites/` directory contains the template system for sector-specific AI educational platforms built with Astro 5 + Svelte 5.
+- `production-book.md` is the authoritative technical reference — covers tech stack, file structure, i18n, content collections, interactive tools, Firebase, search, deployment, and quality checklists.
+- Key migration guidance: §6.3 (i18n JSON → Content Collections) and §9.3 (vanilla JS → Svelte 5 islands).
+- `reviews/suggestions.md` includes an "Existing Niche Sites" section (S1-S5) with improvement recommendations for deployed sites.
+
 ### File Locations
-- `protocol/xperto-sitecraft.md` — The protocol (single source of truth)
-- `reviews/suggestions.md` — Improvement suggestions and review notes
+- `protocol/xperto-sitecraft.md` — Core protocol (single source of truth for methodology)
+- `protocol/niche-sites/production-book.md` — Technical reference for Astro niche sites
+- `protocol/niche-sites/site-plan-template.md` — Per-site implementation plan template
+- `protocol/niche-sites/initial-setup-template.md` — Site identity & content kickoff
+- `protocol/niche-sites/business-docs-template.md` — Non-public business document templates
+- `reviews/suggestions.md` — Protocol review notes + existing sites improvement suggestions
 - `CHANGELOG.md` — Version history
 - `reference/` — External references, examples, benchmarks
 - `resources/` — Supporting materials and tools
