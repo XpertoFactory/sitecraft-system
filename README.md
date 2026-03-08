@@ -107,10 +107,21 @@ The `protocol/niche-sites/` directory contains a complete template system for bu
 
 See [INSTALL.md](INSTALL.md) for step-by-step setup instructions.
 
+## Runbooks
+
+The `reviews/` directory includes reusable fix prompts (runbooks) for applying protocol standards to existing sites:
+
+| Runbook | Purpose |
+|---------|---------|
+| `reviews/fix-card-icon-layout.md` | Fix stacked icon-over-title cards to use inline icon+title layout |
+
+Paste the prompt from each runbook into Claude Code inside the target repository.
+
 ## Working With This Repo
 
 - **Review the protocol**: Read `protocol/xperto-sitecraft.md` and log observations in `reviews/suggestions.md`
 - **Create a niche site**: Start with the templates in `protocol/niche-sites/` (see [INSTALL.md](INSTALL.md))
+- **Apply fixes to existing sites**: Use the runbooks in `reviews/` (see table above)
 - **Track changes**: All protocol modifications should be reflected in `CHANGELOG.md`
 - **Reference materials**: Drop examples, competitor analyses, or benchmarks into `reference/`
 - **Resources**: Store templates, tools, or assets in `resources/`

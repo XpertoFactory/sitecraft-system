@@ -1328,6 +1328,7 @@ LLMs generating design and content outputs gravitate toward the statistical mean
 | Hamburger menu on desktop viewports | AI sometimes applies mobile patterns to all viewports | Use hamburger for mobile only; desktop gets full navigation |
 | Decorative animations with no purpose | AI adds animation for visual interest without intent | Every animation should serve a UX goal: guide attention, provide feedback, show state change |
 | Custom cursor effects | Accessibility hazard; overused AI flourish | Preserve native cursor behavior; use hover states on interactive elements instead |
+| Stacked icon-over-title in cards (icon on its own line above the title) | The most common AI card layout; wastes vertical space and creates a weak visual pairing between icon and title | Place the icon **inline to the left of the title** using `display: flex; align-items: center; gap` — icon and title read as one heading unit, scanning is faster, and vertical space is preserved |
 
 > **This is not exhaustive.** Each project may identify additional anti-patterns specific to its industry or competitive landscape. The Creative Direction Document should include a "Differentiation Analysis" section (already in the prompt template) that identifies competitor patterns to avoid.
 
@@ -6150,6 +6151,20 @@ Tokens should be maintained in a format that can generate platform-specific outp
 .card:hover {
     border-color: rgba(X, X, X, 0.3);
     transform: translateY(-2px);
+}
+
+/* Card header: icon inline with title — never stack icon above title */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.card-header svg,
+.card-header .card-icon {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
 }
 ```
 

@@ -41,6 +41,9 @@ All notable changes to the Xperto SiteCraft protocol are documented here.
 - **Existing Sites Suggestions** (reviews/suggestions.md) — 5 new improvement recommendations for deployed niche sites: S1 (Svelte island migration), S2 (Content Collections migration), S3 (Pagefind stop-word standardization), S4 (First Steps page), S5 (mobile/desktop nav parity)
 - **INSTALL.md** — setup and usage guide covering repository layout, core protocol usage, niche site creation workflow, and Claude Code integration
 - **README.md** — updated repository structure to include `protocol/niche-sites/`, `niche-sites/`, and `INSTALL.md`; added Niche AI Sites section describing the shared architecture and template system
+- **Card Icon-Title Layout Anti-Pattern** — stacked icon-over-title added to Component & Interaction Anti-Patterns with inline-left alternative; `.card-header` CSS pattern added to Style Guide Cards section enforcing `display: flex; align-items: center; gap` for icon + title pairing
+- **Card Icon Layout Runbook** (`reviews/fix-card-icon-layout.md`) — reusable prompt for fixing stacked icon-over-title cards across existing sites; includes priority repo list and per-repo CLAUDE.md update instructions
+- **README Runbooks section** — new section documenting reusable fix prompts in `reviews/`
 
 ### Changed
 - **Production Workflow Phases 3-5** (production book §18) — Phase 3 now includes Content Collections migration, Phase 4 includes Svelte island migration, Phase 5 emphasizes completing collection migration before 3rd+ locale
