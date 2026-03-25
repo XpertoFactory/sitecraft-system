@@ -566,6 +566,135 @@ LANGUAGE
 Always respond in {user's locale language}.
 ```
 
+### 8.5 Chat Implementation — Critical Architecture Rules
+
+The chat system has a two-layer architecture (Astro wrapper + Svelte island) with strict separation of concerns. Violating these rules causes silent rendering failures.
+
+#### Rule 1: Never import `t()` from i18n inside a Svelte component
+
+Svelte components run in the client bundle. The `t()` function imports JSON files (`import en from './en.json'`) which resolve correctly at Astro build time but **fail silently in the Vite client bundle**, crashing the component when it tries to render.
+
+**Wrong:**
+```svelte
+<!-- ChatWidget.svelte — BROKEN -->
+<script>
+  import { t } from '../../i18n';
+  // ...
+</script>
+<h2>{t(locale, 'askSite.title')}</h2>
+```
+
+**Correct:**
+```astro
+<!-- AskSiteName.astro — resolves i18n at build time -->
+---
+import { t } from '../../i18n';
+const i18n = {
+  title: t(locale, 'askSite.title'),
+  placeholder: t(locale, 'askSite.placeholder'),
+  // ... all strings pre-resolved
+};
+---
+<ChatWidget client:idle i18n={i18n} />
+```
+
+```svelte
+<!-- ChatWidget.svelte — receives plain strings -->
+<script>
+  let { i18n } = $props();
+</script>
+<h2>{i18n.title}</h2>
+```
+
+#### Rule 2: Serialize persona data in the Astro wrapper
+
+Persona definitions, including avatar paths, color values, and tier info, must be serialized into plain objects in the Astro wrapper and passed as a `personas` array prop. The Svelte component must never import from `chat-persona.ts` for rendering data.
+
+```astro
+<!-- AskSiteName.astro -->
+---
+import { PERSONAS, PERSONA_ORDER } from '../../lib/chat-persona';
+
+const personas = PERSONA_ORDER.map((id) => {
+  const p = PERSONAS[id];
+  return {
+    id: p.id,
+    name: p.name,
+    title: p.name,
+    subtitle: p.title,
+    avatar: p.avatar,
+    color: p.color,   // CSS var name, e.g. '--color-primary'
+    tier: p.tier,
+  };
+});
+---
+<ChatWidget client:idle personas={personas} />
+```
+
+#### Rule 3: Resolve suggestions in the Astro wrapper
+
+```astro
+---
+import { getSuggestions } from '../../lib/chat-suggestions';
+const suggestions = getSuggestions(pageContext, locale);
+---
+<ChatWidget client:idle suggestions={suggestions} />
+```
+
+#### Rule 4: `await getApp()` before `getAI()`
+
+In `chat.ts`, the Firebase app must be awaited before passing to `getAI()`. Missing `await` passes a Promise object instead of the app, causing `Cannot read properties of undefined (reading 'getProvider')`.
+
+**Wrong:**
+```ts
+const app = getApp();  // Returns Promise, not app!
+const ai = getAI(app, { backend: new GoogleAIBackend() });
+```
+
+**Correct:**
+```ts
+const app = await getApp();
+const ai = getAI(app, { backend: new GoogleAIBackend() });
+```
+
+#### Rule 5: Chat persona exports
+
+`chat-persona.ts` must export these for the Astro wrapper:
+```ts
+export const PERSONAS = personas;
+export const PERSONA_ORDER: PersonaId[] = ['{site-id}-guide', ...];
+```
+
+Color values must be CSS custom property **names** (e.g., `'--color-primary'`), not `var()` calls, because the Svelte template wraps them: `style="--chip-color: var({persona.color})"`.
+
+#### Rule 6: Firebase deploy timeout
+
+Always prefix Firebase deploy commands with `FUNCTIONS_DISCOVERY_TIMEOUT=120` to avoid timeout errors:
+```bash
+FUNCTIONS_DISCOVERY_TIMEOUT=120 firebase deploy
+```
+
+#### Rule 7: Always use `npm run build` (not `npx astro build`)
+
+The build script chains `astro build && npx pagefind --site dist`. Running `npx astro build` directly skips Pagefind indexing, causing a broken search module error (`Failed to load module script: Expected a JavaScript-or-Wasm module script`) on the live site.
+
+### 8.6 File Structure Summary
+
+```
+src/components/Ask{SiteName}/
+├── Ask{SiteName}.astro          # Thin wrapper: resolves i18n, personas, suggestions at build time
+└── ChatWidget.svelte            # Pure UI: receives all data as props, only imports lib/ for runtime APIs
+
+src/lib/
+├── chat.ts                      # sendMessageStream() — Gemini streaming via firebase/ai
+├── chat-persona.ts              # Persona definitions, system prompts, PERSONAS, PERSONA_ORDER exports
+├── chat-suggestions.ts          # Page-context → suggested questions mapping
+├── firebase.ts                  # Lazy-init singleton (getApp, getDb, getAuth, getUid)
+├── auth.ts                      # onAuthChange, signIn*, signOut, upgrade flows
+├── tiers.ts                     # canSendMessage, incrementUsage, getRemainingMessages
+└── conversations.ts             # Firestore CRUD for chat history (registered users)
+```
+
 ---
 
 ## 9. INTERACTIVE FEATURES
