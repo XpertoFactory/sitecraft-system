@@ -114,6 +114,7 @@ The `reviews/` directory includes reusable fix prompts (runbooks) for applying p
 | Runbook | Purpose |
 |---------|---------|
 | `reviews/fix-card-icon-layout.md` | Fix stacked icon-over-title cards to use inline icon+title layout |
+| `reviews/implement-flavor-preview.md` | Implement the Flavor Preview QA page for all theme/flavor combinations |
 
 Paste the prompt from each runbook into Claude Code inside the target repository.
 
