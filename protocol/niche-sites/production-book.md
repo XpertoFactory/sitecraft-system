@@ -294,7 +294,22 @@ Each flavor defines:
 - Code/prompt font (monospace — typically JetBrains Mono)
 - Accent font (for quotes, callouts)
 
-### 5.4 Dark Mode
+### 5.4 Iconography
+
+- Use **SVG icons only** — preferably Lucide via the `Icon.astro` component
+- **Never use emojis** in any context (UI, headings, cards, lists, content). No exceptions
+- **Never use icon fonts** (Font Awesome, Material Icons, etc.)
+- **Icon placement:** always inline to the left of the accompanying title (`display: flex; align-items: center; gap: 0.75rem`). Never stack an icon above a title on a separate line
+- SVG icons must include `aria-hidden="true"` when adjacent text provides the label
+
+### 5.5 Video Embeds
+
+- **YouTube:** always use `https://www.youtube-nocookie.com/embed/VIDEO_ID` (privacy-enhanced mode). Never use `youtube.com/embed/`
+- Add `loading="lazy"` to all video iframes
+- Include a descriptive `title` attribute on every iframe
+- Wrap iframes in a responsive container with `aspect-ratio: 16/9`
+
+### 5.6 Dark Mode
 
 - Toggle stored in `localStorage` key: `{site-id}-theme`
 - Anti-flash technique in `<head>` script

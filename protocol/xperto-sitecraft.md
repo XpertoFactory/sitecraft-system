@@ -873,7 +873,7 @@ For each supported language, the Content Strategist should produce a Localizatio
 | `footer.js` | Footer injection | Dynamic footer with links and translations |
 | `share.js` | Social sharing | Share modal, platform URLs, Web Share API, clipboard fallback |
 | `theme.js` | Light/dark theme | Theme toggle, `localStorage` persistence, `prefers-color-scheme` detection, `data-theme` attribute management |
-| `video-player.js` | Video handling | Player controls, overlays, disclaimers |
+| `video-player.js` | Video handling | Player controls, overlays, disclaimers, privacy-enhanced YouTube embeds (`youtube-nocookie.com`) |
 
 ### Web Framework Decision
 
@@ -1224,8 +1224,9 @@ All assets referenced with **absolute paths**:
 
 #### Iconography Standards
 
-* **Do not use emojis** in website content, UI elements, or code unless specifically requested by the client. Emojis are informal and non-professional.
-* Use **SVG icons** for all iconography — either from a curated library (Lucide, Heroicons) or custom-designed SVGs aligned with the Visual Design System.
+* **Do not use emojis** anywhere — not in website content, UI elements, headings, cards, lists, navigation, or code. Emojis are informal, render inconsistently across platforms, and cannot be styled. This is a hard rule with no exceptions unless the client explicitly requests emoji usage.
+* Use **SVG icons** for all iconography — preferably from **Lucide** (primary recommendation), or alternatively Heroicons, or custom-designed SVGs aligned with the Visual Design System. Never use icon fonts (Font Awesome, Material Icons) or Unicode symbols as icon substitutes.
+* **Icon placement:** Icons accompanying a title or heading must always be placed **inline to the left** of the text (`display: flex; align-items: center; gap: 0.75rem`). Never stack an icon above a title on a separate line — this is a banned anti-pattern (see Component & Interaction Anti-Patterns).
 * SVG icons must be accessible: include `aria-label` or `aria-hidden="true"` with adjacent text labels as appropriate.
 
 #### Character & People Imagery Standards
@@ -5054,6 +5055,23 @@ For each page, define:
 | FAQ | Video answers for top questions |
 | Landing pages | Campaign-specific video |
 
+#### Video Embedding Standards
+
+When embedding third-party video (YouTube, Vimeo, etc.) on any page:
+
+* **YouTube:** Always use the privacy-enhanced embed domain `https://www.youtube-nocookie.com` instead of `https://www.youtube.com`. This prevents YouTube from dropping tracking cookies on visitors who do not play the video, and suppresses related-video suggestions, ads, and other distracting UI elements that pull users away from the site.
+  ```html
+  <!-- Correct -->
+  <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" ...></iframe>
+
+  <!-- Wrong — never use -->
+  <iframe src="https://www.youtube.com/embed/VIDEO_ID" ...></iframe>
+  ```
+* Add `loading="lazy"` to all video iframes to defer off-screen embeds.
+* Include `title` attribute on every iframe for accessibility (e.g., `title="Product demo video"`).
+* Wrap iframes in a responsive container (`aspect-ratio: 16/9` or the padding-bottom technique) so they scale correctly on all viewports.
+* For self-hosted video (`<video>` elements), these rules do not apply — use `video-player.js` directly.
+
 #### Video Integration Prompt
 
 ```
@@ -5092,6 +5110,7 @@ For each priority video:
 * Style alignment with Flavor System
 * Technical specifications (resolution, format)
 * Integration requirements (autoplay, controls, etc.)
+* Embed domain: `youtube-nocookie.com` for YouTube (see Video Embedding Standards)
 
 #### 3. Asset Handoff Protocol
 ##### Web assets shared with video production:
@@ -6907,7 +6926,7 @@ Beyond WCAG compliance (which is required), apply these practical minimums for r
 
 | Attribute | Specification |
 | :---- | :---- |
-| Type | \[SVG / Emoji / Icon font\] |
+| Type | SVG only (Lucide preferred; never use emojis or icon fonts) |
 | Default size | `1.5rem - 2.5rem` |
 | Color | Inherits from text or uses `--color-primary` |
 | Stroke width | `2px` (if using stroke-based icons) |
@@ -6916,8 +6935,8 @@ Beyond WCAG compliance (which is required), apply these practical minimums for r
 
 | Context | Placement |
 | :---- | :---- |
-| Section headers | Before title with `gap: 0.75rem` |
-| Cards | Above title, centered |
+| Section headers | Inline before title with `display: flex; align-items: center; gap: 0.75rem` |
+| Cards | Inline before title with `display: flex; align-items: center; gap: 0.75rem` — **never above title** (see Anti-Pattern Catalog) |
 | Buttons | Before or after text with `gap: 0.5rem` |
 | Lists | Before list item |
 

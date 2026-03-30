@@ -117,12 +117,21 @@
 
 /services/
   /services/                        Our Services overview
-  /services/ai-suite/               AI Suite for {Sector}
-  /services/assessment/             AI Readiness Assessment
-  /services/consulting/             Consulting Services
+  /services/ai-readiness/           AI Readiness Assessment
+  /services/ai-adoption/            AI Adoption & Transformation Strategies
+  /services/smart-customer-service/ Smart Customer Service & Help Desk
   /services/digital-twins/          Digital Twins
-  /services/training/               Personalized Training
-  /services/speaking/               Speaking & Keynotes
+  /services/learning-programs/      Onboarding & Learning Programs
+  /services/custom-solutions/       Custom AI Solutions
+
+### Value Proposition (Our Promise)
+All services are delivered with this value proposition:
+- **3x Faster** — a third of the time
+- **50% Lower Cost** — half the investment
+- **100% Control** — every aspect, every step of the process
+- **Personalized** — custom adjusted to your specific reality
+- **Higher Quality** — outcome and impact guaranteed
+- **Infinite Possibilities** — beyond what was previously imaginable
 
 /about/
   /about/                           About hub

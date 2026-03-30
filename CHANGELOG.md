@@ -44,6 +44,8 @@ All notable changes to the Xperto SiteCraft protocol are documented here.
 - **Card Icon-Title Layout Anti-Pattern** — stacked icon-over-title added to Component & Interaction Anti-Patterns with inline-left alternative; `.card-header` CSS pattern added to Style Guide Cards section enforcing `display: flex; align-items: center; gap` for icon + title pairing
 - **Card Icon Layout Runbook** (`reviews/fix-card-icon-layout.md`) — reusable prompt for fixing stacked icon-over-title cards across existing sites; includes priority repo list and per-repo CLAUDE.md update instructions
 - **README Runbooks section** — new section documenting reusable fix prompts in `reviews/`
+- **YouTube Privacy-Enhanced Embeds** — new Video Embedding Standards section in Video-Web Integration Protocol requiring `youtube-nocookie.com` for all YouTube embeds with `loading="lazy"`, accessible `title`, and responsive container; `video-player.js` description updated; production book §5.5 added
+- **Iconography Standards strengthened** — emoji ban made absolute (no context exceptions without explicit client request); Lucide established as primary SVG icon library; inline icon-title placement rule added with cross-reference to Anti-Pattern Catalog; Style Guide template Icon Type changed from `[SVG / Emoji / Icon font]` to `SVG only (Lucide preferred)`; Icon Placement for cards changed from "Above title, centered" to inline-left; production book §5.4 added with same rules
 
 ### Changed
 - **Production Workflow Phases 3-5** (production book §18) — Phase 3 now includes Content Collections migration, Phase 4 includes Svelte island migration, Phase 5 emphasizes completing collection migration before 3rd+ locale

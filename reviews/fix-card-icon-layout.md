@@ -21,6 +21,10 @@ After fixing the HTML, update this repo's CLAUDE.md (create one if it doesn't ex
 - Always place the icon inline to the left of the title using `display: flex; align-items: center; gap: 0.75rem`
 - This applies to all card components, feature grids, and any icon+heading pairing
 
+Also while scanning, replace any **emojis used as icons** (in headings, cards, lists, UI elements) with proper Lucide SVG icons via the `<Icon>` component. Emojis must never be used as iconography.
+
+Also check for any YouTube embeds using `youtube.com/embed/` and replace with `youtube-nocookie.com/embed/` (privacy-enhanced mode).
+
 Then commit with message: "Fix card icon layout: inline icon-title instead of stacked"
 
 ---
