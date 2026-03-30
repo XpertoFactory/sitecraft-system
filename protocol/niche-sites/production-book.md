@@ -277,11 +277,22 @@ Each site defines 3 visual flavors following the Sitecraft model. Each flavor ha
 | Flavor 2 | Warm, approachable | Community, educational |
 | Flavor 3 | Dynamic, innovative | Tech-forward, startup |
 
-### 5.2 CSS Architecture (No Tailwind)
+### 5.2 CSS Architecture (Vanilla CSS — No Tailwind)
+
+**Why Vanilla CSS:** The 3-flavor × light/dark system relies on a 4-layer CSS custom property cascade driven by `data-attribute` selectors on `<html>`. This maps directly to native CSS without intermediary tooling:
+
+```css
+/* Layer 1: Base Light */     :root { --color-primary: ...; }
+/* Layer 2: Dark */           :root[data-theme="dark"] { ... }
+/* Layer 3: Flavor */         :root[data-flavor="flavor2"] { ... }
+/* Layer 4: Flavor + Dark */  :root[data-flavor="flavor2"][data-theme="dark"] { ... }
+```
+
+Compound selectors in Layer 4 are naturally more specific than single-attribute selectors — no `!important` needed, no build tooling, no abstraction layer. Tailwind would add a build dependency and ~300KB of utilities while still requiring this same cascade for flavors — two systems expressing the same tokens. Sass/PostCSS offers nesting, but Astro supports native CSS nesting already. Vanilla CSS is the simplest architecture that fully supports the flavor/theme system.
 
 10+ modular CSS files using custom properties:
 - BEM-style naming: `.component__element--modifier`
-- Design tokens via CSS custom properties
+- Design tokens via CSS custom properties (4-layer cascade above)
 - Dark mode via `[data-theme="dark"]` selector
 - Flavor overrides via `[data-flavor="flavor2"]` selector
 - CJK overrides via `:lang(zh)`, `:lang(ja)` selectors
@@ -309,12 +320,45 @@ Each flavor defines:
 - Include a descriptive `title` attribute on every iframe
 - Wrap iframes in a responsive container with `aspect-ratio: 16/9`
 
-### 5.6 Dark Mode
+### 5.6 Theme & Flavor Manager
 
-- Toggle stored in `localStorage` key: `{site-id}-theme`
-- Anti-flash technique in `<head>` script
-- All components must support dark mode
-- Minimum contrast ratios: 7:1 body text, 4.5:1 secondary
+Every site ships with a unified theme/flavor management system composed of two components and one persistence layer:
+
+**Components:**
+- **Theme Toggle** (in Navigation) — switches between light and dark mode. Sun/moon icon button, visible on every page
+- **FlavorSelector.astro** — UI control (dropdown, segmented buttons, or visual swatches) allowing visitors to switch between the 3 flavor variants
+
+**Runtime behavior:**
+1. On page load, an anti-flash `<head>` inline script reads `localStorage` keys and applies `data-theme` and `data-flavor` to `<html>` before first paint
+2. Theme toggle updates `data-theme`, persists to `localStorage` key `{site-id}-theme`, dispatches `site-theme-change` event
+3. Flavor selector updates `data-flavor`, persists to `localStorage` key `{site-id}-flavor`, dispatches `site-flavor-change` event
+4. If no stored preference exists: theme falls back to `prefers-color-scheme`, flavor defaults to absent (= Flavor 1)
+
+**Anti-flash script** (inline in `<head>`, before any stylesheet):
+```html
+<script>
+(function(){
+  var t=localStorage.getItem('{site-id}-theme');
+  var f=localStorage.getItem('{site-id}-flavor');
+  if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches)){
+    document.documentElement.setAttribute('data-theme','dark');
+  }
+  if(f){document.documentElement.setAttribute('data-flavor',f);}
+})();
+</script>
+```
+
+**Persistence:**
+- `{site-id}-theme` — `"light"` or `"dark"`
+- `{site-id}-flavor` — `"flavor2"`, `"flavor3"`, or absent for default
+- Theme and flavor selections are language-independent — switching locale preserves both
+
+**Quality checklist:**
+- [ ] All 6 combinations (3 flavors × 2 themes) render correctly
+- [ ] No flash of wrong theme/flavor on page load
+- [ ] Selections persist across page navigation and browser restart
+- [ ] `prefers-color-scheme` respected when no manual theme selection
+- [ ] All text/background combinations pass WCAG AA contrast in all 6 combinations
 
 ---
 
