@@ -122,6 +122,7 @@ export default defineConfig({
 │   │   ├── PromptBuilder.astro
 │   │   ├── EthicsSimulator.astro
 │   │   ├── EnrollmentModal.astro
+│   │   ├── DesignIssueReporter.svelte
 │   │   ├── FlyerSlideshow.svelte
 │   │   ├── LikeButton.svelte
 │   │   ├── CopyButton.svelte
@@ -360,6 +361,80 @@ Every site ships with a unified theme/flavor management system composed of two c
 - [ ] `prefers-color-scheme` respected when no manual theme selection
 - [ ] All text/background combinations pass WCAG AA contrast in all 6 combinations
 
+### 5.7 Flavor Preview Page
+
+Every niche site includes a **Flavor Preview** page at `/about/design-preview/` that renders all UI components under the active flavor and theme, allowing visual QA and conflict detection across all 6 combinations.
+
+**Purpose:**
+- Visually verify that every component looks correct in all 3 flavors × 2 themes
+- Identify color conflicts, contrast failures, and rendering issues
+- Document issues with enough context to tell Claude Code or a designer exactly what to fix
+- Future: allow admins to configure flavor assignments for subsites/pages
+
+**Page structure:**
+
+#### Controls Bar (sticky at top)
+- **Flavor switcher** — 3 buttons (Flavor 1 / Flavor 2 / Flavor 3) that set `data-flavor` on `<html>` in real time
+- **Theme toggle** — Light / Dark toggle
+- **Current combination label** — e.g., "Flavor 2 — Dark Mode"
+
+#### Section 1: Color Palette
+- Grid of all design token colors rendered as swatches with hex values
+- Token name below each swatch (e.g., `--color-primary`, `--color-bg-card`)
+- Auto-calculated WCAG contrast ratios for key text/background pairs
+- Flag failing pairs with a visible warning
+
+#### Section 2: Typography
+- Heading samples (h1–h4) in the current flavor's heading font
+- Body text paragraph in the current flavor's body font
+- Code/monospace sample
+- Accent font sample (if defined)
+- Font name and weight displayed alongside each sample
+
+#### Section 3: Component Showcase
+Render one live instance of each core component:
+- **Buttons** — primary, secondary, outline, disabled states
+- **Cards** — standard card, clickable nav card, QuickWinCard
+- **Badges** — difficulty badges, tags
+- **Forms** — text input, select, textarea, checkbox, radio (with focus states)
+- **Alerts / Highlight boxes** — info, success, warning, error
+- **Navigation link** — default, hover, active states
+- **Modal** — trigger button that opens a sample modal
+- **Accordion** — 2-3 collapsible items
+- **Persona Take** — sample persona card with avatar and take text
+- **Icons** — grid of commonly used Lucide icons at standard sizes
+
+#### Section 4: Page Pattern Samples
+- **Hero section** — sample hero with heading, subtext, and CTA
+- **Card grid** — 3-column layout with sample cards
+- **Content section** — prose text with inline links, lists, code blocks, and blockquotes
+- **Footer** — rendered footer section
+
+#### Section 5: Issue Reporter
+A simple form (no backend needed — outputs to clipboard) with fields:
+- **Combination** — auto-filled from current flavor + theme selection
+- **Component** — dropdown of component names from the showcase above
+- **Issue type** — Color conflict / Contrast failure / Rendering bug / Typography issue / Other
+- **Description** — free text
+- **Generate report** button — copies a formatted markdown block to clipboard:
+
+```markdown
+## Design Issue: {Component} — {Flavor} {Theme}
+- **Type:** {Issue type}
+- **Combination:** {Flavor name} × {Light|Dark}
+- **Description:** {Description}
+- **Page:** /about/design-preview/
+```
+
+This can be pasted directly into a Claude Code prompt or issue tracker.
+
+**Implementation notes:**
+- Page file: `src/pages/about/design-preview/index.astro`
+- The page imports and renders actual site components (not mockups) so it reflects the real design system
+- Add `noindex` meta tag — this is an internal QA tool, not public content
+- The Issue Reporter section can be a Svelte island (`DesignIssueReporter.svelte`) for clipboard interaction
+- i18n: the page itself can be English-only (internal tool), but components render in the current locale
+
 ---
 
 ## 6. CONTENT & MENU STRUCTURE
@@ -417,6 +492,7 @@ Every site ships with a unified theme/flavor management system composed of two c
     ├── About Us
     ├── Our Team
     ├── Site Guide
+    ├── Design Preview (internal — noindex)
     ├── Investors
     ├── Contact Us
     └── Sister Initiatives

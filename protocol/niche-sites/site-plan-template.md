@@ -138,6 +138,7 @@ All services are delivered with this value proposition:
   /about/{site-id}/                 Identity, mission, principles
   /about/team/                      CEMI.ai, personas, curator
   /about/guide/                     Guided tour + sitemap modal
+  /about/design-preview/            Flavor/theme preview & QA (noindex)
   /about/investors/                 Investment opportunity
   /about/contact/                   Contact form
   /about/sister-sites/              Sister initiatives
